@@ -1,0 +1,126 @@
+<p>
+<%= form_tag '/' do %>
+Searching Coupons near you: (Not you location? Please type in the correct information bellow)<br/>
+
+<%= text_field_tag :searchCity, params[:searchCity] || [@city]  || "" %>
+<%= select_tag :searchState, options_for_select(States::US_STATES, params[:searchState] || [@state]) %>
+<%= text_field_tag :searchCountry, params[:searchCountry] || [@countryNameMain] || "" %>
+
+<%= select_tag :proximity, options_for_select(Coupon::PROXIMITYOPTIONS, params[:proximity]||["25"]) %>
+<%= select_tag :proximityUnits, options_for_select(Coupon::DISTANCEOPTIONS) %>
+<%= submit_tag "Search" %> 
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=coxaqui%40gmail%2ecom&lc=US&item_name=Empowering%20Local%20Communities&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted">Paypal Donations</a>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_donations">
+<input type="hidden" name="business" value="coxaqui@gmail.com">
+<input type="hidden" name="lc" value="US">
+<input type="hidden" name="item_name" value="Empowering Local Communities">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHosted">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
+<br/><br/>
+<%= raw Cartographer::Header.new.to_s %>
+<%= raw @map.to_html %>
+<div style="width:880px;height:250px;" id="map" > [Map]</div>
+  
+<%end%></p>
+
+<!--Your IP address is <%= @client_ip %><br/>
+More:<br/>
+Lat:<%= @latitude %><br/>
+Lng:<%= @longitude %><br/>
+City<%= @city %><br/>
+State:<%= @state %><br/>
+Country:<%= @countryNameMain %><br/>
+ZipCode:<%= @zipcode %><br/>
+City:<%=params[:searchCity]%><br/>
+State:<%=params[:searchState]%><br/>
+Country<%=params[:searchCountry]%><br/>
+ProximityParams:<%=params[:proximity]%><br/>
+Unit:<%=params[:proximityUnits]%><br/>
+<%=@geoLocationArray%> -->
+
+
+<h1>Listing coupons</h1>
+
+<table>
+  <tr>
+	<th>Coupon Owner</th>
+    <th>Address Line1</th>
+    <th>Address line2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Zipcode</th>
+    <th>Lat</th>
+    <th>Lng</th>
+    <th>Angel business name</th>
+    <th>Angel business website</th>
+    <th>Support summary</th>
+    <th>Angel business type</th>
+    <th>Angel business name</th>
+    <th>Qualified organization type</th>
+    <th>Qualified organization name</th>
+    <th>Angel discription zoom zero ab</th>
+    <th>Angel discription zoom zero qo</th>
+    <th>Cause start date</th>
+    <th>Cause end date</th>
+    <th>Angel full discription zoom one</th>
+    <th>Angel business</th>
+    <th>Coupon category</th>
+    <th>Coupon subcategory</th>
+    <th>Will you support</th>
+    <th>Times viewed</th>
+    <th>Curr ip</th>
+    <th>Last ip</th>
+    <th>All ip</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @coupons.each do |coupon| %>
+  <tr>
+	<td><%= coupon.coupon_owner %></td>
+    <td><%= coupon.address_line1 %></td>
+    <td><%= coupon.address_line2 %></td>
+    <td><%= coupon.city %></td>
+    <td><%= coupon.state %></td>
+    <td><%= coupon.country %></td>
+    <td><%= coupon.zipcode %></td>
+    <td><%= coupon.lat %></td>
+    <td><%= coupon.lng %></td>
+    <td><%= coupon.angel_business_name %></td>
+    <td><%= coupon.angel_business_website %></td>
+    <td><%= coupon.support_summary %></td>
+    <td><%= coupon.angel_business_type %></td>
+    <td><%= coupon.angel_business_name %></td>
+    <td><%= coupon.qualified_organization_type %></td>
+    <td><%= coupon.qualified_organization_name %></td>
+    <td><%= coupon.angel_discription_zoom_zero_ab %></td>
+    <td><%= coupon.angel_discription_zoom_zero_qo %></td>
+    <td><%= coupon.cause_start_date %></td>
+    <td><%= coupon.cause_end_date %></td>
+    <td><%= coupon.angel_full_discription_zoom_one %></td>
+    <td><%= coupon.angel_business_id %></td>
+    <td><%= coupon.coupon_category %></td>
+    <td><%= coupon.coupon_subcategory %></td>
+    <td><%= coupon.will_you_support %></td>
+    <td><%= coupon.times_viewed %></td>
+    <td><%= coupon.curr_ip %></td>
+    <td><%= coupon.last_ip %></td>
+    <td><%= coupon.all_ip %></td>
+    <td><%= link_to 'Show', coupon %></td>
+    <td><%= link_to 'Edit', edit_coupon_path(coupon) %></td>
+    <td><%= link_to 'Destroy', coupon, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+
+<%= link_to 'New Coupon', new_coupon_path %>

@@ -1,0 +1,61 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  address_Line1: MyString
+  address_Line2: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  zipcode: MyString
+  lat: 1.5
+  lng: 1.5
+  angel_business_name: MyString
+  angel_business_website: MyString
+  support_summary: MyString
+  angel_business_type: MyString
+  angel_business_name: MyString
+  qualified_organization_type: MyString
+  qualified_organization_name: MyString
+  angel_discription_zoom_zero_AB: MyString
+  angel_discription_zoom_zero_QO: MyString
+  cause_start_date: 2011-01-23 21:50:51
+  cause_end_date: 2011-01-23 21:50:51
+  angel_full_discription_zoom_one: MyText
+  angel_business_id: 1
+  coupon_category: MyString
+  coupon_subcategory: MyString
+  will_you_support: 1
+  times_viewed: 1
+  curr_ip: MyString
+  last_ip: MyString
+  all_ip: MyText
+
+two:
+  address_Line1: MyString
+  address_Line2: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  zipcode: MyString
+  lat: 1.5
+  lng: 1.5
+  angel_business_name: MyString
+  angel_business_website: MyString
+  support_summary: MyString
+  angel_business_type: MyString
+  angel_business_name: MyString
+  qualified_organization_type: MyString
+  qualified_organization_name: MyString
+  angel_discription_zoom_zero_AB: MyString
+  angel_discription_zoom_zero_QO: MyString
+  cause_start_date: 2011-01-23 21:50:51
+  cause_end_date: 2011-01-23 21:50:51
+  angel_full_discription_zoom_one: MyText
+  angel_business_id: 1
+  coupon_category: MyString
+  coupon_subcategory: MyString
+  will_you_support: 1
+  times_viewed: 1
+  curr_ip: MyString
+  last_ip: MyString
+  all_ip: MyText

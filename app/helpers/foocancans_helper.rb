@@ -1,0 +1,2 @@
+module FoocancansHelper
+end

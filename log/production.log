@@ -1,0 +1,336 @@
+
+
+Started GET "/coupons" for 127.0.0.1 at Tue Feb 08 02:56:09 -0800 2011
+  Processing by CouponsController#index as HTML
+Completed   in 195ms
+
+ActiveRecord::StatementInvalid (PGError: ERROR:  relation "users" does not exist
+LINE 1: SELECT  "users".* FROM "users" WHERE ("users"."id" = 4) LIMI...
+                               ^
+: SELECT  "users".* FROM "users" WHERE ("users"."id" = 4) LIMIT 1):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (473.8ms)
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (483.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 08 02:56:41 -0800 2011
+  Processing by CouponsController#index as HTML
+Completed   in 5ms
+
+ActiveRecord::StatementInvalid (PGError: ERROR:  relation "users" does not exist
+LINE 1: SELECT  "users".* FROM "users" WHERE ("users"."id" = 4) LIMI...
+                               ^
+: SELECT  "users".* FROM "users" WHERE ("users"."id" = 4) LIMIT 1):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (377.9ms)
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (386.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 08 02:57:08 -0800 2011
+  Processing by CouponsController#index as HTML
+Completed   in 0ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Feb 08 02:57:08 -0800 2011
+  Processing by Devise::SessionsController#new as HTML
+Completed   in 55ms
+
+ActiveRecord::StatementInvalid (PGError: ERROR:  relation "users" does not exist
+LINE 4:              WHERE a.attrelid = '"users"'::regclass
+                                        ^
+:             SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+              FROM pg_attribute a LEFT JOIN pg_attrdef d
+                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+             WHERE a.attrelid = '"users"'::regclass
+               AND a.attnum > 0 AND NOT a.attisdropped
+             ORDER BY a.attnum
+):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (399.3ms)
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (408.1ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at Tue Feb 08 02:57:08 -0800 2011
+
+ActionController::RoutingError (uninitialized constant OutsideViewerController):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Feb 08 02:58:32 -0800 2011
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 93ms (Views: 75.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/stylesheets/MainLayout.css?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:32 -0800 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/MainLayout.css"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/stylesheets/scaffold.css?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:33 -0800 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/prototype.js?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:33 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/prototype.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/effects.js?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:33 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/effects.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/javascripts/dragdrop.js?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:33 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/controls.js?1295841199" for 127.0.0.1 at Tue Feb 08 02:58:33 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/controls.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/rails.js?1295841199" for 127.0.0.1 at Tue Feb 08 02:58:33 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/rails.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/application.js?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:33 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/application.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at Tue Feb 08 02:58:33 -0800 2011
+
+ActionController::RoutingError (uninitialized constant OutsideViewerController):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Feb 08 02:58:40 -0800 2011
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"1I6pAiID8+Pe35fg9O99wrEop/yUUU3sIgdOze68Tng=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "username"=>"Admin", "password"=>"[FILTERED]"}}
+Completed   in 32ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"1I6pAiID8+Pe35fg9O99wrEop/yUUU3sIgdOze68Tng=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "username"=>"Admin", "password"=>"[FILTERED]"}}
+Rendered devise/shared/_links.erb (1.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 58ms (Views: 9.3ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/stylesheets/MainLayout.css?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:40 -0800 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/MainLayout.css"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/stylesheets/scaffold.css?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:40 -0800 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/prototype.js?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:40 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/prototype.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/effects.js?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:40 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/effects.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/dragdrop.js?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:40 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/controls.js?1295841199" for 127.0.0.1 at Tue Feb 08 02:58:40 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/controls.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/rails.js?1295841199" for 127.0.0.1 at Tue Feb 08 02:58:40 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/rails.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/application.js?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:40 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/application.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at Tue Feb 08 02:58:41 -0800 2011
+
+ActionController::RoutingError (uninitialized constant OutsideViewerController):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/registration/sign_up" for 127.0.0.1 at Tue Feb 08 02:58:44 -0800 2011
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered shared/_error_messages.html.erb (0.6ms)
+Rendered devise/shared/_links.erb (1.1ms)
+Rendered devise/registrations/new.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 54ms (Views: 52.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/javascripts/dragdrop.js?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:44 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/dragdrop.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/effects.js?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:44 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/effects.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/javascripts/prototype.js?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:44 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/prototype.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/stylesheets/scaffold.css?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:44 -0800 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (4.7ms)
+
+
+Started GET "/stylesheets/MainLayout.css?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:44 -0800 2011
+
+ActionController::RoutingError (No route matches "/stylesheets/MainLayout.css"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/javascripts/controls.js?1295841199" for 127.0.0.1 at Tue Feb 08 02:58:44 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/controls.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (14.3ms)
+
+
+Started GET "/javascripts/rails.js?1295841199" for 127.0.0.1 at Tue Feb 08 02:58:44 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/rails.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/javascripts/application.js?1296210627" for 127.0.0.1 at Tue Feb 08 02:58:44 -0800 2011
+
+ActionController::RoutingError (No route matches "/javascripts/application.js"):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at Tue Feb 08 02:58:45 -0800 2011
+
+ActionController::RoutingError (uninitialized constant OutsideViewerController):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started POST "/users/registration" for 127.0.0.1 at Tue Feb 08 02:58:58 -0800 2011
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"1I6pAiID8+Pe35fg9O99wrEop/yUUU3sIgdOze68Tng=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"Admin", "password"=>"[FILTERED]", "email"=>"coxaqui@gmail.com"}}
+Redirected to http://localhost:3000/
+Completed 302 Found in 61ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 08 02:58:58 -0800 2011
+  Processing by CouponsController#index as HTML
+Completed   in 46ms
+
+ActiveRecord::StatementInvalid (PGError: ERROR:  column coupons.address_line1 does not exist
+LINE 1: ...556087 AND -121.514180443913) GROUP BY coupons.id,coupons.ad...
+                                                             ^
+: SELECT *, 3956 * 2 * ASIN(SQRT(POWER(SIN((38.5771 - lat) * PI() / 180 / 2), 2) + COS(38.5771 * PI()/180) * COS(lat * PI() / 180) * POWER(SIN((-122.4411 - lng) * PI() / 180 / 2), 2) )) AS distance FROM "coupons" WHERE (lat BETWEEN 37.8524623188406 AND 39.3017376811594 AND lng BETWEEN -123.368019556087 AND -121.514180443913) GROUP BY coupons.id,coupons.address_Line1,coupons.address_Line2,coupons.city,coupons.state,coupons.country,coupons.zipcode,coupons.lat,coupons.lng,coupons.angel_business_name,coupons.angel_business_website,coupons.support_summary,coupons.angel_business_type,coupons.qualified_organization_type,coupons.qualified_organization_name,coupons.angel_discription_zoom_zero_AB,coupons.angel_discription_zoom_zero_QO,coupons.cause_start_date,coupons.cause_end_date,coupons.angel_full_discription_zoom_one,coupons.angel_business_id,coupons.coupon_category,coupons.coupon_subcategory,coupons.will_you_support,coupons.times_viewed,coupons.curr_ip,coupons.last_ip,coupons.all_ip,coupons.created_at,coupons.updated_at,coupons.coupon_owner HAVING 3956 * 2 * ASIN(SQRT(POWER(SIN((38.5771 - lat) * PI() / 180 / 2), 2) + COS(38.5771 * PI()/180) * COS(lat * PI() / 180) * POWER(SIN((-122.4411 - lng) * PI() / 180 / 2), 2) )) <= 50 ORDER BY 3956 * 2 * ASIN(SQRT(POWER(SIN((38.5771 - lat) * PI() / 180 / 2), 2) + COS(38.5771 * PI()/180) * COS(lat * PI() / 180) * POWER(SIN((-122.4411 - lng) * PI() / 180 / 2), 2) )) ASC):
+  app/controllers/coupons_controller.rb:78:in `index'
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (139.3ms)
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (145.6ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at Tue Feb 08 02:58:58 -0800 2011
+
+ActionController::RoutingError (uninitialized constant OutsideViewerController):
+  
+
+Rendered /Users/lnngarrett/.gem/ruby/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)

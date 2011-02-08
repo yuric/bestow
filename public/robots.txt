@@ -1,0 +1,20 @@
+# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
+#
+# To ban all spiders from the entire site uncomment the next two lines:
+# User-Agent: *
+# Disallow: /
+
+Hi,
+
+I am new to rails as a whole and I am also having trouble with this plugin in production. I am deploying to heroku but it will not work when deployed, even the example will not deploy properly. There is some debate around this issue (similar) on the link bellow.
+
+Env: Rails 3, Ruby 1.8.7 Heroku log error: where CouponsController is where I have the map set up and index where I display it.
+
+[NameError (uninitialized constant CouponsController::Cartographer): app/controllers/coupons_controller.rb:107:in initialize_map' app/controllers/coupons_controller.rb:51:inindex' ]
+
+This is the line causing trouble: @map = Cartographer::Gmap.new( 'map' )
+
+Why is it initialized in dev but not in prod? Thank you for being patience. Any direction is appreciated.
+
+Here is the link mentioned above:
+http://stackoverflow.com/questions/4701798/google-maps-api-with-rails-3-0/4932777#4932777

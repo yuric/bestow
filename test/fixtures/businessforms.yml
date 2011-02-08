@@ -1,0 +1,47 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_login: MyString
+  first_name: MyString
+  last_name: MyString
+  Business_Name: MyString
+  Address_Line_1: MyString
+  Address_Line_2: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  zipcode: MyString
+  lat: 1.5
+  lng: 1.5
+  local_notices: false
+  website: MyString
+  phone_number: MyString
+  business_category: MyString
+  business_subcategory: MyString
+  signed_in: false
+  more_about_your_business: MyString
+  access_count: 1
+  user_id: 1
+
+two:
+  user_login: MyString
+  first_name: MyString
+  last_name: MyString
+  Business_Name: MyString
+  Address_Line_1: MyString
+  Address_Line_2: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  zipcode: MyString
+  lat: 1.5
+  lng: 1.5
+  local_notices: false
+  website: MyString
+  phone_number: MyString
+  business_category: MyString
+  business_subcategory: MyString
+  signed_in: false
+  more_about_your_business: MyString
+  access_count: 1
+  user_id: 1

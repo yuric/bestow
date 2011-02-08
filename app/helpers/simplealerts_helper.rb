@@ -1,0 +1,2 @@
+module SimplealertsHelper
+end

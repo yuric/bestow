@@ -1,0 +1,51 @@
+<%= form_for(@simplealert) do |f| %>
+  <% if @simplealert.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@simplealert.errors.count, "error") %> prohibited this simplealert from being saved:</h2>
+
+      <ul>
+      <% @simplealert.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<% if current_user %>
+		<div class="field">
+		    <%= f.label :alert_owner %><br />
+		    <% if current_user && !current_user.admin?%>
+			  	<%= f.text_field :alert_owner, :readonly => true, :value => current_user.username || "Invalid" %>
+			<%elsif current_user && current_user.admin? %>
+			  	<%= f.text_field :alert_owner %>
+			<%else%>
+				<%= f.text_field :alert_owner, :readonly => true, :value => "Invalid" %>
+			<%end%>
+	  	</div>
+	<% else %>
+	<!--<li><a href="/users/registration/sign_up">(email user =>Sign up to manage multiple alerts</a></li>-->
+	<%end%>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :location_zip %><br />
+    <%= f.text_field :location_zip %>
+  </div>
+  <div class="field">
+    <%= f.label :view_count %><br />
+    <%= f.text_field :view_count %>
+  </div>
+  <div class="field">
+    <%= f.label :sent_count %><br />
+    <%= f.text_field :sent_count %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

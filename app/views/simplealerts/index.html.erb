@@ -1,0 +1,42 @@
+<h1>Listing simplealerts</h1>
+
+<%if current_user#check to see if there is a loged in user%>
+	<table>
+	  <tr>
+		<th>Alert owner</th>
+	    <th>Email</th>
+	    <th>Location</th>
+	    <th>Location zip</th>
+	    <th>View count</th>
+	    <th>Sent count</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+	<%username = current_user.username %>
+	<%if current_user.admin?%><!-- HINT from: http://godbit.com/article/rails-database-ease-->
+		<%user_alerts = Simplealert.find(:all)%>
+	<%else%>
+		<% user_alerts = Simplealert.find(:all, :conditions => "alert_owner = '#{username}'")%>
+	<%end%>
+	<% user_alerts.each do |simplealert| %>
+	  <tr>
+		<td><%= simplealert.alert_owner %></td>
+	    <td><%= simplealert.email %></td>
+	    <td><%= simplealert.location %></td>
+	    <td><%= simplealert.location_zip %></td>
+	    <td><%= simplealert.view_count %></td>
+	    <td><%= simplealert.sent_count %></td>
+	    <td><%= link_to 'Show', simplealert %></td>
+	    <td><%= link_to 'Edit', edit_simplealert_path(simplealert) %></td>
+	    <td><%= link_to 'Destroy', simplealert, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	<%else%>
+	<li>You must register to manage multiple alerts.</li>
+<%end%>
+</table>
+
+<br />
+
+<%= link_to 'New Simplealert', new_simplealert_path %>

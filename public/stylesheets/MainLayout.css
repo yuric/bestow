@@ -1,0 +1,151 @@
+h1 {
+	background-color:#FFFFFF; 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-weight:bold; 
+	color:#003D5D;; 
+	
+	}
+	
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#pagewrapper {
+    width: 900px;
+    margin: 10px auto;
+    padding: 0;
+    border: 1px solid #999;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#content {
+    padding: 20px 10px;
+}
+#header {
+    background-color: #CCC;
+    margin: 0;
+    padding: 0;
+}
+#header p {
+    padding: 20px 10px;
+    font-size: 24px;
+    margin: 0;
+    color: #003D5D;;
+    font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#notice {
+  
+  padding: 5px 5px 5px 15px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: green;
+  width: 450px;
+  border: 2px solid green;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+}
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+.field_with_errors {
+  	padding: 2px;
+	background-color: red;
+	display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+#footer {
+    background-color: #999;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    clear:both;
+    border-top: 2px solid #333;
+    text-align: center;
+}
+#footer p, #footer a {
+    text-align: center;
+    font-size: 12px;
+    color: white;
+    font-weight:bold;
+    margin: 0;
+    padding: 2px;
+}
+#user_nav{
+	
+	display: inline;
+    font-size: 12px;
+    font-weight:bold;
+    margin: 0;
+    padding: 2px;
+	float: left;
+    border-right: 1px solid #333;
+}
+
+#user_nav a {
+	color: blue;
+}
+#user_nav a:hover{
+  color: green;
+  }
+/* Navigation Bar */
+
+#navbar ul {
+    padding: 0;
+    margin: 0;
+    background-color: #333;
+    color: White;
+    float: left;
+    width: 100%;
+    list-style: none;
+    font-weight: bold;
+    font-size: 13px;
+    border-bottom: 2px solid #333;
+}
+#navbar ul li { 
+    display: inline;
+    color: White;
+    float: left;
+    border-right: 1px solid silver;
+    font-family: arial, helvetica, sans-serif;
+}
+#navbar ul li a {
+    padding: 0.2em 0.7em;
+    background-color: #333; 
+    color: White;
+    text-decoration: none;
+    float:left;
+}
+#navbar ul li a:hover {
+    background-color: #383;
+    color: #fff;
+}

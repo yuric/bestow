@@ -1,0 +1,142 @@
+<%= form_for(@coupon) do |f| %>
+  <% if @coupon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@coupon.errors.count, "error") %> prohibited this coupon from being saved:</h2>
+
+      <ul>
+      <% @coupon.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div class="field">
+    <%= f.label :coupon_owner %><br />
+    <% if current_user && !current_user.admin?%>
+	  	<%= f.text_field :coupon_owner, :readonly => true, :value => current_user.username || "Invalid" %>
+	<%elsif current_user && current_user.admin? %>
+	  	<%= f.text_field :coupon_owner %>
+	<%else%>
+		<%= f.text_field :coupon_owner, :readonly => true, :value => "Invalid" %>
+	<%end%>
+  
+
+  <br />
+    <%= f.label :address_line1%>
+    <%= f.text_field :address_line1 %>
+  
+  <br />
+    <%= f.label :address_line2 %>
+    <%= f.text_field :address_line2 %>
+  
+  <br />
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+
+  <br />
+  <%= f.label :state %>
+  <%= f.select :state, options_for_select(States::ALLSTATES, @coupon.state) %>
+  
+  <br/>
+  <%= f.label :country %>
+  <%= f.select :country, options_for_select(Countries::ALLCOUNTRIES, @coupon.state) %>
+
+	<br/>
+    <%= f.label :zipcode %>
+    <%= f.text_field :zipcode %>
+  
+    <br/>
+    <%= f.label :lat %>
+    <%= f.text_field :lat %>
+  
+  <br/>
+    <%= f.label :lng %>
+    <%= f.text_field :lng %>
+  
+  <br/>
+    <%= f.label :angel_business_name %>
+    <%= f.text_field :angel_business_name %>
+  
+  <br/>
+    <%= f.label :angel_business_website %>
+    <%= f.text_field :angel_business_website %>
+  
+  <br/>
+    <%= f.label :support_summary %>
+    <%= f.text_field :support_summary %>
+  
+  <br/>
+    <%= f.label :angel_business_type %>
+    <%= f.text_field :angel_business_type %>
+  
+  <br/>
+    <%= f.label :qualified_organization_type %>
+    <%= f.text_field :qualified_organization_type %>
+  
+  <br/>
+    <%= f.label :qualified_organization_name %>
+    <%= f.text_field :qualified_organization_name %>
+  
+  <br/>
+    <%= f.label :angel_discription_zoom_zero_ab %>
+    <%= f.text_field :angel_discription_zoom_zero_ab %>
+  
+  <br/>
+    <%= f.label :angel_discription_zoom_zero_qo %>
+    <%= f.text_field :angel_discription_zoom_zero_qo %>
+  
+  <br/>
+    <%= f.label :cause_start_date %>
+    <%= f.datetime_select :cause_start_date %>
+  
+  <br/>
+    <%= f.label :cause_end_date %>
+    <%= f.datetime_select :cause_end_date %>
+  
+	<br/>
+    <%= f.label :angel_full_discription_zoom_one %><br/>
+    <%= f.text_area :angel_full_discription_zoom_one %>
+  
+  <br/>
+    <%= f.label :coupon_category %>
+    <%= f.text_field :coupon_category %>
+  
+  <br/>
+    <%= f.label :coupon_subcategory %>
+    <%= f.text_field :coupon_subcategory %>
+  
+	<br/>
+    <%= f.label :will_you_support %>
+    <%= f.text_field :will_you_support %>
+  <br/> 	
+</div>
+	<div id="notice">
+		<% if user_signed_in? && !current_user.admin? %>
+		    <li>Thank you for kind support <%=current_user.username%></li>
+	 	<% elsif user_signed_in? && current_user.admin?%>
+		<p ><%= notice %>Welcome Master of this Universe</p>
+  
+		<br/>
+	    <%= f.label :angel_business_id %><br/>
+	    <%= f.text_field :angel_business_id %>
+		<br/>
+
+    	<%= f.label :curr_ip %><br/>
+    	<%= f.text_field :curr_ip %>
+  
+  		<br/>
+    	<%= f.label :last_ip %><br/>
+    	<%= f.text_field :last_ip %>
+  
+		<br/>
+    	<%= f.label :all_ip %><br/>
+    	<%= f.text_area :all_ip %>
+  	<%end%>
+	</div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

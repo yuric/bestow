@@ -1,0 +1,63 @@
+<h1>Administrator#index</h1>
+<p>Find me in app/views/administrator/index.html.erb</p>
+
+<div id="notice">
+	<% if user_signed_in? && !current_user.admin? %>
+	    <li>User <%= current_user.username %> (<%= current_user.email %>) can not access this page.</li>
+ 	<% elsif user_signed_in? && current_user.admin?%>
+	<p ><%= notice %>Welcome Master of this Universe</p>
+</div>
+	
+	<h1>Listing of Users</h1>
+
+		<table>
+		  <tr>
+			<th>UserID</th>
+			<th>Username</th>
+			<th>Email</th>
+		    <th>Admin?</th>
+		    <th>SignIn Count</th>
+		    <th>Failed Attempts</th>
+		    <th>Created</th>
+		    <th>Updated</th>
+			<th>Current IP</th>
+			<th>Last IP</th>
+			<th>Current Sing In</th>
+			<th>Last Sign In</th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		  </tr>
+		<%allusers = User.find(:all)%>
+		<% allusers.each do |user| %>
+		  <tr>
+			<td><%= user.id %></td>
+			<td><%= user.username %></td>
+		    <td><%= user.email %></td>
+		    <td><%= user.admin? %></td>
+		    <td><%= user.sign_in_count %></td>
+		    <td><%= user.failed_attempts %></td>
+		    <td><%= user.created_at %></td>
+		    <td><%= user.updated_at %></td>
+		    <td><%= user.current_sign_in_ip %></td>
+		
+		    <td><%= user.last_sign_in_ip %></td>
+		    <td><%= user.current_sign_in_at %></td>
+		    <td><%= user.last_sign_in_at %></td>
+		
+		  </tr>
+		<% end%>
+	</table>
+
+	<br />
+
+	
+	
+	
+	
+	
+	
+	
+
+	<% end # end of admin check%>			
+

@@ -1,0 +1,31 @@
+<%= form_for(@foocancan) do |f| %>
+  <% if @foocancan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@foocancan.errors.count, "error") %> prohibited this foocancan from being saved:</h2>
+
+      <ul>
+      <% @foocancan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :author %><br />
+  <% if current_user %>
+  	<%= f.text_field :author, :readonly => true, :value => current_user.username || "Guest" %>
+	<%else%>
+		<%= f.text_field :author, :readonly => true, :value => "Guest" %>
+	<%end%>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

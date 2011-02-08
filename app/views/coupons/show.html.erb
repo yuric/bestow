@@ -1,0 +1,147 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Times viewed:</b>
+  <% @coupon.times_viewed = @coupon.times_viewed.to_i + 1%>
+  <%@coupon.save%>
+  <%= @coupon.times_viewed.to_i %>
+</p>
+
+<p>
+  <b>Address Line1:</b>
+  <%= @coupon.address_line1 %>
+</p>
+
+<p>
+  <b>Address line2:</b>
+  <%= @coupon.address_line2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @coupon.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @coupon.state %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @coupon.country %>
+</p>
+
+<p>
+  <b>Zipcode:</b>
+  <%= @coupon.zipcode %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @coupon.lat %>
+</p>
+
+<p>
+  <b>Lng:</b>
+  <%= @coupon.lng %>
+</p>
+
+<p>
+  <b>Angel business name:</b>
+  <%= @coupon.angel_business_name %>
+</p>
+
+<p>
+  <b>Angel business website:</b>
+  <%= @coupon.angel_business_website %>
+</p>
+
+<p>
+  <b>Support summary:</b>
+  <%= @coupon.support_summary %>
+</p>
+
+<p>
+  <b>Angel business type:</b>
+  <%= @coupon.angel_business_type %>
+</p>
+
+<p>
+  <b>Angel business name:</b>
+  <%= @coupon.angel_business_name %>
+</p>
+
+<p>
+  <b>Qualified organization type:</b>
+  <%= @coupon.qualified_organization_type %>
+</p>
+
+<p>
+  <b>Qualified organization name:</b>
+  <%= @coupon.qualified_organization_name %>
+</p>
+
+<p>
+  <b>Angel discription zoom zero ab:</b>
+  <%= @coupon.angel_discription_zoom_zero_ab %>
+</p>
+
+<p>
+  <b>Angel discription zoom zero qo:</b>
+  <%= @coupon.angel_discription_zoom_zero_qo %>
+</p>
+
+<p>
+  <b>Cause start date:</b>
+  <%= @coupon.cause_start_date %>
+</p>
+
+<p>
+  <b>Cause end date:</b>
+  <%= @coupon.cause_end_date %>
+</p>
+
+<p>
+  <b>Angel full discription zoom one:</b>
+  <%= @coupon.angel_full_discription_zoom_one %>
+</p>
+
+<p>
+  <b>Angel business:</b>
+  <%= @coupon.angel_business_id %>
+</p>
+
+<p>
+  <b>Coupon category:</b>
+  <%= @coupon.coupon_category %>
+</p>
+
+<p>
+  <b>Coupon subcategory:</b>
+  <%= @coupon.coupon_subcategory %>
+</p>
+
+<p>
+  <b>Will you support:</b>
+  <%= @coupon.will_you_support %>
+</p>
+
+
+<p>
+  <b>Curr ip:</b>
+  <%= @coupon.curr_ip %>
+</p>
+
+<p>
+  <b>Last ip:</b>
+  <%= @coupon.last_ip %>
+</p>
+
+<p>
+  <b>All ip:</b>
+  <%= @coupon.all_ip %>
+</p>
+
+
+<%= link_to 'Edit', edit_coupon_path(@coupon) %> |
+<%= link_to 'Back', coupons_path %>

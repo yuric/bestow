@@ -1,0 +1,63 @@
+<h1>Listing businessforms</h1>
+
+<table>
+  <tr>
+    <th>User login</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Business name</th>
+    <th>Address line 1</th>
+    <th>Address line 2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Zipcode</th>
+    <th>Lat</th>
+    <th>Lng</th>
+    <th>Local notices</th>
+    <th>Website</th>
+    <th>Phone number</th>
+    <th>Business category</th>
+    <th>Business subcategory</th>
+    <th>Signed in</th>
+    <th>More about your business</th>
+    <th>Access count</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+	<% @businessforms.each do |businessform| %>
+  <tr>
+    <td><%= businessform.user_login %></td>
+    <td><%= businessform.first_name %></td>
+    <td><%= businessform.last_name %></td>
+    <td><%= businessform.business_name %></td>
+    <td><%= businessform.address_line_1 %></td>
+    <td><%= businessform.address_line_2 %></td>
+    <td><%= businessform.city %></td>
+    <td><%= businessform.state %></td>
+    <td><%= businessform.country %></td>
+    <td><%= businessform.zipcode %></td>
+    <td><%= businessform.lat %></td>
+    <td><%= businessform.lng %></td>
+    <td><%= businessform.local_notices %></td>
+    <td><%= businessform.website %></td>
+    <td><%= businessform.phone_number %></td>
+    <td><%= businessform.business_category %></td>
+    <td><%= businessform.business_subcategory %></td>
+    <td><%= businessform.signed_in %></td>
+    <td><%= businessform.more_about_your_business %></td>
+    <td><%= businessform.access_count %></td>
+    <td><%= businessform.user_id %></td>
+    <td><%= link_to 'Show', businessform %></td>
+    <td><%= link_to 'Edit', edit_businessform_path(businessform) %></td>
+    <td><%= link_to 'Destroy', businessform, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Businessform', new_businessform_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Author:</b>
+  <%= @foocancan.author %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @foocancan.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @foocancan.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_foocancan_path(@foocancan) %> |
+<%= link_to 'Back', foocancans_path %>

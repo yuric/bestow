@@ -1,0 +1,27 @@
+<h1>Listing foocancans</h1>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Title</th>
+    <th>Body</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @foocancans.each do |foocancan| %>
+  <tr>
+    <td><%= foocancan.author %></td>
+    <td><%= foocancan.title %></td>
+    <td><%= foocancan.body %></td>
+    <td><%= link_to 'Show', foocancan %></td>
+    <td><%= link_to 'Edit', edit_foocancan_path(foocancan) %></td>
+    <td><%= link_to 'Destroy', foocancan, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Foocancan', new_foocancan_path %>

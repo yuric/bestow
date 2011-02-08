@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @simplealert.email %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @simplealert.location %>
+</p>
+
+<p>
+  <b>Location zip:</b>
+  <%= @simplealert.location_zip %>
+</p>
+
+<p>
+  <b>View count:</b>
+  <%= @simplealert.view_count %>
+</p>
+
+<p>
+  <b>Sent count:</b>
+  <%= @simplealert.sent_count %>
+</p>
+
+<p>
+  <b>Alert owner:</b>
+  <%= @simplealert.alert_owner %>
+</p>
+
+
+<%= link_to 'Edit', edit_simplealert_path(@simplealert) %> |
+<%= link_to 'Back', simplealerts_path %>
