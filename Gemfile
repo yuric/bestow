@@ -11,7 +11,10 @@ gem 'cancan'
 gem "rails-geocoder", :require => "geocoder"
 gem 'taps'
 gem 'geoip'
-gem 'json'	
+gem 'json'
+gem 'hirb'
+gem 'mail'
+	
 # Use unicorn as the web server
 # gem 'unicorn'
 

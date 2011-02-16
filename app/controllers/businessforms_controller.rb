@@ -45,6 +45,7 @@ class BusinessformsController < ApplicationController
       format.html # new.html.erb
       format.xml  { render :xml => @businessform }
     end
+   	  
   end
 
   # GET /businessforms/1/edit

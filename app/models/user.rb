@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  #has_many :coupons
+  has_many :businessforms
   # Include default devise modules. Others available are:
   # :token_authenticatable, :lockable, :timeoutable and :activatable :confirmable\\ I did however generate the table for confirmable
   # it is just not added here for testing purposes

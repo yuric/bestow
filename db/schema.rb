@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110208005722) do
+ActiveRecord::Schema.define(:version => 20110216032545) do
 
   create_table "business_forms", :force => true do |t|
     t.string   "first_name"
@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(:version => 20110208005722) do
     t.datetime "updated_at"
     t.string   "username"
     t.boolean  "admin",                               :default => false
+    t.integer  "business_identifier",                 :default => 0
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

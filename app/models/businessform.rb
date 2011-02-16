@@ -1,5 +1,5 @@
 class Businessform < ActiveRecord::Base
-  #belongs_to :user
+  belongs_to :user
   geocoded_by :location, :latitude  => :lat, :longitude => :lng
   #reverse_geocoded_by :location, :latitude  => :lat, :longitude => :lng # to do these too at the same moder need to look up documentation on github
   validate :has_not_occurred

@@ -90,7 +90,13 @@
     <%= f.text_field :access_count %>
   
     <%= f.label :user_id, "User Id" %>
-	<%= f.text_field :user_id, :readonly => true, :value => current_user.id || "Invalid" %>
+	<% if current_user && !current_user.admin?%>
+		<%= f.text_field :user_id, :readonly => true, :value => current_user.id || "Invalid" %>	
+	<%elsif current_user && current_user.admin? %>
+		<%= f.text_field :user_id %>	
+	<%else%>
+		<%= f.text_field :user_login, :readonly => true, :value => "Invalid" %>
+	<%end%>
 	</div>
   </br>
   </br>

@@ -22,7 +22,22 @@
 <BODY>
 	<div id='pagewrapper'>
 		<div id='header'>
-			<p>Doutdes: Give so others may give</p>	
+			<p>Doutdes: Give so others may give</p>
+			
+			<!-- Paypal donate button-->
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" align ="right">
+			<input type="hidden" name="cmd" value="_donations">
+			<input type="hidden" name="business" value="coxaqui@gmail.com">
+			<input type="hidden" name="lc" value="US">
+			<input type="hidden" name="item_name" value="Empowering Local Communities">
+			<input type="hidden" name="currency_code" value="USD">
+			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHosted">
+			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+			</form>
+			<!--End Paypal donate button-->
+			
+				
 
 		</div>
 		<div id='navbar'>
@@ -46,6 +61,7 @@
 			
 	</div>
 	<div id= 'content'>
+		
 		<%if flash[:error]%>
 			<p id="error_explanation"><%=flash[:error]%></p>  
 		<%end%> 

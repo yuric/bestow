@@ -36,6 +36,7 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     geoip (0.8.9)
+    hirb (0.3.6)
     i18n (0.5.0)
     json (1.4.6)
     mail (2.2.14)
@@ -95,7 +96,9 @@ DEPENDENCIES
   cancan
   devise
   geoip
+  hirb
   json
+  mail
   pg
   rails (= 3.0.3)
   rails-geocoder
