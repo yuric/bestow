@@ -3,7 +3,10 @@ class BusinessformsController < ApplicationController
   # GET /businessforms.xml
   before_filter :authenticate_user!
   load_and_authorize_resource
-  
+  before_filter :loadMetaData
+  def loadMetaData
+    @pagetitle = "Businesses" 
+  end
   def index    
     #make sure user owns business form
     username = current_user.username 

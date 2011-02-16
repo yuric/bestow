@@ -2,7 +2,12 @@ class CouponsController < ApplicationController
   # GET /coupons
   # GET /coupons.xml
   before_filter :authenticate_user!
+  before_filter :loadMetaData
   load_and_authorize_resource
+  
+  def loadMetaData
+    @pagetitle = "Welcome to Doutdes" 
+  end
   
   def index
     #@businessforms = Businessform.near([33.3899756, -111.9632987], 100)# find all near Tempe,arizona 
