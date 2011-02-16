@@ -9,4 +9,4 @@ ActionMailer::Base.smtp_settings = {
 }
 
 ActionMailer::Base.default_url_options[:host] = "doutdes.heroku.com"
-#Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
+ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
