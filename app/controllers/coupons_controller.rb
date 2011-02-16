@@ -47,8 +47,12 @@ class CouponsController < ApplicationController
       @city    = params[:searchCity].to_s
       @state   = params[:searchState].to_s
       @country = params[:searchCountry].to_s
-      @prox    = params[:proximity].to_i
       
+      if params[:proximity] != "ALL" #there is a choice in distance
+        @prox = params[:proximity].to_i
+      else
+        @prox = 9999999#13964m is the longest distance but I am being safe =), No choice, show all coupons
+      end
       @coupons = Coupon.near("#{@city}, #{@state}, #{@country}", @prox)
       
     end    
