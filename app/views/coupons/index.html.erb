@@ -1,20 +1,25 @@
-<p>
+<div id ="box">
+
+<div class ="block", id= "block-signup">
+  <h2>Search</h2><br/>
+
 <%= form_tag '/' do %>
 Searching Coupons near you: (Not you location? Please type in the correct information bellow)<br/>
-
 <%= text_field_tag :searchCity, params[:searchCity] || [@city]  || "" %>
 <%= select_tag :searchState, options_for_select(States::US_STATES, params[:searchState] || [@state]) %>
 <%= text_field_tag :searchCountry, params[:searchCountry] || [@countryNameMain] || "" %>
-
 <%= select_tag :proximity, options_for_select(Coupon::PROXIMITYOPTIONS, params[:proximity]||["25"]) %>
 <%= select_tag :proximityUnits, options_for_select(Coupon::DISTANCEOPTIONS) %>
 <%= submit_tag "Search" %> 
 <br/><br/>
+</div>
+</div>
+
 <%= raw Cartographer::Header.new.to_s %>
 <%= raw @map.to_html %>
 <div style="width:880px;height:250px;" id="map" > [Map]</div>
   
-<%end%></p>
+<%end%>
 
 <!--Your IP address is <%= @client_ip %><br/>
 More:<br/>
