@@ -89,7 +89,7 @@ class CouponsController < ApplicationController
       dyname = "org#{nc}"
       @marker2X = Cartographer::Gmarker.new(:name=> dyname, :marker_type => "Organization",
                 :position => [coupon.lat, coupon.lng],
-                :info_window_url => "welcome/sample_ajax",#sample_ajax method is here so just edit it with coupon dynamic content
+                :info_window_url => "welcome/sample_ajax",#sample_ajax method is on this file,so just edit it with coupon dynamic content
                 :icon => @icon_org)
                 
       @marker2 << @marker2X
@@ -185,7 +185,7 @@ class CouponsController < ApplicationController
     end
   end
   def sample_ajax
-    render :text => "Success"
+    render :text => "Success! Find me at Coupons_Controller"
   end
   private
   def initialize_map
@@ -208,8 +208,8 @@ class CouponsController < ApplicationController
                   :url => '/images/XX.gif',
                   :height => 32,
                    :width => 16,
-                  :opt_anchor => [10, 0],
-                  :opt_textColor => 'black'
+                  :opt_anchor => [3, 0],
+                  :opt_textColor => 'red'
                 }
          #push second variant
       org << {
