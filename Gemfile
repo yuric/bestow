@@ -14,6 +14,7 @@ gem 'geoip'
 gem 'json'
 gem 'hirb'
 gem 'mail'
+gem 'web-app-theme'
 	
 # Use unicorn as the web server
 # gem 'unicorn'
