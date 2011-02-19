@@ -1,0 +1,159 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", coupons_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_coupon_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", coupon_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.coupon.address_line1", :default => t("activerecord.labels.address_line1", :default => "Address line1")) %>:</b>
+          <%= @coupon.address_line1 %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.address_line2", :default => t("activerecord.labels.address_line2", :default => "Address line2")) %>:</b>
+          <%= @coupon.address_line2 %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.city", :default => t("activerecord.labels.city", :default => "City")) %>:</b>
+          <%= @coupon.city %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.state", :default => t("activerecord.labels.state", :default => "State")) %>:</b>
+          <%= @coupon.state %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.country", :default => t("activerecord.labels.country", :default => "Country")) %>:</b>
+          <%= @coupon.country %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.zipcode", :default => t("activerecord.labels.zipcode", :default => "Zipcode")) %>:</b>
+          <%= @coupon.zipcode %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.lat", :default => t("activerecord.labels.lat", :default => "Lat")) %>:</b>
+          <%= @coupon.lat %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.lng", :default => t("activerecord.labels.lng", :default => "Lng")) %>:</b>
+          <%= @coupon.lng %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.angel_business_name", :default => t("activerecord.labels.angel_business_name", :default => "Angel business name")) %>:</b>
+          <%= @coupon.angel_business_name %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.angel_business_website", :default => t("activerecord.labels.angel_business_website", :default => "Angel business website")) %>:</b>
+          <%= @coupon.angel_business_website %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.support_summary", :default => t("activerecord.labels.support_summary", :default => "Support summary")) %>:</b>
+          <%= @coupon.support_summary %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.angel_business_type", :default => t("activerecord.labels.angel_business_type", :default => "Angel business type")) %>:</b>
+          <%= @coupon.angel_business_type %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.qualified_organization_type", :default => t("activerecord.labels.qualified_organization_type", :default => "Qualified organization type")) %>:</b>
+          <%= @coupon.qualified_organization_type %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.qualified_organization_name", :default => t("activerecord.labels.qualified_organization_name", :default => "Qualified organization name")) %>:</b>
+          <%= @coupon.qualified_organization_name %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.angel_discription_zoom_zero_ab", :default => t("activerecord.labels.angel_discription_zoom_zero_ab", :default => "Angel discription zoom zero ab")) %>:</b>
+          <%= @coupon.angel_discription_zoom_zero_ab %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.angel_discription_zoom_zero_qo", :default => t("activerecord.labels.angel_discription_zoom_zero_qo", :default => "Angel discription zoom zero qo")) %>:</b>
+          <%= @coupon.angel_discription_zoom_zero_qo %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.cause_start_date", :default => t("activerecord.labels.cause_start_date", :default => "Cause start date")) %>:</b>
+          <%= @coupon.cause_start_date %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.cause_end_date", :default => t("activerecord.labels.cause_end_date", :default => "Cause end date")) %>:</b>
+          <%= @coupon.cause_end_date %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.angel_full_discription_zoom_one", :default => t("activerecord.labels.angel_full_discription_zoom_one", :default => "Angel full discription zoom one")) %>:</b>
+          <%= @coupon.angel_full_discription_zoom_one %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.angel_business_id", :default => t("activerecord.labels.angel_business_id", :default => "Angel business")) %>:</b>
+          <%= @coupon.angel_business_id %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.coupon_category", :default => t("activerecord.labels.coupon_category", :default => "Coupon category")) %>:</b>
+          <%= @coupon.coupon_category %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.coupon_subcategory", :default => t("activerecord.labels.coupon_subcategory", :default => "Coupon subcategory")) %>:</b>
+          <%= @coupon.coupon_subcategory %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.will_you_support", :default => t("activerecord.labels.will_you_support", :default => "Will you support")) %>:</b>
+          <%= @coupon.will_you_support %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.times_viewed", :default => t("activerecord.labels.times_viewed", :default => "Times viewed")) %>:</b>
+          <%= @coupon.times_viewed %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.curr_ip", :default => t("activerecord.labels.curr_ip", :default => "Curr ip")) %>:</b>
+          <%= @coupon.curr_ip %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.last_ip", :default => t("activerecord.labels.last_ip", :default => "Last ip")) %>:</b>
+          <%= @coupon.last_ip %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.all_ip", :default => t("activerecord.labels.all_ip", :default => "All ip")) %>:</b>
+          <%= @coupon.all_ip %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.coupon.coupon_owner", :default => t("activerecord.labels.coupon_owner", :default => "Coupon owner")) %>:</b>
+          <%= @coupon.coupon_owner %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_coupon_path(@coupon), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), coupon_path(@coupon), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
