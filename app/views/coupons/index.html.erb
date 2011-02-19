@@ -9,9 +9,32 @@
 <br/>
 <%= raw Cartographer::Header.new.to_s %>
 <%= raw @map.to_html %>
-<div id="map" > [Map]</div>
+<!--For now I am styling the map here because sourcing it to a CSS file was breaking on Chrome-->
+<div id="map" style="height:250px;
+			display: block; /* another must */
+			position:relative; /* because the child elements are positioned */
+			top: -1px; /* drag it up a little, creates the top notches */
+			left: 0;
+			border:solid #666;
+			border-width:5px 5px 5px 5px; /* top border only */
+			font-weight:normal;
+			-moz-border-radius: 4px;
+				-webkit-border-radius: 5px;
+				-moz-background-clip: border;     /* Firefox 3.6 */
+			    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+			    background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+			    -moz-background-clip: padding;     /* Firefox 3.6 */
+			    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+			    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+			    -moz-background-clip: content;     /* Firefox 3.6 */
+			    -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+			    background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */"> [Map]</div>
 
 <br/>
+<!-- Old Search view
+
 <div class ="block", id= "block-text">
 	<div class="secondary-navigation">
 	    <ul class="wat-cf">
@@ -19,7 +42,6 @@
 	            <li><a href="#block-tables">Advanced Search</a></li>
 	     </ul>
 	</div>
-	
 	<div class="content">
 		<h2 class="title">Search Location</h2>
 		<div class = "inner">
@@ -37,120 +59,57 @@
 			<br/><br/>
 		</div>
 	</div>
+</div>-->
+
+
+
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", coupons_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_coupon_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Coupons</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.coupon.address_line1", :default => t("activerecord.labels.address_line1", :default => "Address_line1")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @coupons.each do |coupon| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= coupon.id %>
+          </td>
+                    <td>
+            <%= link_to coupon.address_line1, coupon_path(coupon) %>
+          </td>
+                    <td>
+            <%= coupon.created_at %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", coupon_path(coupon) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_coupon_path(coupon) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", coupon_path(coupon), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+        <%= will_paginate @coupons  %>
+        
+      </div>
+    </div>
+  </div>
 </div>
 
-
-<!--Your IP address is <%= @client_ip %><br/>
-More:<br/>
-Lat:<%= @latitude %><br/>
-Lng:<%= @longitude %><br/>
-City<%= @city %><br/>
-State:<%= @state %><br/>
-Country:<%= @countryNameMain %><br/>
-ZipCode:<%= @zipcode %><br/>
-City:<%=params[:searchCity]%><br/>
-State:<%=params[:searchState]%><br/>
-Country<%=params[:searchCountry]%><br/>
-ProximityParams:<%=params[:proximity]%><br/>
-Unit:<%=params[:proximityUnits]%><br/>
-<%=@geoLocationArray%> -->
-
-<div class="content">
-	<h2 class="title">Search Location</h2>
-	<div class = "inner">
-		<div id="searchMain"
-			<%= form_tag '/' do %>
-			I think the Coupons bellow are near you: (No so much? Please give me the correct information bellow)<br/>
-			<%= text_field_tag :searchCity, params[:searchCity] || [@city]  || "" %>
-			<%= select_tag :searchState, options_for_select(States::US_STATES, params[:searchState] || [@state]) %>
-			<%= text_field_tag :searchCountry, params[:searchCountry] || [@countryNameMain] || "" %>
-			<%= select_tag :proximity, options_for_select(Coupon::PROXIMITYOPTIONS, params[:proximity]||["25"]) %>
-			<%= select_tag :proximityUnits, options_for_select(Coupon::DISTANCEOPTIONS) %>
-			<%= submit_tag "Search" %>  <%end%> 
-		</div>
-		
-		<br/><br/>
-	</div>
-</div>
-
-
-
-
-<h1>Listing coupons</h1>
-
-<table>
-  <tr>
-	<th>Coupon Owner</th>
-    <th>Address Line1</th>
-    <th>Address line2</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Country</th>
-    <th>Zipcode</th>
-    <th>Lat</th>
-    <th>Lng</th>
-    <th>Angel business name</th>
-    <th>Angel business website</th>
-    <th>Support summary</th>
-    <th>Angel business type</th>
-    <th>Angel business name</th>
-    <th>Qualified organization type</th>
-    <th>Qualified organization name</th>
-    <th>Angel discription zoom zero ab</th>
-    <th>Angel discription zoom zero qo</th>
-    <th>Cause start date</th>
-    <th>Cause end date</th>
-    <th>Angel full discription zoom one</th>
-    <th>Angel business</th>
-    <th>Coupon category</th>
-    <th>Coupon subcategory</th>
-    <th>Will you support</th>
-    <th>Times viewed</th>
-    <th>Curr ip</th>
-    <th>Last ip</th>
-    <th>All ip</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @coupons.each do |coupon| %>
-  <tr>
-	<td><%= coupon.coupon_owner %></td>
-    <td><%= coupon.address_line1 %></td>
-    <td><%= coupon.address_line2 %></td>
-    <td><%= coupon.city %></td>
-    <td><%= coupon.state %></td>
-    <td><%= coupon.country %></td>
-    <td><%= coupon.zipcode %></td>
-    <td><%= coupon.lat %></td>
-    <td><%= coupon.lng %></td>
-    <td><%= coupon.angel_business_name %></td>
-    <td><%= coupon.angel_business_website %></td>
-    <td><%= coupon.support_summary %></td>
-    <td><%= coupon.angel_business_type %></td>
-    <td><%= coupon.angel_business_name %></td>
-    <td><%= coupon.qualified_organization_type %></td>
-    <td><%= coupon.qualified_organization_name %></td>
-    <td><%= coupon.angel_discription_zoom_zero_ab %></td>
-    <td><%= coupon.angel_discription_zoom_zero_qo %></td>
-    <td><%= coupon.cause_start_date %></td>
-    <td><%= coupon.cause_end_date %></td>
-    <td><%= coupon.angel_full_discription_zoom_one %></td>
-    <td><%= coupon.angel_business_id %></td>
-    <td><%= coupon.coupon_category %></td>
-    <td><%= coupon.coupon_subcategory %></td>
-    <td><%= coupon.will_you_support %></td>
-    <td><%= coupon.times_viewed %></td>
-    <td><%= coupon.curr_ip %></td>
-    <td><%= coupon.last_ip %></td>
-    <td><%= coupon.all_ip %></td>
-    <td><%= link_to 'Show', coupon %></td>
-    <td><%= link_to 'Edit', edit_coupon_path(coupon) %></td>
-    <td><%= link_to 'Destroy', coupon, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-<br />
-
-<%= link_to 'New Coupon', new_coupon_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

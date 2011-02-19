@@ -1,6 +1,20 @@
-<h1>Editing coupon</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", coupons_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_coupon_path %></li>
+      <li><%= link_to "#{t("web-app-theme.show", :default => "Show")}", coupon_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_coupon_path %></li>
+    </ul>
+  </div>          
+  <div class="content">            
+    <h2 class="title"><%= t("web-app-theme.edit", :default => "Edit") %> Coupon</h2>
+    <div class="inner">
+      <%= form_for @coupon, :url => coupon_path(@coupon), :html => { :class => :form } do |f| -%>
+        <%= render :partial => "form", :locals => {:f => f} %>
+      <% end -%>
+    </div>
+  </div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @coupon %> |
-<%= link_to 'Back', coupons_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

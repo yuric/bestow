@@ -42,7 +42,8 @@ class CouponsController < ApplicationController
     custom_location = params[:searchCity].to_s
     if(custom_location.empty?)
       #@coupons = Coupon.all
-      @coupons = Coupon.near([@latitude, @longitude], 50)
+      @coupons = Coupon.near([@latitude, @longitude], 50).paginate(:page => params[:page], :per_page => 5)
+      
     else# user chooses location | What is km or ly is selected?
       @city    = params[:searchCity].to_s
       @state   = params[:searchState].to_s
