@@ -1,8 +1,8 @@
 class Coupon < ActiveRecord::Base
-  #belongs_to :user
-  
+  #belongs_to :user  
   PROXIMITYOPTIONS = ["5","10","15","20","25","30","35","40","45","50","60","70","80","90","100","200","300","500","ALL"]
   DISTANCEOPTIONS = ["Miles", "KM","LY"]
+
   geocoded_by :location, :latitude  => :lat, :longitude => :lng
   #reverse_geocoded_by :location, :latitude  => :lat, :longitude => :lng # to do these too at the same moder need to look up documentation on github
   #validates_uri_existence_of :url, :with => #http://snippets.dzone.com/posts/show/2563
@@ -47,6 +47,15 @@ class Coupon < ActiveRecord::Base
     return (regEx.match(address_line1))? true : false
   end
   
+  def self.search(search)
+    puts "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhellow world\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+    
+    if search
+      where (Coupon.near([@latitude, @longitude]))
+    else
+      scoped
+    end
+  end
    
    
 end

@@ -5,10 +5,13 @@
 <%= text_field_tag :searchCountry, params[:searchCountry] || [@countryNameMain] || "" %>
 <%= select_tag :proximity, options_for_select(Coupon::PROXIMITYOPTIONS, params[:proximity]||["25"]) %>
 <%= select_tag :proximityUnits, options_for_select(Coupon::DISTANCEOPTIONS) %>
-<%= submit_tag "Search" %>  <%end%> </div>
+<%= submit_tag "Search" %>  
+<%end%> </div>
+
 <br/>
 <%= raw Cartographer::Header.new.to_s %>
 <%= raw @map.to_html %>
+
 <!--For now I am styling the map here because sourcing it to a CSS file was breaking on Chrome-->
 <div id="map" style="height:250px;
 			display: block; /* another must */
@@ -104,8 +107,10 @@
       <div class="actions-bar wat-cf">
         <div class="actions">
         </div>
-        
-        <%= will_paginate @coupons  %>
+		  <div clas="page_info">
+		    <%= page_entries_info @coupons %>
+		  	<%= will_paginate @coupons, :container => true %>
+		  </div>
         
       </div>
     </div>

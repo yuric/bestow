@@ -5,6 +5,7 @@ class CouponsController < ApplicationController
   before_filter :loadMetaData
   load_and_authorize_resource
   
+  
   def loadMetaData
     @pagetitle = "Welcome to Doutdes" 
   end
@@ -38,11 +39,12 @@ class CouponsController < ApplicationController
       
       end
     end
+    #puts "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhellow world\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
     
     custom_location = params[:searchCity].to_s
     if(custom_location.empty?)
-      #@coupons = Coupon.all
-      @coupons = Coupon.near([@latitude, @longitude], 50).paginate(:page => params[:page]||1, :per_page => 5)
+      #@coupons = Coupon.all.paginate(:page => params[:page]||1, :per_page => 3)
+      @coupons = Coupon.near([@latitude, @longitude], 50).paginate(:page => params[:page], :per_page => 1)
       
     else# user chooses location | What is km or ly is selected?
       @city    = params[:searchCity].to_s
@@ -51,10 +53,14 @@ class CouponsController < ApplicationController
       
       if params[:proximity] != "ALL" #there is a choice in distance
         @prox = params[:proximity].to_i
+        @coupons = Coupon.near("#{@city}, #{@state}, #{@country}", @prox).paginate(:page => params[:page], :per_page => 1)
       else
         @prox = 9999999#13964m is the longest distance but I am being safe =), No choice, show all coupons
+        @coupons = Coupon.all.paginate(:page => params[:page], :per_page => 1)
+        
       end
-      @coupons = Coupon.near("#{@city}, #{@state}, #{@country}", @prox)
+      #@coupons = Coupon.near("#{@city}, #{@state}, #{@country}", @prox).paginate(:page => params[:page], :per_page => 3)
+      #@coupons = Coupon.all.paginate(:page => params[:page], :per_page => 3)
       
     end    
     
