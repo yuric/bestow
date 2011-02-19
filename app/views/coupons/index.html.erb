@@ -1,25 +1,44 @@
-<div id ="box">
 
-<div class ="block", id= "block-signup">
-  <h2>Search</h2><br/>
-
-<%= form_tag '/' do %>
-Searching Coupons near you: (Not you location? Please type in the correct information bellow)<br/>
-<%= text_field_tag :searchCity, params[:searchCity] || [@city]  || "" %>
-<%= select_tag :searchState, options_for_select(States::US_STATES, params[:searchState] || [@state]) %>
-<%= text_field_tag :searchCountry, params[:searchCountry] || [@countryNameMain] || "" %>
-<%= select_tag :proximity, options_for_select(Coupon::PROXIMITYOPTIONS, params[:proximity]||["25"]) %>
-<%= select_tag :proximityUnits, options_for_select(Coupon::DISTANCEOPTIONS) %>
-<%= submit_tag "Search" %> 
-<br/><br/>
-</div>
-</div>
 
 <%= raw Cartographer::Header.new.to_s %>
 <%= raw @map.to_html %>
-<div style="width:880px;height:250px;" id="map" > [Map]</div>
-  
-<%end%>
+<div style="height:250px;
+			display: block; /* another must */
+  			position:relative; /* because the child elements are positioned */
+  			top: -1px; /* drag it up a little, creates the top notches */
+  			left: 0;
+  			border:outset #666;
+  			border-width:10px 10px 10px 10px; /* top border only */
+  			font-weight:normal;
+			-moz-border-radius: 4px;
+				-webkit-border-radius: 5px;" id="map" > [Map]</div>
+
+<br/>
+<div class ="block", id= "block-text">
+	<div class="secondary-navigation">
+	    <ul class="wat-cf">
+	            <li class="active first"><a href="#block-text">Search</a></li>
+	            <li><a href="#block-tables">Advanced Search</a></li>
+	     </ul>
+	</div>
+	
+	<div class="content">
+		<h2 class="title">Search Location</h2>
+		<div class = "inner">
+			<%= form_tag '/' do %>
+			I think the Coupons bellow are near you: (No so much? Please give me the correct information bellow)<br/>
+			<%= text_field_tag :searchCity, params[:searchCity] || [@city]  || "" %>
+			<%= select_tag :searchState, options_for_select(States::US_STATES, params[:searchState] || [@state]) %>
+			<%= text_field_tag :searchCountry, params[:searchCountry] || [@countryNameMain] || "" %>
+			<%= select_tag :proximity, options_for_select(Coupon::PROXIMITYOPTIONS, params[:proximity]||["25"]) %>
+			<%= select_tag :proximityUnits, options_for_select(Coupon::DISTANCEOPTIONS) %>
+			<%= submit_tag "Search" %>  <%end%>
+			
+			<br/><br/>
+		</div>
+	</div>
+</div>
+
 
 <!--Your IP address is <%= @client_ip %><br/>
 More:<br/>
