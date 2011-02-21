@@ -1,0 +1,33 @@
+<h1>Listing coupon_searches</h1>
+
+<table>
+  <tr>
+    <th>Search city</th>
+    <th>Search state</th>
+    <th>Search country</th>
+    <th>Search zipcode</th>
+    <th>Search proximity</th>
+    <th>Search units</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @coupon_searches.each do |coupon_search| %>
+  <tr>
+    <td><%= coupon_search.search_city %></td>
+    <td><%= coupon_search.search_state %></td>
+    <td><%= coupon_search.search_country %></td>
+    <td><%= coupon_search.search_zipcode %></td>
+    <td><%= coupon_search.search_proximity %></td>
+    <td><%= coupon_search.search_units %></td>
+    <td><%= link_to 'Show', coupon_search %></td>
+    <td><%= link_to 'Edit', edit_coupon_search_path(coupon_search) %></td>
+    <td><%= link_to 'Destroy', coupon_search, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Coupon search', new_coupon_search_path %>

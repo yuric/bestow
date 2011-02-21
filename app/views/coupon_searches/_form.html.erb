@@ -1,0 +1,41 @@
+<%= form_for(@coupon_search) do |f| %>
+  <% if @coupon_search.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@coupon_search.errors.count, "error") %> prohibited this coupon_search from being saved:</h2>
+
+      <ul>
+      <% @coupon_search.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :search_city %><br />
+    <%= f.text_field :search_city %>
+  </div>
+  <div class="field">
+    <%= f.label :search_state %><br />
+	<%= select_tag :search_state, options_for_select(States::US_STATES, params[:search_state] || [@state]) %>
+  </div>
+  <div class="field">
+    <%= f.label :search_country %><br />
+	<%= text_field_tag :search_country, params[:search_country] || [@countryNameMain] || "" %>
+  </div>
+  <div class="field">
+    <%= f.label :search_zipcode %><br />
+    <%= f.text_field :search_zipcode %>
+  </div>
+  <div class="field">
+    <%= f.label :search_proximity %><br />
+	<%= select_tag :search_proximity, options_for_select(Coupon::PROXIMITYOPTIONS, params[:search_proximity] || ["25"]) %>
+  </div>
+  <div class="field">
+    <%= f.label :search_units %><br />
+	<%= select_tag :search_units, options_for_select(Coupon::DISTANCEOPTIONS) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

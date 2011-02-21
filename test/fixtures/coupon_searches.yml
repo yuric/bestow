@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  search_city: MyString
+  search_state: MyString
+  search_country: MyString
+  search_zipcode: MyString
+  search_proximity: MyString
+  search_units: MyString
+
+two:
+  search_city: MyString
+  search_state: MyString
+  search_country: MyString
+  search_zipcode: MyString
+  search_proximity: MyString
+  search_units: MyString

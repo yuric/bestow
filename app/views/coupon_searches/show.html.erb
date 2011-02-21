@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Search city:</b>
+  <%= @coupon_search.search_city %>
+</p>
+
+<p>
+  <b>Search state:</b>
+  <%= @coupon_search.search_state %>
+</p>
+
+<p>
+  <b>Search country:</b>
+  <%= @coupon_search.search_country %>
+</p>
+
+<p>
+  <b>Search zipcode:</b>
+  <%= @coupon_search.search_zipcode %>
+</p>
+
+<p>
+  <b>Search proximity:</b>
+  <%= @coupon_search.search_proximity %>
+</p>
+
+<p>
+  <b>Search units:</b>
+  <%= @coupon_search.search_units %>
+</p>
+
+
+<%= link_to 'Edit', edit_coupon_search_path(@coupon_search) %> |
+<%= link_to 'Back', coupon_searches_path %>
