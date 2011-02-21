@@ -3,7 +3,7 @@ class AdministratorController < ApplicationController
 #  load_and_authorize_resource
   before_filter :loadMetaData
   def loadMetaData
-    @pagetitle = "Welcome Administrator" 
+    @pagetitle = "Administrator" 
   end
   
   def index

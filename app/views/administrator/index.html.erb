@@ -1,3 +1,4 @@
+
 <div id="notice">
 	<% if user_signed_in? && !current_user.admin? %>
 	    <li>User <%= current_user.username %> (<%= current_user.email %>) can not access this page.</li>

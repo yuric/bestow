@@ -1,4 +1,6 @@
 Doutdes01::Application.routes.draw do
+  resources :coupon_searches
+
   resources :simplealerts
   resources :administrator
   resources :businessforms

@@ -3,11 +3,12 @@ class CouponsController < ApplicationController
   # GET /coupons.xml
   before_filter :authenticate_user!
   before_filter :loadMetaData
-  load_and_authorize_resource
-  
+  load_and_authorize_resource  
   
   def loadMetaData
     @pagetitle = "Welcome to Doutdes" 
+    @prox      = 25# proximity in miles for now
+    @per_page  = 2 # items per page in pagination *will_paginate
   end
   
   def index
@@ -39,25 +40,24 @@ class CouponsController < ApplicationController
       
       end
     end
-    #puts "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhellow world\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
     
     custom_location = params[:searchCity].to_s
     if(custom_location.empty?)
       #@coupons = Coupon.all.paginate(:page => params[:page]||1, :per_page => 3)
-      @coupons = Coupon.near([@latitude, @longitude], 50).paginate(:page => params[:page], :per_page => 1)
+      @coupons = Coupon.near([@latitude, @longitude], @prox).paginate(:page => params[:page], :per_page => @per_page)      
       
-    else# user chooses location | What is km or ly is selected?
+    else#NOT EMPTY| user chooses location | NOTE: Nothing is done for now if km or ly is selected?
       @city    = params[:searchCity].to_s
       @state   = params[:searchState].to_s
-      @country = params[:searchCountry].to_s
+      @country  = params[:searchCountry].to_s
+      @cityX = session[:searchCity].to_s
       
       if params[:proximity] != "ALL" #there is a choice in distance
         @prox = params[:proximity].to_i
-        @coupons = Coupon.near("#{@city}, #{@state}, #{@country}", @prox).paginate(:page => params[:page], :per_page => 1)
+        @coupons = Coupon.near("#{@city}, #{@state}, #{@country}", @prox).paginate(:page => params[:page], :per_page => @per_page)
       else
         @prox = 9999999#13964m is the longest distance but I am being safe =), No choice, show all coupons
-        @coupons = Coupon.all.paginate(:page => params[:page], :per_page => 1)
-        
+        @coupons = Coupon.all.paginate(:page => params[:page], :per_page => @per_page) 
       end
       #@coupons = Coupon.near("#{@city}, #{@state}, #{@country}", @prox).paginate(:page => params[:page], :per_page => 3)
       #@coupons = Coupon.all.paginate(:page => params[:page], :per_page => 3)
@@ -81,7 +81,7 @@ class CouponsController < ApplicationController
     @map.icons <<  @icon_org
     @marker1 = Cartographer::Gmarker.new(:name=> "org11", :marker_type => "Organization",
               :position => [27.173006,78.042086],
-              :info_window_url => "/welcome/sample_ajax",
+              :info_window_url => "foocancans/1",
               :icon => @icon_org) 
               
     # makerArray = Array.new
@@ -96,7 +96,7 @@ class CouponsController < ApplicationController
       dyname = "org#{nc}"
       @marker2X = Cartographer::Gmarker.new(:name=> dyname, :marker_type => "Organization",
                 :position => [coupon.lat, coupon.lng],
-                :info_window_url => "welcome/sample_ajax",#sample_ajax method is on this file,so just edit it with coupon dynamic content
+                :info_window_url => "administrator/",#sample_ajax method is on this file,so just edit it with coupon dynamic content
                 :icon => @icon_org)
                 
       @marker2 << @marker2X
@@ -192,7 +192,7 @@ class CouponsController < ApplicationController
     end
   end
   def sample_ajax
-    render :text => "Success! Find me at Coupons_Controller"
+    render :text => "We offer you the best so you can doutdes with us. Success!"
   end
   private
   def initialize_map

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110216032545) do
+ActiveRecord::Schema.define(:version => 20110221103521) do
 
   create_table "business_forms", :force => true do |t|
     t.string   "first_name"
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(:version => 20110216032545) do
     t.string   "more_about_your_business"
     t.integer  "access_count"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "coupon_searches", :force => true do |t|
+    t.string   "search_city"
+    t.string   "search_state"
+    t.string   "search_country"
+    t.string   "search_zipcode"
+    t.string   "search_proximity"
+    t.string   "search_units"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
