@@ -19,7 +19,7 @@ class CouponsController < ApplicationController
 		@geoip ||= GeoIP.new("#{Rails.root.to_s}/db/GeoLiteCity.dat")  #http://stackoverflow.com/questions/1988049/getting-a-user-country-name-from-originating-ip-address-with-ruby-on-rails  
     client_ip = request.remote_ip 
     if(client_ip == "127.0.0.1")
-      client_ip = "24.104.139.215"# Use my outside ip if testing locally
+      client_ip = "24.104.139.215" #"74.160.161.237"# Angwin IP, Georgia IP Use my outside ip if testing locally
     end
     if client_ip != "127.0.0.1" #todo: check for other local addresses or set default value
       location_location = @geoip.country(client_ip)

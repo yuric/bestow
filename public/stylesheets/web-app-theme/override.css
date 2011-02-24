@@ -1,20 +1,48 @@
 /* Override here any style defined by web-app-theme */
-#user-navigation li.logout {
-  background: #cc0000;
-  padding: 2px 4px;
-  -moz-border-radius: 4px;
-	-webkit-border-radius: 5px;
-}
-#user-navigation li.login {
+
+/*<li class="login"><%= link_to " Sign In", new_user_session_path %></li>
+<li></li>
+<li class="login"><%= link_to " Sign Up", new_user_registration_path %></li>*/
+#user-navigation a.login {
   background: green;
-  padding: 2px 4px;
+  padding: 1px 4px;
   -moz-border-radius: 4px;
-	-webkit-border-radius: 5px;
-}
+	-webkit-border-radius: 3px;
 
 }
+div#show_map
+{
+	display: block;
+}
+div#mapa
+{
+	display: block; /* another must */
+	position:relative; /* because the child elements are positioned */
+	top: -1px; /* drag it up a little, creates the top notches */
+	left: 0;
+	border:solid #666;
+	border-width:5px 5px 5px 5px; /* top border only */
+	font-weight:normal;
+	/*background: white;*/
+	-moz-border-radius: 4px;
+		-webkit-border-radius: 5px;
+		-moz-background-clip: border;     /* Firefox 3.6 */
+        -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+        background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 
-div#map{
+        -moz-background-clip: padding;     /* Firefox 3.6 */
+        -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+        background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+        -moz-background-clip: content;     /* Firefox 3.6 */
+        -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+        background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+}
+div#hide_map
+{
+	display: none;
+}
+div#OLDmap{
 			height:250px;
 			display: block; /* another must */
 			position:relative; /* because the child elements are positioned */
@@ -37,20 +65,47 @@ div#map{
 		        -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
 		        background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
+
+.bstyle{           
+display: none;
+position: absolute;
+top: 100%;
+left: 100%;
+width: 100%;
+height: 100%;
+background-color: EFEFEF;
+z-index:1001;
+-moz-opacity: 0.8;
+opacity:.80;
+filter: alpha(opacity=80);
+}
+.wstyle {
+display: none;
+position: absolute;
+top: 25%;
+left: 25%;
+width: 40%;
+height: 40%;
+padding: 2px;
+border: 3px solid #000000;
+background-color: white;
+z-index:1002;
+overflow: auto;
+}
 div#searchMain{
 			display: block; /* another must */
   			position:relative; /* because the child elements are positioned */
   			top: -1px; /* drag it up a little, creates the top notches */
   			left: 0;
   			border:solid #666;
-  			border-width:5px 5px 5px 5px; 
+  			border-width:0px 0px 5px 0px; /*top, XXX, bottom*/
 			padding-top:2px;
 			padding-bottom:2px;
 			padding-right:2px;
 			padding-left:2px;
   			font-weight:normal;
-			-moz-border-radius: 4px;
-			-webkit-border-radius: 5px;
+			-moz-border-radius: 0px;
+			-webkit-border-radius: 0px;
 			-moz-background-clip: border;     /* Firefox 3.6 */
 	        -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
 	        background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
@@ -63,3 +118,20 @@ div#searchMain{
 	        -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
 	        background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 				}
+				
+				
+				
+<div style="width:210px"><style>.mcrmeebo { display: block; background:url("http://widget.meebo.com/r.gif") no-repeat top right; } .mcrmeebo:hover { background:url("http://widget.meebo.com/ro.gif") no-repeat top right; } </style><object width="210" height="350"><param name="movie" value="http://widget.meebo.com/mcr.swf?id=zQQJXVLyZA"></param><embed src="http://widget.meebo.com/mcr.swf?id=zQQJXVLyZA" type="application/x-shockwave-flash" width="210" height="350" /></object><a target="_blank" href="http://www.meebo.com/rooms/" class="mcrmeebo"><img alt="Create a Meebo Chat Room" src="http://widget.meebo.com/b.gif" width="210" height="45" style="border:0px"/></a></div>				
+/* meebo chat room style */
+.mcrmeebo 
+{ 
+display: block; 
+background:url("http://widget.meebo.com/r.gif") no-repeat top right;
+
+} 
+.mcrmeebo:hover 
+{ 
+background:url("http://widget.meebo.com/ro.gif") no-repeat top right; 
+width:;
+} 
+/* end of meebo chat room style  */
