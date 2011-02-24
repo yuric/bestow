@@ -67,8 +67,8 @@ class CouponsController < ApplicationController
     @map = initialize_map()
     @map.zoom = :bound
     @icon_org = Cartographer::Gicon.new(:name => "org",
-          :image_url => '/images/icon.gif',
-          :shadow_url => '/images/icon.gif',
+          :image_url => '/images/happy.png',
+          :shadow_url => '/images/happy.png',
           :width => 32,
           :height => 23,
           :shadow_width => 32,
@@ -212,15 +212,15 @@ class CouponsController < ApplicationController
      
      org = Cartographer::ClusterIcon.new({:marker_type => "Organization"})
       org << {
-                  :url => '/images/XX.gif',
-                  :height => 32,
-                   :width => 16,
+                  :url => '/images/XX.png',
+                  :height => 26,
+                   :width => 27,
                   :opt_anchor => [3, 0],
                   :opt_textColor => 'red'
                 }
          #push second variant
       org << {
-                  :url => '/images/drop.gif',
+                  :url => '/images/happy.png',
                   :height => 32,
                   :width => 23,
                   :opt_anchor => [20, 0],
@@ -229,7 +229,7 @@ class CouponsController < ApplicationController
 
         #push third variant
        org << {
-                  :url => '/images/drop.gif',
+                  :url => '/images/happy.png',
                   :height => 73,
                   :width => 118,
                   :opt_anchor => [26, 0],
