@@ -12,4 +12,24 @@ function showlayer(layer)
 		document.getElementById(layer).style.display="none";
 	}
 }
-
+//<![CDATA[
+function ShowHideWithAnimation(layer)
+{
+	$(layer).animate({"height": "toggle"}, { duration: 1000 });
+	
+}
+//]]>
+function ShowHideSimpleAlert(layer)
+{
+	var myLayer = document.getElementById(layer).style.display;
+	
+	if(myLayer=="none")
+	{
+		document.getElementById(layer).style.display="block";
+	} 
+	else 
+	{ 
+		document.getElementById(layer).style.display="none";
+	}
+	
+}

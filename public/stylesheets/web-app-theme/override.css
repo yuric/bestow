@@ -117,11 +117,10 @@ div#searchMain{
 	        -moz-background-clip: content;     /* Firefox 3.6 */
 	        -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
 	        background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-				}
+			}
 				
 				
 				
-<div style="width:210px"><style>.mcrmeebo { display: block; background:url("http://widget.meebo.com/r.gif") no-repeat top right; } .mcrmeebo:hover { background:url("http://widget.meebo.com/ro.gif") no-repeat top right; } </style><object width="210" height="350"><param name="movie" value="http://widget.meebo.com/mcr.swf?id=zQQJXVLyZA"></param><embed src="http://widget.meebo.com/mcr.swf?id=zQQJXVLyZA" type="application/x-shockwave-flash" width="210" height="350" /></object><a target="_blank" href="http://www.meebo.com/rooms/" class="mcrmeebo"><img alt="Create a Meebo Chat Room" src="http://widget.meebo.com/b.gif" width="210" height="45" style="border:0px"/></a></div>				
 /* meebo chat room style */
 .mcrmeebo 
 { 
@@ -135,3 +134,98 @@ background:url("http://widget.meebo.com/ro.gif") no-repeat top right;
 width:;
 } 
 /* end of meebo chat room style  */
+
+
+/* Simple Alert style */
+
+div#simplealerts_inner
+{
+	width: 350px;
+	/*height: 100px;*/
+	/*top: 50%;*/
+	left: 50%;
+	position:fixed;
+	top:10px;
+	/*margin-top: -50px;*/
+	margin-left: -175px;
+	/*right:0px;*/
+	border: solid #FFD700;
+	border-width: 8px 3px 8px 3px;
+	background-color: #FFD700;
+	/*background: white;*/
+		
+	-moz-border-radius: 4px;
+		-webkit-border-radius: 5px;
+		-moz-background-clip: border;     /* Firefox 3.6 */
+        -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+        background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+        -moz-background-clip: padding;     /* Firefox 3.6 */
+        -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+        background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+        -moz-background-clip: content;     /* Firefox 3.6 */
+        -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+        background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+}
+div#simplealerts_outter
+{
+	display:none; 
+	border: solid #222;
+	height: 60px;
+	border-width: 0px 0px 0px 0px;
+	background-color: #222;
+	
+	/*background: white;*/
+	-moz-border-radius: 0px;
+		-webkit-border-radius: 0px;
+		-moz-background-clip: border;     /* Firefox 3.6 */
+        -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+        background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+        -moz-background-clip: padding;     /* Firefox 3.6 */
+        -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+        background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+        -moz-background-clip: content;     /* Firefox 3.6 */
+        -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+        background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+}
+div#simplealerts_sign444
+{
+}
+div#simplealerts_sign
+{
+	display:block; 
+	width: 104px;
+	/*height: 18px;*/
+	/*top: 50%;*/
+	left: 60%;
+	position:absolute;
+	top:0px;
+	/*margin-top: -50px;*/
+	margin-left: -52px;
+	/*right:0px;*/
+	border: solid #FFD700;
+	border-width: 8px 3px 8px 3px;
+	background-color: #FFD700;
+	/*background: white;*/
+	
+	-moz-border-radius: 4px;
+		-webkit-border-radius: 5px;
+		-moz-background-clip: border;     /* Firefox 3.6 */
+        -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+        background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+        -moz-background-clip: padding;     /* Firefox 3.6 */
+        -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+        background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+        -moz-background-clip: content;     /* Firefox 3.6 */
+        -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+        background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+		
+}
+
+
+
