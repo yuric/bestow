@@ -98,14 +98,14 @@ div#searchMain{
   			top: -1px; /* drag it up a little, creates the top notches */
   			left: 0;
   			border:solid #666;
-  			border-width:0px 0px 5px 0px; /*top, XXX, bottom*/
+  			border-width:5px 5px 5px 5px; /*top, XXX, bottom*/
 			padding-top:2px;
 			padding-bottom:2px;
 			padding-right:2px;
 			padding-left:2px;
   			font-weight:normal;
-			-moz-border-radius: 0px;
-			-webkit-border-radius: 0px;
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 5px;
 			-moz-background-clip: border;     /* Firefox 3.6 */
 	        -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
 	        background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
@@ -170,9 +170,10 @@ div#simplealerts_inner
 }
 div#simplealerts_outter
 {
+	/*z-index:-21;*/
 	display:none; 
 	border: solid #222;
-	height: 60px;
+	height: 120px;/* main outter layer*/
 	border-width: 0px 0px 0px 0px;
 	background-color: #222;
 	
@@ -226,6 +227,5 @@ div#simplealerts_sign
         background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 		
 }
-
 
 

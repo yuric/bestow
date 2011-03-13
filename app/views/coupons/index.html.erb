@@ -1,19 +1,24 @@
-<div id="show_map"><a href="#" onclick="ShowHideWithAnimation(simplealerts_inner); return false;"> <img src="/images/Map_Icon.png" /> </a></div>
-<div id="show_map"><a href="#" onclick="ShowHideWithAnimation(simplealerts_outter); return false;"> <img src="/images/exchange.jpeg" /> </a></div>
+<!-- projects/index.rhtml -->
+<% content_for :simplealert do %>
+  Search HeadCoupons
+<% end %>
+
+
+
 <div id="show_map"><a href="#" onclick="ShowHideWithAnimation(mapa); return false;"> <img src="/images/Map_Icon.png" /> </a></div>
 
+<div id="searchMain">
+	<% form_tag request.path, :method => 'get' do %>
+	<%= text_field_tag :searchCity, params[:searchCity] || [@city] || "" %>
+	<%= select_tag :searchState, options_for_select(States::US_STATES, params[:searchState] || [@state]) %>
+	<%= text_field_tag :searchCountry, params[:searchCountry] || [@countryNameMain] || "" %>
+	<%= select_tag :proximity, options_for_select(Coupon::PROXIMITYOPTIONS, params[:proximity] || ["25"]) %>
+	<%= select_tag :proximityUnits, options_for_select(Coupon::DISTANCEOPTIONS) %>
+	<%= submit_tag "Search" %>  
+	<%end%> 
+</div>
+
 <div id="mapa">
-	
-	<div id="searchMain">
-		<% form_tag request.path, :method => 'get' do %>
-		<%= text_field_tag :searchCity, params[:searchCity] || [@city] || "" %>
-		<%= select_tag :searchState, options_for_select(States::US_STATES, params[:searchState] || [@state]) %>
-		<%= text_field_tag :searchCountry, params[:searchCountry] || [@countryNameMain] || "" %>
-		<%= select_tag :proximity, options_for_select(Coupon::PROXIMITYOPTIONS, params[:proximity] || ["25"]) %>
-		<%= select_tag :proximityUnits, options_for_select(Coupon::DISTANCEOPTIONS) %>
-		<%= submit_tag "Search" %>  
-		<%end%> 
-	</div>
 	<%= raw Cartographer::Header.new.to_s %>
 	<%= raw @map.to_html %>
 	<!--For now I am styling the map here because sourcing it to a CSS file was breaking on Chrome-->
