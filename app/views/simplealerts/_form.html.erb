@@ -9,20 +9,25 @@
       </ul>
     </div>
   <% end %>
-	<% if current_user %>
-		<!--div class="field"> Use this div if I want to show Alert owner -->
-		    <% f.label :alert_owner %><br />
+
+	<div class="field" style="display:none"><!--I hide this because I want to save with User info but Without displaying-->
+		<% if current_user %>
+		<%= f.label :alert_owner %> 
 		    <% if current_user && !current_user.admin?%>
-			  	<% f.text_field :alert_owner, :readonly => true, :value => current_user.username || "Invalid" %>
-			<%elsif current_user && current_user.admin? %>
-			  	<% f.text_field :alert_owner, :value => current_user.username  %>
+			  	<%= f.text_field :alert_owner,:readonly => true, :value => current_user.username || "Invalid" %>
+			<%elsif current_user && current_user.admin?%>
+		  	 	<%= f.text_field :alert_owner, :value => current_user.username %> 
 			<%else%>
-				<% f.text_field :alert_owner, :readonly => true, :value => "Invalid" %>
-			<%end%>
-	  	<!--/div -->
-	<% else %>
-	<!--<li><a href="/users/registration/sign_up">(email user =>Sign up to manage multiple alerts</a></li>-->
-	<%end%>
+		  	 	<%= f.text_field :alert_owner, :readonly => true, :value => "Invalid" %>
+		<%end%>
+		<% else %>
+			<%= f.label :alert_owner %>
+			<%= f.text_field :alert_owner, :readonly => true, :value => "Guest" %>
+			<li><a href="<%= new_user_registration_path %>">Sign up</a> or <a href="<%= new_user_session_path %>"> Sign In</a> to manage multiple alerts</li><br/>
+		<%end%>
+	</div>
+		
+
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>
@@ -48,8 +53,8 @@
   </div>-->
 
 <div class="group navform wat-cf">
-  <button class="button" type="submit" style="center">
-    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Subscribe") %>
   </button>
 </div>
 <% end %>

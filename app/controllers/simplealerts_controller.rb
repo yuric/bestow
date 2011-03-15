@@ -50,6 +50,7 @@ class SimplealertsController < ApplicationController
 
     respond_to do |format|
       if @simplealert.save
+        UserMailer.Created_new_Alert(@simplealert).deliver
         format.html { redirect_to root_url, :notice => "You have successfully created an email alert." }
         format.xml  { render :xml => @simplealert, :status => :created, :location => @simplealert }
       else
