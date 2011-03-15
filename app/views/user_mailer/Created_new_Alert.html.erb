@@ -3,16 +3,31 @@
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
-  <body>
+	<body> 
     <h1>Hi <%= @alert.try(:email) || "Guest" %>,</h1>
+	<!--Get the content of the location zip: lng, lat country, etc-->
+	<% contents6 = Net::HTTP.get(URI.parse('http://maps.google.com/maps/geo?key=ABQIAAAATM3EfztvJcb2qSZTDLOq7hS75QhKEw_ehpmpifU5HAvryn-DghRKiQe7E183L2Of-l4VIIM8RsDBsQ&output=xml&q='+"#{@alert.location_zip}&sensor=false"))%><br/>
+
+	<%contents6.class%><br/>
+	<%contents = contents6.to_a%><br/>
+	<%=contents[8]%><br/>
+
     <p>
-      You have successfully create an alert at Doutdes.<br/>
-http://maps.google.com/maps/geo?key=ABQIAAAATM3EfztvJcb2qSZTDLOq7hS75QhKEw_ehpmpifU5HAvryn-DghRKiQe7E183L2Of-l4VIIM8RsDBsQ&output=xml&q=The_Zip_Code_Here
+	  You have successfully create an alert at Doutdes.<br/>
+	  You will be alerted of angel businesses near: <%=contents[8]%><br/>
     </p>
     <p>
       Login to manage multiple alert: doutdes.heroku.com
-	
     </p>
     <p>Thanks for joining and have a great day!</p>
+	<img style="-webkit-user-select: none; cursor: -webkit-zoom-in; " src="http://maps.google.com/maps/api/staticmap?center=<%= @alert.location_zip %>&zoom=12&size=600x400&maptype=hybrid&markers=color:red%7Clabel:Alert%7C94508&sensor=false" width="600" height="400"></img>
   </body>
 </html>
+
+
+<!-- 
+
+http://www.webmonkey.com/2010/02/get_started_with_google_geocoding_via_http/
+
+http://maps.googleapis.com/maps/api/geocode/json?address='+"#{@alert.location_zip}&sensor=false"
+-->
