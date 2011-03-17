@@ -4,10 +4,9 @@ Doutdes01::Application.routes.draw do
   resources :simplealerts
   resources :administrator
   resources :businessforms
-
   resources :foocancans
-
-  devise_for :users # , :path_names => {:sign_up => "register"}
+  devise_for :users#, :path_prefix => ‘d’# , :path_names => {:sign_up => "register"}
+  resources :user, :controller => "user"
   
   resources :coupons
   
