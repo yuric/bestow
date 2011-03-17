@@ -39,11 +39,11 @@ Devise.setup do |config|
   # ==> Configuration for :confirmable
   # The time you want give to your user to confirm his account. During this time
   # he will be able to access your application without confirming. Default is nil.
-  # config.confirm_within = 2.days
+   config.confirm_within = 2.years
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  # config.remember_for = 2.weeks
+   config.remember_for = 2.days
 
   # ==> Configuration for :validatable
   # Range for password length

@@ -35,7 +35,15 @@
         <div class="left"><%= f.label :current_password, :class => "label right" %></div>
         <div class="right"><%= f.password_field :current_password, :class => "text_field" %><i>(we need your current password to confirm your changes)</i></div>
       </div>
-
+<!--User Admin Section-->
+	<% if user_signed_in? && current_user.admin? %>
+	
+	
+	
+	<%end%>
+				
+<!--End User Admin Section-->
+				
       <div class="group wat-cf">
         <div class="right">
           <button class="button" type ="submit">

@@ -1,4 +1,4 @@
-#user_controller.rb
+#user_controller.rb http://zyphmartin.com/blog/manage-users-with-devise-and-cancan
 class UserController < ApplicationController
   load_and_authorize_resource
   
@@ -20,7 +20,10 @@ class UserController < ApplicationController
     end
   end
   def edit
-    #@user = User.find(params[:id])
+    @user = User.find(params[:id])
+    if user_signed_in? && current_user == @user || current_user.admin?
+      
+    end
   end
   
   def update

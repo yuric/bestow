@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :lockable, :timeoutable and :activatable :confirmable\\ I did however generate the table for confirmable
   # it is just not added here for testing purposes
-  devise :database_authenticatable, :registerable,#:confirmable,
+  devise :database_authenticatable, :registerable, #:confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable
   validates_uniqueness_of :username#, :email
