@@ -9,7 +9,7 @@ class BusinessformsController < ApplicationController
   end
   def index    
     #make sure user owns business form
-    username = current_user.username 
+    username = current_user.try(:username) 
   	if current_user.admin?
   		@businessforms = Businessform.find(:all)
   		#@businessforms = Businessform.near([33.3899756, -111.9632987], 100)# find all near Tempe,arizona 

@@ -136,7 +136,14 @@ class CouponsController < ApplicationController
   # GET /coupons/new.xml
   def new
     @coupon = Coupon.new
-
+    
+    # I select some business form here so I can pass them to new coupon dropdown menu
+    if (username = current_user.try(:username) )#user_signed_in?
+      @businessforms = Businessform.find(:all, :conditions => "user_login = '#{username}'")
+		end
+		@ba = Array.new
+		@ba[0] = ""
+    @businessforms.each_with_index {|businessform, i| @ba[i+1] = businessform.business_name }    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @coupon }
