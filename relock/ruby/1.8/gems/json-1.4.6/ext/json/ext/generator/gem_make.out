@@ -1,0 +1,24 @@
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby extconf.rb 
+checking for re.h... yes
+creating Makefile
+
+make
+Makefile:128: warning: overriding commands for target `/Users/lnngarrett/Desktop/Yuri/Do'
+Makefile:122: warning: ignoring old commands for target `/Users/lnngarrett/Desktop/Yuri/Do'
+Makefile:128: warning: overriding commands for target `ut'
+Makefile:122: warning: ignoring old commands for target `ut'
+gcc -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin10.0 -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin10.0 -I. -DHAVE_RE_H  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -fno-common -arch i386 -arch x86_64 -g -O3 -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common  -Wall  -c generator.c
+generator.c:322: warning: ‘fbuffer_free_only_buffer’ defined but not used
+generator.c:322: warning: ‘fbuffer_free_only_buffer’ defined but not used
+cc -arch i386 -arch x86_64 -pipe -bundle -undefined dynamic_lookup -o generator.bundle generator.o -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64     -lruby  -lpthread -ldl  
+
+make install
+Makefile:128: warning: overriding commands for target `/Users/lnngarrett/Desktop/Yuri/Do'
+Makefile:122: warning: ignoring old commands for target `/Users/lnngarrett/Desktop/Yuri/Do'
+Makefile:128: warning: overriding commands for target `ut'
+Makefile:122: warning: ignoring old commands for target `ut'
+mkdir -p /Users/lnngarrett/Desktop/Yuri/Do
+mkdir -p ut
+/usr/bin/install -c -m 0755 generator.bundle /Users/lnngarrett/Desktop/Yuri/Do ut des/doutdes01/relock/ruby/1.8/gems/json-1.4.6/ext/json/ext/json/ext
+install: /Users/lnngarrett/Desktop/Yuri/Do: Inappropriate file type or format
+make: *** [des/doutdes01/relock/ruby/1.8/gems/json-1.4.6/ext/json/ext/json/ext/generator.bundle] Error 71
