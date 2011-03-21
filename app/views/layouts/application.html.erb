@@ -90,9 +90,11 @@
     <div id="wrapper" class="wat-cf">
       <div class="flash">
         <% flash.each do |type, message| -%>
+		<% if type.to_s != "alert"%>
           <div class="message <%= type %>">
             <p><%= message %></p>
           </div>
+		<%end%>
         <% end -%>
       </div>
 
@@ -148,8 +150,8 @@
 			</br>
 			<div style="width:auto;"
 				<object width="220" height="350">
-					<param name="movie" value="http://widget.meebo.com/mcr.swf?id=zQQJXVLyZA"></param>
-					<embed src="http://widget.meebo.com/mcr.swf?id=zQQJXVLyZA" 
+					<param name="movie" value="http://widget.meebo.com/mcr.swf?id=KtDlCDtiot"></param>
+					<embed src="http://widget.meebo.com/mcr.swf?id=KtDlCDtiot" 
 					type="application/x-shockwave-flash" width="220" height="350"/>
 				</object>
 			</div>

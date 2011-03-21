@@ -7,6 +7,7 @@
 	
     <div class="flash">
       <% flash.each do |type, message| %>
+		<!--<%=type.to_s%> message error is the formatting for original "alert" type message-->
         <div class = "message error">
           <p><%= message %></p>
         </div>
