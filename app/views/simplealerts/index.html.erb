@@ -19,10 +19,10 @@
         </tr>
 		<%if !user_signed_in?%>
 		<tr class="<%= cycle("odd", "even") %>">
-          <td>Guest</td>
-          <td>Register to manage</td>
-          <td>multiple</td>
-          <td>Email alerts.</td>
+          <td>Guest,</td>
+          <td>register to manage your</td>
+          <td>email alert(s).</td>
+          <td><%= link_to "#{t("web-app-theme.show", :default => "It is quick")}", new_user_registration_path %></td>
 		</tr>
 		
 		<%end%>

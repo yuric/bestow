@@ -75,9 +75,11 @@
       </div>
       <div id="main-navigation">
         <ul class="wat-cf">
- 			<li class="<%= params[:controller] == "coupons" ? "first active" : "first" %>"><%= link_to 'HOME-Coupons', outside_viewerLinkeage_path( 'coupons' ) %> </li>
-			<li class="<%= params[:controller] == "simplealerts" ? "first active" : "first" %>"><%= link_to 'ABOUT-SpAlrt', outside_viewerLinkeage_path( 'simplealerts' ) %></li>
-			<li class="<%= params[:controller] == "businessforms" ? "first active" : "first" %>"><%= link_to 'BusForm', outside_viewerLinkeage_path( 'businessforms' ) %></li>
+ 			<li class="<%= params[:controller] == "coupons" ? "first active" : "first" %>"><%= link_to 'HOME', outside_viewerLinkeage_path( 'coupons' ) %> </li>
+			<li class="<%= params[:action] == "about" && params[:controller] == "hithere" ? "first active" : "first" %>"><%= link_to 'About Us', "/hithere/about"%> </li>
+			<li class="<%= params[:action] == "contact" && params[:controller] == "hithere" ? "first active" : "first" %>"><%= link_to 'Contact us', "/hithere/contact"%> </li>
+			<li class="<%= params[:controller] == "simplealerts" ? "first active" : "first" %>"><%= link_to 'Your Alerts', outside_viewerLinkeage_path( 'simplealerts' ) %></li>
+			<li class="<%= params[:controller] == "businessforms" ? "first active" : "first" %>"><%= link_to 'Business Forms', outside_viewerLinkeage_path( 'businessforms' ) %></li>
 			<%if user_signed_in? && current_user.admin?%>
 			  <li class="<%= params[:controller] == "administrator" ? "first active" : "first" %>"><%= link_to 'Administrator', outside_viewerLinkeage_path( 'administrator' ) %></li>
 			<%end%>

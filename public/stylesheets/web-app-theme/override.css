@@ -271,3 +271,23 @@ http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/
     left: -135px; 
     top: 20px; 
 }*/
+.box {
+  margin: 50px auto;
+  background: #333; 
+  background: -moz-linear-gradient(top, #333 0%, #000 100%); 
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#gray), color-stop(100%,#white));
+	-moz-border-radius: 4px;
+		-webkit-border-radius: 5px;
+		-moz-background-clip: border;     /* Firefox 3.6 */
+      -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+      background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+      -moz-background-clip: padding;     /* Firefox 3.6 */
+      -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+      background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+      -moz-background-clip: content;     /* Firefox 3.6 */
+      -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+      background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+}

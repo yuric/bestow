@@ -1,4 +1,9 @@
 Doutdes01::Application.routes.draw do
+  get "hithere/contact"
+  get "hithere/about"
+  get "hithere/feedback"
+  get "hithere/errorpage"
+
   resources :coupon_searches
 
   resources :simplealerts

@@ -1,12 +1,26 @@
+<% if @businessform.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@businessform.errors.count, "error") %> prohibited this email alert from being saved:</h2>
+
+    <ul>
+    <% @businessform.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+
 <% if current_user %>
   <div class="group", style="display:none">
     <%= f.label :user_login, t("activerecord.attributes.businessform.user_login", :default => "User login"), :class => :label %>
 	<% if current_user && !current_user.admin?%>
         <%= f.text_field :user_login,:readonly => true, :value => current_user.username || "Invalid", :class => 'text_field' %>
     <%elsif current_user && current_user.admin?%>
-        <%= f.text_field :alert_owner, :value => current_user.username,:class => 'text_field' %> 
+        <%= f.text_field :user_login, :value => current_user.username,:class => 'text_field' %> 
     <%else%>
-        <%= f.text_field :alert_owner, :readonly => true, :value => "Invalid",:class => 'text_field' %>
+        <%= f.text_field :user_login, :readonly => true, :value => "Invalid",:class => 'text_field' %>
 	<%end%>
   </div>
 <%end%>
@@ -74,13 +88,13 @@
   <div class="group">
     <%= f.label :website, t("activerecord.attributes.businessform.website", :default => "Website"), :class => :label %>
     <%= f.text_field :website, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">Ex: www.example.com, http://www.example.com or larger.example.com.br and etc</span>
   </div>
 
   <div class="group">
     <%= f.label :phone_number, t("activerecord.attributes.businessform.phone_number", :default => "Phone number"), :class => :label %>
     <%= f.text_field :phone_number, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">Ex: 707.541.X0X0 or 707-940-0X0X: What I will put here though are 3 textboxes with the right input limit and parens surounding the area code</span>
   </div>
 
   <div class="group">
