@@ -271,3 +271,6 @@ http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/
     left: -135px; 
     top: 20px; 
 }*/
+.form input.text_field, .form textarea.text_area {
+  width: 30%;
+}

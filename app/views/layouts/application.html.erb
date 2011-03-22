@@ -33,8 +33,7 @@
 </head>
 <body>	
   <div id="container">
-	
-		<div id="simplealerts_outter"> 
+		<div id="simplealerts_outter" > 
 			<div id="simplealerts_inner"> 
 				Hi <%=  current_user.try(:username) || "Guest" %>, register an alert for nearby activity!<br/>
 				<%= render 'simplealerts/form' %>
@@ -109,6 +108,8 @@
 	  <div id="simplealerts"> 
 	    <%= yield :simplealertsOUT %> 
 	  </div>
+	<!-- side bar -->
+	<%if false%>
       <div id="sidebar">
         <!--<%= yield :sidebar %> This stays in this file
 		
@@ -140,7 +141,7 @@
 					<br/>
 					<!-- End Facebook Like button-->
 					
-					</br>
+					<br/>
 				  </div>
 		        </div>
 		<!-- Start Chat-->
@@ -215,9 +216,10 @@
 		          </div>
 		        </div>
 <!-- end Last Block-->
-
-
       </div>
+<%end%>
+	<!-- end side bar -->
+
     </div>    
   </div>
 </body>

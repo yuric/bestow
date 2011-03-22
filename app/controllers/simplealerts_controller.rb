@@ -6,10 +6,15 @@ class SimplealertsController < ApplicationController
   before_filter :loadMetaData
   def loadMetaData
     @pagetitle = "Email Alerts" 
+    @per_page  = "100"
   end
   def index
-    @simplealerts = Simplealert.all
-
+  	username = current_user.try(:username)
+  	if user_signed_in? && current_user.admin?  # HINT from: http://godbit.com/article/rails-database-ease
+      @simplealerts = Simplealert.all.paginate(:page => params[:page], :per_page => @per_page) 
+  	else
+  		@simplealerts = Simplealert.find(:all, :conditions => "alert_owner = '#{username}'").paginate(:page => params[:page], :per_page => @per_page) 
+  	end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @simplealerts }

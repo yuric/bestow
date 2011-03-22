@@ -5,17 +5,18 @@ class BusinessformsController < ApplicationController
   load_and_authorize_resource
   before_filter :loadMetaData
   def loadMetaData
-    @pagetitle = "Businesses" 
+    @pagetitle = "Businesses"
+    @per_page  = "50" 
   end
   def index    
     #make sure user owns business form
     username = current_user.try(:username) 
-  	if current_user.admin?
-  		@businessforms = Businessform.find(:all)
+  	if user_signed_in? && current_user.admin?
+  		@businessforms = Businessform.find(:all).paginate(:page => params[:page], :per_page => @per_page) 
   		#@businessforms = Businessform.near([33.3899756, -111.9632987], 100)# find all near Tempe,arizona 
   		#@businessforms = Businessform.near([38.5729119, -122.443301], 100)#find all near angwin, ca
   	else
-  		@businessforms = Businessform.find(:all, :conditions => "user_login = '#{username}'")
+  		@businessforms = Businessform.find(:all, :conditions => "user_login = '#{username}'").paginate(:page => params[:page], :per_page => @per_page) 
   	end
   	
     #@businessforms = Businessform.all

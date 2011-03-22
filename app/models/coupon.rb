@@ -28,7 +28,7 @@ class Coupon < ActiveRecord::Base
   :coupon_subcategory, :presence => true
   #:angel_business_id
   #:will_you_support
-  #:times_viewed#User can see this value
+  #:times_viewed#User can see this value?
 
    #regular expression for po box
    #reg = ^(?:[1-9][0-9]?(?:\.[0-9]{1,2})?|0?.0[1-9]|0?.[1-9][0-9]?)$

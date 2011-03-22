@@ -1,47 +1,55 @@
-<!-- projects/index.rhtml -->
-<% content_for :simplealert do %>
-  Search Head Simple alert
-<% end %>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", simplealerts_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_simplealert_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "Your")  %> Email Alerts</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">Owner</th>
+          <th><%= t("activerecord.attributes.simplealert.email", :default => t("activerecord.labels.email", :default => "Email")) %></th>
+          <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th><%= t("web-app-theme.location_zip", :default => "Zipcode")  %></th>
 
-<h1>Listing simplealerts</h1>
+          <th class="last">&nbsp;</th>
+        </tr>
+		<%if !user_signed_in?%>
+		<tr class="<%= cycle("odd", "even") %>">
+          <td>Guest</td>
+          <td>Register to manage</td>
+          <td>multiple</td>
+          <td>Email alerts.</td>
+		</tr>
+		
+		<%end%>
+        <% @simplealerts.each do |simplealert| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td><%= simplealert.alert_owner %></td>
+          <td><%= link_to simplealert.email, simplealert_path(simplealert) %></td>
+          <td><%= simplealert.created_at %></td>
+          <td><%= simplealert.location_zip %></td>
 
-<%if current_user#check to see if there is a loged in user%>
-	<table>
-	  <tr>
-		<th>Alert owner</th>
-	    <th>Email</th>
-	    <th>Location</th>
-	    <th>Location zip</th>
-	    <th>View count</th>
-	    <th>Sent count</th>
-	    <th></th>
-	    <th></th>
-	    <th></th>
-	  </tr>
-	<%username = current_user.username %>
-	<%if current_user.admin?%><!-- HINT from: http://godbit.com/article/rails-database-ease-->
-		<%user_alerts = Simplealert.find(:all)%>
-	<%else%>
-		<% user_alerts = Simplealert.find(:all, :conditions => "alert_owner = '#{username}'")%>
-	<%end%>
-	<% user_alerts.each do |simplealert| %>
-	  <tr>
-		<td><%= simplealert.alert_owner %></td>
-	    <td><%= simplealert.email %></td>
-	    <td><%= simplealert.location %></td>
-	    <td><%= simplealert.location_zip %></td>
-	    <td><%= simplealert.view_count %></td>
-	    <td><%= simplealert.sent_count %></td>
-	    <td><%= link_to 'Show', simplealert %></td>
-	    <td><%= link_to 'Edit', edit_simplealert_path(simplealert) %></td>
-	    <td><%= link_to 'Destroy', simplealert, :confirm => 'Are you sure?', :method => :delete %></td>
-	  </tr>
-	<% end %>
-	<%else%>
-	<li>You must register to manage multiple alerts.</li>
-<%end%>
-</table>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", simplealert_path(simplealert) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_simplealert_path(simplealert) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", simplealert_path(simplealert), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+        <%= will_paginate @simplealerts  %>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<br />
-
-<%= link_to 'New Simplealert', new_simplealert_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

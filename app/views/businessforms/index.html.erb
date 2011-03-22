@@ -1,63 +1,50 @@
-<h1>Listing businessforms</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", businessforms_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_businessform_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Businessforms</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first"></th>
+                    <th>
+            <%= t("activerecord.attributes.businessform.user_login", :default => t("activerecord.labels.user_login", :default => "User_login")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @businessforms.each do |businessform| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= businessform.id %>
+          </td>
+                    <td>
+            <%= link_to businessform.user_login, businessform_path(businessform) %>
+          </td>
+                    <td>
+            <%= businessform.created_at %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", businessform_path(businessform) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_businessform_path(businessform) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", businessform_path(businessform), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+        <%= will_paginate @businessforms  %>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>User login</th>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Business name</th>
-    <th>Address line 1</th>
-    <th>Address line 2</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Country</th>
-    <th>Zipcode</th>
-    <th>Lat</th>
-    <th>Lng</th>
-    <th>Local notices</th>
-    <th>Website</th>
-    <th>Phone number</th>
-    <th>Business category</th>
-    <th>Business subcategory</th>
-    <th>Signed in</th>
-    <th>More about your business</th>
-    <th>Access count</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-	<% @businessforms.each do |businessform| %>
-  <tr>
-    <td><%= businessform.user_login %></td>
-    <td><%= businessform.first_name %></td>
-    <td><%= businessform.last_name %></td>
-    <td><%= businessform.business_name %></td>
-    <td><%= businessform.address_line_1 %></td>
-    <td><%= businessform.address_line_2 %></td>
-    <td><%= businessform.city %></td>
-    <td><%= businessform.state %></td>
-    <td><%= businessform.country %></td>
-    <td><%= businessform.zipcode %></td>
-    <td><%= businessform.lat %></td>
-    <td><%= businessform.lng %></td>
-    <td><%= businessform.local_notices %></td>
-    <td><%= businessform.website %></td>
-    <td><%= businessform.phone_number %></td>
-    <td><%= businessform.business_category %></td>
-    <td><%= businessform.business_subcategory %></td>
-    <td><%= businessform.signed_in %></td>
-    <td><%= businessform.more_about_your_business %></td>
-    <td><%= businessform.access_count %></td>
-    <td><%= businessform.user_id %></td>
-    <td><%= link_to 'Show', businessform %></td>
-    <td><%= link_to 'Edit', edit_businessform_path(businessform) %></td>
-    <td><%= link_to 'Destroy', businessform, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Businessform', new_businessform_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

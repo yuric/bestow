@@ -1,106 +1,128 @@
-<%= form_for(@businessform) do |f| %>
-  <% if @businessform.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@businessform.errors.count, "error") %> prohibited this businessform from being saved:</h2>
-
-      <ul>
-      <% @businessform.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-	<table>
-	  <tr>
-		<%= f.label :user_login, "Username (this Business form will the associated with this user)" %>
-	    <th>
-    	<% if current_user && !current_user.admin?%>
-		  	<%= f.text_field :user_login, :readonly => true, :value => current_user.username || "Invalid" %>
-		<%elsif current_user && current_user.admin? %>
-		  	<%= f.text_field :user_login %>
-		<%else%>
-			<%= f.text_field :user_login, :readonly => true, :value => "Invalid" %>
-		<%end%>
-		</th>
- 	  </tr>
-	    
-	</table>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  
-    <%= f.label :business_name %>
-    <%= f.text_field :business_name %>
-  <div class="field">
-    <%= f.label :address_line_1 %> 
-    <%= f.text_field :address_line_1 %> *No P.O. Boxes (not validated yet)
-  <br/>
-    <%= f.label :address_line_2 %>
-    <%= f.text_field :address_line_2 %> *No P.O. Boxes (not validated yet)
-  <br/>
-    <%= f.label :city %>
-    <%= f.text_field :city %>
-  <br/>
-  
-    <%= f.label :state %>
-    <%= f.select :state, options_for_select(States::ALLSTATES, @businessform.state) %>
-  <br/>
-  
-    <%= f.label :country %>
-    <%= f.select :country, options_for_select(Countries::ALLCOUNTRIES, @businessform.country) %>
-  <br/>
-  
-    <%= f.label :zipcode %>
-    <%= f.text_field :zipcode %>
-  <br/>
-
-	</div>
-    <%= f.label :lat %>
-    <%= f.text_field :lat %>
-  
-    <%= f.label :lng %>
-    <%= f.text_field :lng %>
-  
-    <%= f.label :local_notices %>
-    <%= f.check_box :local_notices %>
-  
-    <%= f.label :website %>
-    <%= f.text_field :website %>
- 
-    <%= f.label :phone_number %>
-    <%= f.text_field :phone_number %>
-  
-    <%= f.label :business_category %>
-    <%= f.text_field :business_category %>
-  
-    <%= f.label :business_subcategory %>
-    <%= f.text_field :business_subcategory %>
- 
-    <%= f.label :signed_in %>
-    <%= f.check_box :signed_in %>
-  
-    <%= f.label :more_about_your_business %>
-    <%= f.text_field :more_about_your_business %>
-  
-    <%= f.label :access_count %>
-    <%= f.text_field :access_count %>
-  
-    <%= f.label :user_id, "User Id" %>
+<% if current_user %>
+  <div class="group", style="display:none">
+    <%= f.label :user_login, t("activerecord.attributes.businessform.user_login", :default => "User login"), :class => :label %>
 	<% if current_user && !current_user.admin?%>
-		<%= f.text_field :user_id, :readonly => true, :value => current_user.id || "Invalid" %>	
-	<%elsif current_user && current_user.admin? %>
-		<%= f.text_field :user_id %>	
-	<%else%>
-		<%= f.text_field :user_login, :readonly => true, :value => "Invalid" %>
+        <%= f.text_field :user_login,:readonly => true, :value => current_user.username || "Invalid", :class => 'text_field' %>
+    <%elsif current_user && current_user.admin?%>
+        <%= f.text_field :alert_owner, :value => current_user.username,:class => 'text_field' %> 
+    <%else%>
+        <%= f.text_field :alert_owner, :readonly => true, :value => "Invalid",:class => 'text_field' %>
 	<%end%>
-	</div>
-  </br>
-  </br>
-  <div class="field">
-    <%= f.submit %>
   </div>
-<% end %>
+<%end%>
+
+  <div class="group">
+    <%= f.label :first_name, t("activerecord.attributes.businessform.first_name", :default => "First name"), :class => :label %>
+    <%= f.text_field :first_name, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :last_name, t("activerecord.attributes.businessform.last_name", :default => "Last name"), :class => :label %>
+    <%= f.text_field :last_name, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :business_name, t("activerecord.attributes.businessform.business_name", :default => "Business name"), :class => :label %>
+    <%= f.text_field :business_name, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :address_line_1, t("activerecord.attributes.businessform.address_line_1", :default => "Address line 1"), :class => :label %>
+    <%= f.text_field :address_line_1, :class => 'text_field' %>
+    <span class="description">*No P.O. Boxes Please</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :address_line_2, t("activerecord.attributes.businessform.address_line_2", :default => "Address line 2"), :class => :label %>
+    <%= f.text_field :address_line_2, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :city, t("activerecord.attributes.businessform.city", :default => "City"), :class => :label %>
+    <%= f.text_field :city, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :country, t("activerecord.attributes.businessform.country", :default => "Country"), :class => :label %>
+	<%= f.select :country, options_for_select(Variables::COUTRIES_SUPPORTED, "") %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :state, t("activerecord.attributes.businessform.state", :default => "State"), :class => :label %>
+	<%= f.select :state, options_for_select(Variables::US_STATES, "") %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :zipcode, t("activerecord.attributes.businessform.zipcode", :default => "Zipcode"), :class => :label %>
+    <%= f.text_field :zipcode, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :local_notices, t("activerecord.attributes.businessform.local_notices", :default => "Local notices"), :class => :label %>
+    <%= f.check_box :local_notices, :class => 'check_box' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :website, t("activerecord.attributes.businessform.website", :default => "Website"), :class => :label %>
+    <%= f.text_field :website, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :phone_number, t("activerecord.attributes.businessform.phone_number", :default => "Phone number"), :class => :label %>
+    <%= f.text_field :phone_number, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :business_category, t("activerecord.attributes.businessform.business_category", :default => "Business category"), :class => :label %>
+	<%= f.select :business_category, options_for_select(Variables::BUSINESS_CATEGORIES, "") %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :business_subcategory, t("activerecord.attributes.businessform.business_subcategory", :default => "Business subcategory"), :class => :label %>
+    <%= f.text_field :business_subcategory, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :signed_in, t("activerecord.attributes.businessform.signed_in", :default => "Signed in"), :class => :label %>
+    <%= f.check_box :signed_in, :class => 'check_box' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :more_about_your_business, t("activerecord.attributes.businessform.more_about_your_business", :default => "More about your business"), :class => :label %>
+    <%= f.text_field :more_about_your_business, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :access_count, t("activerecord.attributes.businessform.access_count", :default => "Access count"), :class => :label %>
+    <%= f.text_field :access_count, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :user_id, t("activerecord.attributes.businessform.user_id", :default => "User"), :class => :label %>
+    <%= f.text_field :user_id, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+        
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), businessforms_path, :class => "text_button_padding link_button" %>
+</div>

@@ -1,35 +1,49 @@
-<p id="notice"><%= notice %></p>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", simplealerts_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_simplealert_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", simplealert_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.simplealert.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</b>
+          <%= @simplealert.email %>
+        </p>
 
-<p>
-  <b>Email:</b>
-  <%= @simplealert.email %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.simplealert.location", :default => t("activerecord.labels.location", :default => "Location")) %>:</b>
+          <%= @simplealert.location %>
+        </p>
 
-<p>
-  <b>Location:</b>
-  <%= @simplealert.location %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.simplealert.location_zip", :default => t("activerecord.labels.location_zip", :default => "Location zip")) %>:</b>
+          <%= @simplealert.location_zip %>
+        </p>
 
-<p>
-  <b>Location zip:</b>
-  <%= @simplealert.location_zip %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.simplealert.view_count", :default => t("activerecord.labels.view_count", :default => "View count")) %>:</b>
+          <%= @simplealert.view_count %>
+        </p>
 
-<p>
-  <b>View count:</b>
-  <%= @simplealert.view_count %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.simplealert.sent_count", :default => t("activerecord.labels.sent_count", :default => "Sent count")) %>:</b>
+          <%= @simplealert.sent_count %>
+        </p>
 
-<p>
-  <b>Sent count:</b>
-  <%= @simplealert.sent_count %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.simplealert.alert_owner", :default => t("activerecord.labels.alert_owner", :default => "Alert owner")) %>:</b>
+          <%= @simplealert.alert_owner %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_simplealert_path(@simplealert), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), simplealert_path(@simplealert), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
 
-<p>
-  <b>Alert owner:</b>
-  <%= @simplealert.alert_owner %>
-</p>
-
-
-<%= link_to 'Edit', edit_simplealert_path(@simplealert) %> |
-<%= link_to 'Back', simplealerts_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

@@ -1,111 +1,124 @@
-<p id="notice"><%= notice %></p>
-<%= @businessform.fetch_coordinates! %>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", businessforms_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_businessform_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", businessform_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.businessform.user_login", :default => t("activerecord.labels.user_login", :default => "User login")) %>:</b>
+          <%= @businessform.user_login %>
+        </p>
 
-<p>
-  <b>User login:</b>
-  <%= @businessform.user_login %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.first_name", :default => t("activerecord.labels.first_name", :default => "First name")) %>:</b>
+          <%= @businessform.first_name %>
+        </p>
 
-<p>
-  <b>First name:</b>
-  <%= @businessform.first_name %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.last_name", :default => t("activerecord.labels.last_name", :default => "Last name")) %>:</b>
+          <%= @businessform.last_name %>
+        </p>
 
-<p>
-  <b>Last name:</b>
-  <%= @businessform.last_name %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.business_name", :default => t("activerecord.labels.business_name", :default => "Business name")) %>:</b>
+          <%= @businessform.business_name %>
+        </p>
 
-<p>
-  <b>Business name:</b>
-  <%= @businessform.business_name %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.address_line_1", :default => t("activerecord.labels.address_line_1", :default => "Address line 1")) %>:</b>
+          <%= @businessform.address_line_1 %>
+        </p>
 
-<p>
-  <b>Address line 1:</b>
-  <%= @businessform.address_line_1 %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.address_line_2", :default => t("activerecord.labels.address_line_2", :default => "Address line 2")) %>:</b>
+          <%= @businessform.address_line_2 %>
+        </p>
 
-<p>
-  <b>Address line 2:</b>
-  <%= @businessform.address_line_2 %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.city", :default => t("activerecord.labels.city", :default => "City")) %>:</b>
+          <%= @businessform.city %>
+        </p>
 
-<p>
-  <b>City:</b>
-  <%= @businessform.city %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.state", :default => t("activerecord.labels.state", :default => "State")) %>:</b>
+          <%= @businessform.state %>
+        </p>
 
-<p>
-  <b>State:</b>
-  <%= @businessform.state %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.country", :default => t("activerecord.labels.country", :default => "Country")) %>:</b>
+          <%= @businessform.country %>
+        </p>
 
-<p>
-  <b>Country:</b>
-  <%= @businessform.country %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.zipcode", :default => t("activerecord.labels.zipcode", :default => "Zipcode")) %>:</b>
+          <%= @businessform.zipcode %>
+        </p>
 
-<p>
-  <b>Zipcode:</b>
-  <%= @businessform.zipcode %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.lat", :default => t("activerecord.labels.lat", :default => "Lat")) %>:</b>
+          <%= @businessform.lat %>
+        </p>
 
-<p>
-  <b>Lat:</b>
-  <%= @businessform.lat %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.lng", :default => t("activerecord.labels.lng", :default => "Lng")) %>:</b>
+          <%= @businessform.lng %>
+        </p>
 
-<p>
-  <b>Lng:</b>
-  <%= @businessform.lng %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.local_notices", :default => t("activerecord.labels.local_notices", :default => "Local notices")) %>:</b>
+          <%= @businessform.local_notices %>
+        </p>
 
-<p>
-  <b>Local notices:</b>
-  <%= @businessform.local_notices %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.website", :default => t("activerecord.labels.website", :default => "Website")) %>:</b>
+          <%= @businessform.website %>
+        </p>
 
-<p>
-  <b>Website:</b>
-  <%= @businessform.website %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.phone_number", :default => t("activerecord.labels.phone_number", :default => "Phone number")) %>:</b>
+          <%= @businessform.phone_number %>
+        </p>
 
-<p>
-  <b>Phone number:</b>
-  <%= @businessform.phone_number %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.business_category", :default => t("activerecord.labels.business_category", :default => "Business category")) %>:</b>
+          <%= @businessform.business_category %>
+        </p>
 
-<p>
-  <b>Business category:</b>
-  <%= @businessform.business_category %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.business_subcategory", :default => t("activerecord.labels.business_subcategory", :default => "Business subcategory")) %>:</b>
+          <%= @businessform.business_subcategory %>
+        </p>
 
-<p>
-  <b>Business subcategory:</b>
-  <%= @businessform.business_subcategory %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.signed_in", :default => t("activerecord.labels.signed_in", :default => "Signed in")) %>:</b>
+          <%= @businessform.signed_in %>
+        </p>
 
-<p>
-  <b>Signed in:</b>
-  <%= @businessform.signed_in %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.more_about_your_business", :default => t("activerecord.labels.more_about_your_business", :default => "More about your business")) %>:</b>
+          <%= @businessform.more_about_your_business %>
+        </p>
 
-<p>
-  <b>More about your business:</b>
-  <%= @businessform.more_about_your_business %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.access_count", :default => t("activerecord.labels.access_count", :default => "Access count")) %>:</b>
+          <%= @businessform.access_count %>
+        </p>
 
-<p>
-  <b>Access count:</b>
-  <%= @businessform.access_count %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.businessform.user_id", :default => t("activerecord.labels.user_id", :default => "User")) %>:</b>
+          <%= @businessform.user_id %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_businessform_path(@businessform), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), businessform_path(@businessform), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
 
-<p>
-  <b>User:</b>
-  <%= @businessform.user_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_businessform_path(@businessform) %> |
-<%= link_to 'Back', businessforms_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
