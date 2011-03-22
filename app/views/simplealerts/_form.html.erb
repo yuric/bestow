@@ -20,7 +20,7 @@
     <%= f.text_field :location_zip, :class => 'text_field', :size => 14 %>
   </div>
   <% if current_user %>
-  <div class="field" style="display:none"><!--I hide this because I want to save with User info but Without displaying-->
+  	<div class="field" style="display:none"><!--I hide this because I want to save with User info but Without displaying-->
         <%= f.label :alert_owner %> 
             <% if current_user && !current_user.admin?%>
                 <%= f.text_field :alert_owner,:readonly => true, :value => current_user.username || "Invalid" %>
@@ -28,13 +28,14 @@
                 <%= f.text_field :alert_owner, :value => current_user.username %> 
             <%else%>
                 <%= f.text_field :alert_owner, :readonly => true, :value => "Invalid" %>
-        <%end%>
-        <% else %>
-            <%= f.label :alert_owner %>
-            <%= f.text_field :alert_owner, :readonly => true, :value => "Guest" %>
-            <li><a href="<%= new_user_registration_path %>">Sign up</a> or <a href="<%= new_user_session_path %>"> Sign In</a> to manage multiple alerts</li><br/>
-        <%end%>
-  </div><br/>
+        	<%end%>
+	</div><br/>
+  <% else %><br/>
+  	<div class="field" style="display:none"><!--I hide this because I want to save with User info but Without displaying-->
+     <%= f.label :alert_owner %>
+     <%= f.text_field :alert_owner, :readonly => true, :value => "Guest" %>
+	</div>
+  <%end%>
         
 <div class="group navform wat-cf">
   <button class="button" type="submit">
@@ -43,5 +44,7 @@
   <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
     <%= link_to t("web-app-theme.cancel", :default => "Cancel"), root_path, :class => "text_button_padding link_button" %>
 </div>
-
+	<% if !current_user %>
+     <li><a href="<%= new_user_registration_path %>">Sign up</a> or <a href="<%= new_user_session_path %>"> Sign In</a> to manage multiple alerts</li>
+	<%end%>
 <% end %>
