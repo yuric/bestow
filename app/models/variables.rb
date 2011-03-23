@@ -1,6 +1,6 @@
 class Variables< ActiveRecord::Base
 
-BUSINESS_CATEGORIES = ["","Information Technology", "Non-Profit","Events", "Retail", "Health","Education","Entertainement", "Beauty", "Service", "Other", "Multiple (ei. Health Education)" ]
+BUSINESS_CATEGORIES = ["","Information Technology","Restaurant", "Transportation", "Events", "Retail", "Health","Education","Entertainement", "Beauty", "Service", "Other"]
 #BusinessSubCategoryTech = ["Open Source"]
 #options_for_select(States::US_STATES, params[:search_state] || [@state])
 
@@ -16,4 +16,13 @@ US_STATES = [["Alaska", "AK"], ["Alabama", "AL"], ["Arkansas", "AR"], ["Arizona"
                      ["Tennessee", "TN"], ["Texas", "TX"], ["Utah", "UT"], ["Virginia", "VA"], ["Vermont", "VT"], 
                      ["Washington", "WA"], ["Wisconsin", "WI"], ["West Virginia", "WV"], ["Wyoming", "WY"]]
 COUTRIES_SUPPORTED = ["United States of America", "Canada (coming soon)"]
+
+ALLSTATES = ["","Alabama", "Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware",
+  "Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine",
+  "Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada",
+  "New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon",
+  "Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia",
+  "Washington","West Virginia","Wisconsin","Wyoming"]
+  
+  
 end

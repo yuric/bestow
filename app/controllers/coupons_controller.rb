@@ -142,7 +142,7 @@ class CouponsController < ApplicationController
       @businessforms = Businessform.find(:all, :conditions => "user_login = '#{username}'")
 		end
 		@ba = Array.new
-		@ba[0] = ""
+		@ba[0] = "--None--"
     @businessforms.each_with_index {|businessform, i| @ba[i+1] = businessform.business_name }    
     respond_to do |format|
       format.html # new.html.erb

@@ -15,5 +15,16 @@ class ApplicationController < ActionController::Base
   def simple_alerts_creation
       @simplealert = Simplealert.new
   end
+  ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+    #Contributions from:
+    #https://rails.lighthouseapp.com/projects/8994/tickets/5803-actionviewbasefield_error_proc-ignores-label_tags-with-class-options
+    #if html_tag =~ /<label/# user this one to have the errors just bellow instance.
+    #  %|<div class="fieldWithErrors">#{html_tag}</div>|.html_safe
+    if html_tag =~ /<label/ #use this bellow to include errors to the right of the attribute e.i. FIRST NAME is not valid
+      %|<div class="fieldWithErrors">#{html_tag} <span class="error">#{[instance.error_message].join(', ')}</span></div>|.html_safe
+    else
+      html_tag
+    end
+  end
       
 end

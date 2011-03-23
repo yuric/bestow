@@ -10,7 +10,7 @@ and need to work on this form some more
 
 	<div class="group">
 	  <%= f.label :qualified_organization_name, t("activerecord.attributes.coupon.qualified_organization_name", :default => "Qualified organization name"), :class => :label %>
-		<%= f.select :qualified_organization_name, options_for_select(@ba, @ba[0]) %> or <%= link_to 'Register a new business', new_businessform_path %> 
+		<%= f.select :qualified_organization_name, options_for_select(@ba,"") %> or <%= link_to 'Register a new business', new_businessform_path %> 
 	</div>
 
   <div class="group">

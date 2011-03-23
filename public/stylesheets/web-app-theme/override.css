@@ -273,9 +273,9 @@ http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/
 }*/
 .box {
   margin: 50px auto;
-  background: #333; 
-  background: -moz-linear-gradient(top, #333 0%, #000 100%); 
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#gray), color-stop(100%,#white));
+  background: white; 
+  /*background: -moz-linear-gradient(top, #333 0%, #000 100%); 
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#gray), color-stop(100%,#white));*/
 	-moz-border-radius: 4px;
 		-webkit-border-radius: 5px;
 		-moz-background-clip: border;     /* Firefox 3.6 */
@@ -289,5 +289,20 @@ http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/
       -moz-background-clip: content;     /* Firefox 3.6 */
       -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
       background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+	  -moz-box-shadow: 3px 3px 4px #000;
+		-webkit-box-shadow: 3px 3px 4px #000;
+		box-shadow: 3px 3px 4px #000;
+		/* For IE 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+		/* For IE 5.5 - 7 */
+		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
 
+
+
+
+
+}
+.errorText {
+color: #CC2127;
+font-size: .9em;
 }
