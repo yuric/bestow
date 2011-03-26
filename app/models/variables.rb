@@ -1,6 +1,6 @@
 class Variables< ActiveRecord::Base
 
-BUSINESS_CATEGORIES = ["","Information Technology","Restaurant", "Transportation", "Events", "Retail", "Health","Education","Entertainement", "Beauty", "Service", "Other"]
+BUSINESS_CATEGORIES = ["","Information Technology","Restaurant", "Transportation", "Events", "Retail", "Health","Education","non-profit","Entertainement", "Beauty", "Service", "Other"]
 #BusinessSubCategoryTech = ["Open Source"]
 #options_for_select(States::US_STATES, params[:search_state] || [@state])
 

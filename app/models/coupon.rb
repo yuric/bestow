@@ -72,7 +72,7 @@ class Coupon < ActiveRecord::Base
   def businessCategory?
     return Variables::BUSINESS_CATEGORIES.include?(angel_business_type)
   end
-  def validState?
+  def validState?    
     return Variables::ALLSTATES.include?(state)
   end
   def validCouponOwner?#*****TO DO: Make sure user is not creating a coupon uder another users identity.

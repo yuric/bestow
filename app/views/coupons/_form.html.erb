@@ -79,7 +79,7 @@ http://www.markinns.com/articles/full/displaying_a_from_field_depending_on_previ
 
   <div class="group">
     <%= f.label :state, t("activerecord.attributes.coupon.state", :default => "State"), :class => :label %>
-	<%= f.select :state, options_for_select(Variables::US_STATES, @coupon.state) %>
+	<%= f.select :state, options_for_select(Variables::ALLSTATES, @coupon.state) %>
   </div>
 
   <div class="group">
