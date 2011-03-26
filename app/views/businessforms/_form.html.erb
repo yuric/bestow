@@ -67,20 +67,20 @@
 
   <div class="group">
     <%= f.label :country, t("activerecord.attributes.businessform.country", :default => "Country"), :class => :label %>
-	<%= f.select :country, options_for_select(Variables::COUTRIES_SUPPORTED, "") %>
+	<%= f.select :country, options_for_select(Variables::COUTRIES_SUPPORTED, @businessform.country) %>
     <span class="description">ex: US only for now. Would you like to help us expand?</span>
   </div>
 
   <div class="group">
     <%= f.label :state, t("activerecord.attributes.businessform.state", :default => "State"), :class => :label %>
-	<%= f.select :state, options_for_select(Variables::US_STATES, "") %>
+	<%= f.select :state, options_for_select(Variables::US_STATES, @businessform.state) %>
     <span class="description">ex: US only for now</span>
   </div>
 
   <div class="group">
     <%= f.label :zipcode, t("activerecord.attributes.businessform.zipcode", :default => "Zipcode"), :class => :label %>
     <%= f.text_field :zipcode, :class => 'text_field' %>
-    <span class="description">ex: a simple text</span>
+    <span class="description">ex: 12345 or 12345-6789</span>
   </div>
 
   <div class="group">
@@ -103,7 +103,7 @@
 
   <div class="group">
     <%= f.label :business_category, t("activerecord.attributes.businessform.business_category", :default => "Business category"), :class => :label %>	
-	<%= f.select :business_category, options_for_select(Variables::BUSINESS_CATEGORIES, "") %>
+	<%= f.select :business_category, options_for_select(Variables::BUSINESS_CATEGORIES, @businessform.business_category) %>
   </div>
 
   <div class="group">
@@ -114,8 +114,8 @@
 
   <div class="group">
     <%= f.label :more_about_your_business, t("activerecord.attributes.businessform.more_about_your_business", :default => "More about your business"), :class => :label %>
-    <%= f.text_field :more_about_your_business, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <%= f.text_area :more_about_your_business, :class => 'text_area' %>
+    <span class="description">hint: This will be shown when user want to read more extensively about your comapany</span>
   </div>
 
 <div class="group navform wat-cf">

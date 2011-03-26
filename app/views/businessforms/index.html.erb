@@ -10,13 +10,13 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first"></th>
-                    <th>
-            <%= t("activerecord.attributes.businessform.user_login", :default => t("activerecord.labels.user_login", :default => "User_login")) %>
-          </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="first">ID</th>
+          <th><%= t("activerecord.attributes.businessform.user_login", :default => t("activerecord.labels.user_login", :default => "User_login")) %></th>
+          <th><%= t("web-app-theme.business_name", :default => "Business Name")  %></th>
+          <th><%= t("web-app-theme.city", :default => "City")  %></th>
+          <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
           <th class="last">&nbsp;</th>
-        </tr>
+		</tr>
         <% @businessforms.each do |businessform| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
@@ -25,9 +25,10 @@
                     <td>
             <%= link_to businessform.user_login, businessform_path(businessform) %>
           </td>
-                    <td>
-            <%= businessform.created_at %>
-          </td>
+          	<td><%= businessform.business_name %></td>
+			<td><%= businessform.city %></td>
+			<td><%= businessform.created_at %></td>
+          
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", businessform_path(businessform) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_businessform_path(businessform) %> |

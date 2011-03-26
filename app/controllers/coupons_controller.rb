@@ -9,6 +9,25 @@ class CouponsController < ApplicationController
     @pagetitle = "Welcome to Doutdes" 
     @prox      = 25# proximity in miles for now
     @per_page  = 2 # items per page in pagination *will_paginate
+    
+    # I select some business form here so I can pass them to new coupon dropdown menu
+    if (user_signed_in?)#user_signed_in?
+      user = current_user
+      
+      ###TODO:(see model): an attempt to access the current_user but did not work
+      ###Coupon.get_user(user)
+                
+      @businessforms = Businessform.find(:all, :conditions => "user_login = '#{user.username}'")
+      @ba = Array.new
+  		@ba[0] = ""
+      @businessforms.each_with_index {|businessform, i| @ba[i+1] = businessform.business_name }
+      
+    else
+      @ba = Array.new
+  		@ba[0] = ""
+		end
+
+    
   end
   
   def index
@@ -134,20 +153,15 @@ class CouponsController < ApplicationController
 
   # GET /coupons/new
   # GET /coupons/new.xml
-  def new
-    @coupon = Coupon.new
+  def new 
     
-    # I select some business form here so I can pass them to new coupon dropdown menu
-    if (username = current_user.try(:username) )#user_signed_in?
-      @businessforms = Businessform.find(:all, :conditions => "user_login = '#{username}'")
-		end
-		@ba = Array.new
-		@ba[0] = "--None--"
-    @businessforms.each_with_index {|businessform, i| @ba[i+1] = businessform.business_name }    
+    @coupon = Coupon.new
+        
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @coupon }
     end
+		
   end
 
   # GET /coupons/1/edit
@@ -158,8 +172,9 @@ class CouponsController < ApplicationController
   # POST /coupons
   # POST /coupons.xml
   def create
-    @coupon = Coupon.new(params[:coupon])
-
+    
+    @coupon = Coupon.new(params[:coupon])    
+        
     respond_to do |format|
       if @coupon.save
         format.html { redirect_to(@coupon, :notice => 'Coupon was successfully created.') }

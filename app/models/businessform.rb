@@ -26,7 +26,7 @@ class Businessform < ActiveRecord::Base
   validates_length_of :city, :in => 2..99, :message=>"is not valid."                           
   validates_length_of :state, :in => 1..99, :message=>"is not valid."
   validates_length_of :user_login, :in => 1..99, :message=>"is not valid." 
-  validates_length_of :more_about_your_business, :in => 20..5000, :message=>"between 20 and 5000 characters if you don't mind."                           
+  validates_length_of :more_about_your_business, :in => 20..9000, :message=>"between 20 and 9000 characters if you don't mind."                           
   #******TODO: Validate all the hidden fields as well to prevent hacking                          
                              
   def location

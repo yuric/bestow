@@ -1,178 +1,173 @@
-some nice jquery 
-http://www.markinns.com/articles/full/displaying_a_from_field_depending_on_previous_question_using_jquery
-and need to work on this form some more
+<!-- Not sure how I will show/present these value to the users.
 
+<div class="group">
+  <%= f.label :times_viewed, t("activerecord.attributes.coupon.times_viewed", :default => "Times viewed"), :class => :label %>
+  <%= f.text_field :times_viewed, :class => 'text_field' %>
+  <span class="description">Ex: a simple text</span>
+</div>
+
+***DELETE this attribute from the DB
+<div class="group">	
+  <%= f.label :angel_business_id, t("activerecord.attributes.coupon.angel_business_id", :default => "Angel business"), :class => :label %>
+  <%= f.text_field :angel_business_id, :class => 'text_field' %>
+  <span class="description">Ex: a simple text</span>
+</div>
+
+This is the number of people that have accepted to support the cause. Not sure how I will take survey of this
+  <div class="group">
+    <%= f.label :will_you_support, t("activerecord.attributes.coupon.will_you_support", :default => "Will you support"), :class => :label %>
+    <%= f.text_field :will_you_support, :class => 'text_field' %>
+  </div>
+
+-->
+
+<p>Some nice jquery 
+http://www.markinns.com/articles/full/displaying_a_from_field_depending_on_previous_question_using_jquery</p>
+
+<p>*Note: All information bellow may be visible in the coupons customers see</p>
 
       <% @coupon.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
 <br/>
-
+	<%if user_signed_in? %>
+		<%if !current_user.admin?%>
+		<div style="display: none;">
+			<%= f.label :coupon_owner, t("activerecord.attributes.coupon.coupon_owner", :default => "Coupon owner"), :class => :label %>
+			<%= f.text_field :coupon_owner, :readonly => true, :value => current_user.username || "Invalid User" %>
+		</div>
+			
+		<%elsif current_user.admin?%>
+		<div style="display: block;">
+			<%= f.label :coupon_owner, t("activerecord.attributes.coupon.coupon_owner", :default => "Coupon owner"), :class => :label %>
+			<%= f.text_field :coupon_owner, :value => @coupon.coupon_owner || "None" %>
+		</div>	
+			
+		<%else%>
+		<%end%>
+	<%end%>
+	
 	<div class="group">
-	  <%= f.label :qualified_organization_name, t("activerecord.attributes.coupon.qualified_organization_name", :default => "Qualified organization name"), :class => :label %>
-		<%= f.select :qualified_organization_name, options_for_select(@ba,"") %> or <%= link_to 'Register a new business', new_businessform_path %> 
+	  <%= f.label :angel_business_name, t("activerecord.attributes.coupon.angel_business_name", :default => "Angel business name"), :class => :label %>
+		<%= f.select :angel_business_name, options_for_select(@ba, @coupon.angel_business_name) %> or <%= link_to 'Register a new business', new_businessform_path %> 
+		<span class="description">hint: Create/select a business form to have the many of fields bellow automatically filled out for you</span>
 	</div>
+	
+	<div class="group">
+	  <%= f.label :qualified_organization_name, t("activerecord.attributes.coupon.qualified_organization_name", :default => "Name of non-profit you are in support of"), :class => :label %>
+		<%= f.text_field :qualified_organization_name, :class => 'text_field' %> 
+		<span class="description">ex. Make a Wish Foundation</span>
+	</div>	
 
   <div class="group">
     <%= f.label :address_line1, t("activerecord.attributes.coupon.address_line1", :default => "Address line1"), :class => :label %>
     <%= f.text_field :address_line1, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">ex: 122 Awesome Street (*No P.O. Boxes Please)</span>
   </div>
 
   <div class="group">
     <%= f.label :address_line2, t("activerecord.attributes.coupon.address_line2", :default => "Address line2"), :class => :label %>
     <%= f.text_field :address_line2, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">ex: Apartment 3327</span>
   </div>
 
   <div class="group">
     <%= f.label :city, t("activerecord.attributes.coupon.city", :default => "City"), :class => :label %>
     <%= f.text_field :city, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">ex: San Franscisco</span>
   </div>
 
   <div class="group">
     <%= f.label :state, t("activerecord.attributes.coupon.state", :default => "State"), :class => :label %>
-    <%= f.text_field :state, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+	<%= f.select :state, options_for_select(Variables::US_STATES, @coupon.state) %>
   </div>
 
   <div class="group">
     <%= f.label :country, t("activerecord.attributes.coupon.country", :default => "Country"), :class => :label %>
-    <%= f.text_field :country, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+	<%= f.select :country, options_for_select(Variables::COUTRIES_SUPPORTED, @coupon.country) %>
   </div>
 
   <div class="group">
     <%= f.label :zipcode, t("activerecord.attributes.coupon.zipcode", :default => "Zipcode"), :class => :label %>
     <%= f.text_field :zipcode, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :lat, t("activerecord.attributes.coupon.lat", :default => "Lat"), :class => :label %>
-    <%= f.text_field :lat, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :lng, t("activerecord.attributes.coupon.lng", :default => "Lng"), :class => :label %>
-    <%= f.text_field :lng, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :angel_business_name, t("activerecord.attributes.coupon.angel_business_name", :default => "Angel business name"), :class => :label %>
-    <%= f.text_field :angel_business_name, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">ex: 12345-6789</span>
   </div>
 
   <div class="group">
     <%= f.label :angel_business_website, t("activerecord.attributes.coupon.angel_business_website", :default => "Angel business website"), :class => :label %>
     <%= f.text_field :angel_business_website, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">ex: www.example.com</span>
   </div>
 
   <div class="group">
-    <%= f.label :support_summary, t("activerecord.attributes.coupon.support_summary", :default => "Support summary"), :class => :label %>
+    <%= f.label :support_summary, t("activerecord.attributes.coupon.support_summary", :default => "Support offer summary"), :class => :label %>
     <%= f.text_field :support_summary, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">ex: Summarize your support offer in 10 to 160 characters.</span>
   </div>
 
   <div class="group">
-    <%= f.label :angel_business_type, t("activerecord.attributes.coupon.angel_business_type", :default => "Angel business type"), :class => :label %>
-    <%= f.text_field :angel_business_type, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <%= f.label :angel_business_type, t("activerecord.attributes.coupon.angel_business_type", :default => "Angel business category"), :class => :label %>
+	<%= f.select :angel_business_type, options_for_select(Variables::BUSINESS_CATEGORIES, @coupon.angel_business_type) %>
   </div>
 
   <div class="group">
-    <%= f.label :qualified_organization_type, t("activerecord.attributes.coupon.qualified_organization_type", :default => "Qualified organization type"), :class => :label %>
+    <%= f.label :qualified_organization_type, t("activerecord.attributes.coupon.qualified_organization_type", :default => "Non-profit in support of"), :class => :label %>
     <%= f.text_field :qualified_organization_type, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">ex: </span>
   </div>
 
   <div class="group">
-    <%= f.label :angel_discription_zoom_zero_ab, t("activerecord.attributes.coupon.angel_discription_zoom_zero_ab", :default => "Angel discription zoom zero ab"), :class => :label %>
-    <%= f.text_field :angel_discription_zoom_zero_ab, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :angel_discription_zoom_zero_qo, t("activerecord.attributes.coupon.angel_discription_zoom_zero_qo", :default => "Angel discription zoom zero qo"), :class => :label %>
+    <%= f.label :angel_discription_zoom_zero_qo, t("activerecord.attributes.coupon.angel_discription_zoom_zero_qo", :default => "Intentions Summary"), :class => :label %>
     <%= f.text_field :angel_discription_zoom_zero_qo, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">Quick description of why you are supporting the non-profit (12-160 chars)</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :angel_discription_zoom_zero_ab, t("activerecord.attributes.coupon.angel_discription_zoom_zero_ab", :default => "Observations"), :class => :label %>
+    <%= f.text_field :angel_discription_zoom_zero_ab, :class => 'text_field' %>
+    <span class="description">Quick observations or overview of your Business</span>
   </div>
 
   <div class="group">
     <%= f.label :cause_start_date, t("activerecord.attributes.coupon.cause_start_date", :default => "Cause start date"), :class => :label %>
     <%= f.datetime_select :cause_start_date, :class => 'datetime_select' %>
-    <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
     <%= f.label :cause_end_date, t("activerecord.attributes.coupon.cause_end_date", :default => "Cause end date"), :class => :label %>
     <%= f.datetime_select :cause_end_date, :class => 'datetime_select' %>
-    <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
-    <%= f.label :angel_full_discription_zoom_one, t("activerecord.attributes.coupon.angel_full_discription_zoom_one", :default => "Angel full discription zoom one"), :class => :label %>
+    <%= f.label :angel_full_discription_zoom_one, t("activerecord.attributes.coupon.angel_full_discription_zoom_one", :default => "More about your business"), :class => :label %>
     <%= f.text_area :angel_full_discription_zoom_one, :class => 'text_area' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :angel_business_id, t("activerecord.attributes.coupon.angel_business_id", :default => "Angel business"), :class => :label %>
-    <%= f.text_field :angel_business_id, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">ex. This will be shown when user requests to know more about your business</span>
   </div>
 
   <div class="group">
     <%= f.label :coupon_category, t("activerecord.attributes.coupon.coupon_category", :default => "Coupon category"), :class => :label %>
-    <%= f.text_field :coupon_category, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+	<%= f.select :coupon_category, options_for_select(Variables::BUSINESS_CATEGORIES, @coupon.coupon_category) %>
   </div>
 
   <div class="group">
     <%= f.label :coupon_subcategory, t("activerecord.attributes.coupon.coupon_subcategory", :default => "Coupon subcategory"), :class => :label %>
     <%= f.text_field :coupon_subcategory, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :will_you_support, t("activerecord.attributes.coupon.will_you_support", :default => "Will you support"), :class => :label %>
-    <%= f.text_field :will_you_support, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :times_viewed, t("activerecord.attributes.coupon.times_viewed", :default => "Times viewed"), :class => :label %>
-    <%= f.text_field :times_viewed, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">ex: Vegetarian Meals</span>
   </div>
 
   <div class="group">
     <%= f.label :curr_ip, t("activerecord.attributes.coupon.curr_ip", :default => "Curr ip"), :class => :label %>
     <%= f.text_field :curr_ip, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
     <%= f.label :last_ip, t("activerecord.attributes.coupon.last_ip", :default => "Last ip"), :class => :label %>
     <%= f.text_field :last_ip, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
     <%= f.label :all_ip, t("activerecord.attributes.coupon.all_ip", :default => "All ip"), :class => :label %>
     <%= f.text_area :all_ip, :class => 'text_area' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :coupon_owner, t("activerecord.attributes.coupon.coupon_owner", :default => "Coupon owner"), :class => :label %>
-    <%= f.text_field :coupon_owner,  :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
   </div>
         
 <div class="group navform wat-cf">
