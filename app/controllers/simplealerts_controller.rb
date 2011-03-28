@@ -1,8 +1,8 @@
 class SimplealertsController < ApplicationController
   # GET /simplealerts
   # GET /simplealerts.xml
-  #load_and_authorize_resource
-  #before_filter :authenticate_user!, :except => [:index, :new, :create]
+  load_and_authorize_resource
+  before_filter :authenticate_user!, :except => [:index, :new, :create]
   before_filter :loadMetaData
   def loadMetaData
     @pagetitle = "Email Alerts" 
@@ -51,7 +51,7 @@ class SimplealertsController < ApplicationController
   # POST /simplealerts.xml
   def create
     @simplealert = Simplealert.new(params[:simplealert])
-    @simplealert.secrettoken = SecureRandom.hex(20)#using this to delete alerts
+    #@simplealert.secrettoken = SecureRandom.hex(20)#using this to delete alerts
     
     if user_signed_in?
      @simplealert.alert_owner = current_user.username     
