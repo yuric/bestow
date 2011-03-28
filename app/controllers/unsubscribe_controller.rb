@@ -8,24 +8,19 @@ class UnsubscribeController < ApplicationController
   
   
   def cancelsubscription
-    puts "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Unsubscribe:=>#{params[:email]}\nsecrettoken:=>#{params[:secrettoken]} \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
-    
-    if @alert = Simplealert.find_by_email(params[:email])
-        @alert.each do |alert|
-          puts "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n InMethod:=>#{@alert.email}\nsecrettoken:=>#{@alert.location_zip}\nsecrettoken:=>#{@alert.secrettoken} \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+    @alerts = Simplealert.find(:all, :conditions => "email = '#{params[:email]}'")
+        @alerts.each do |alert|
+          #puts "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n InMethod:=>#{@alert.email}\nsecrettoken:=>#{@alert.location_zip}\nsecrettoken:=>#{@alert.secrettoken} \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
           if (alert.secrettoken == params[:secrettoken])
-            puts "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n IFIF Found it:\nsecrettoken:=>#{@alert.secrettoken} \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+            alert.update_attribute(:activealert, false)
+            #alert.destroy
           end
         end
-    end
-    
-  
   end
   
   
-  
-  
   def resubscribe
+    #this is going to be similar to subscribe. Add a link at the view
   end
 
 end

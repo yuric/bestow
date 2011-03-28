@@ -14,6 +14,8 @@
           <th><%= t("activerecord.attributes.simplealert.email", :default => t("activerecord.labels.email", :default => "Email")) %></th>
           <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
           <th><%= t("web-app-theme.location_zip", :default => "Zipcode")  %></th>
+          <th><%= t("web-app-theme.activealert", :default => "Active?")  %></th>
+
 
           <th class="last">&nbsp;</th>
         </tr>
@@ -32,6 +34,8 @@
           <td><%= link_to simplealert.email, simplealert_path(simplealert) %></td>
           <td><%= simplealert.created_at %></td>
           <td><%= simplealert.location_zip %></td>
+          <td><%= simplealert.activealert %></td>
+
 
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", simplealert_path(simplealert) %> |
