@@ -51,7 +51,7 @@ class SimplealertsController < ApplicationController
   # POST /simplealerts.xml
   def create
     @simplealert = Simplealert.new(params[:simplealert])
-    #@simplealert.secrettoken = SecureRandom.hex(20)#using this to delete alerts
+    @simplealert.secrettoken = SecureRandom.hex(20)#using this to delete alerts
     
     if user_signed_in?
      @simplealert.alert_owner = current_user.username     

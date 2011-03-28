@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
   :port                 => 587,
   :domain               => "yuriprime.com",
   :user_name            => "yuri@yuriprime.com",
-  :password             => "9852612",
+  :password             => "99f1dbaadc",
   :authentication       => "plain",
   :enable_starttls_auto => true
 }
