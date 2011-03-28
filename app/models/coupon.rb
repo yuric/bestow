@@ -1,8 +1,22 @@
 class Coupon < ActiveRecord::Base
   #belongs_to :user
+
+    @username = "empty"
+    @admin = false
+
+  
+  def self.setUser(name, isAdmin)
+    @username = name
+    @admin = isAdmin
+    #puts "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMODEL=>#{@username}\nAdmin?=#{@admin}\n<=\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+    
+  end
+  
   def self.get_user (user)#an attempt to access the current_user but did not work
     @user = user
+    self.setUser(user.username,user.admin?)
   end 
+
   PROXIMITYOPTIONS = ["5","10","15","20","25","30","35","40","45","50","60","70","80","90","100","200","300","500","ALL"]
   DISTANCEOPTIONS = ["Miles", "KM","LY"]
   #puts "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMODEL=>#{@user.username}<=\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
@@ -12,7 +26,7 @@ class Coupon < ActiveRecord::Base
   #validates_uri_existence_of :url, :with => #http://snippets.dzone.com/posts/show/2563
   #        /(^$)|(^(http|https)://[a-z0-9] ([-.]{1}[a-z0-9] )*.[a-z]{2,5}(([0-9]{1,5})?/.*)?$)/ix
   validate :has_not_occurred
-  
+
   after_validation :fetch_coordinates
   validates_length_of :address_line1, :in => 1..200, :message=>"needs to contain your address."                           
   validates_length_of :address_line2, :in => 1..200, :allow_blank => true,  :message=>"is too long."
@@ -59,6 +73,9 @@ class Coupon < ActiveRecord::Base
     errors.add("address_line1", ": no P.O. Box addresses please") if pobox?
     errors.add("angel_business_type","Please pick a proper Business category") if !businessCategory?
     errors.add("state","is not a valid state") if !validState?
+    errors.add("coupon_owner","name is not valid:#{@username}") if !validCouponOwner?
+    puts "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCO=>#{@username},#{@username.to_s}<=\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+    
     
     ##*****TO DO: Make sure user is not creating a coupon uder another users identity.
     #errors.add("coupon_owner","You can not create a coupon with this username: #{@username}") if !validCouponOwner?
@@ -78,7 +95,7 @@ class Coupon < ActiveRecord::Base
   def validCouponOwner?#*****TO DO: Make sure user is not creating a coupon uder another users identity.
     #puts "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMODEL=>#{@user.username}\nAdmin?=#{@user.admin?}\nCO=#{:coupon_owner.value}<=\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
     #puts "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCO=#{coupon_owner}\nUser:#{@user.username}<=\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
-    return coupon_owner == @user.username #|| @user.admin?  # Validate Coupon_owner with username to make sure hackers do not assign whatever name they want to coupon_owner field.
+    return coupon_owner == @username #|| @isadmin  # Validate Coupon_owner with username to make sure hackers do not assign whatever name they want to coupon_owner field.
   end
 
    

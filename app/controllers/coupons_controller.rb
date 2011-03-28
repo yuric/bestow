@@ -15,7 +15,7 @@ class CouponsController < ApplicationController
       user = current_user
       
       ###TODO:(see model): an attempt to access the current_user but did not work
-      ###Coupon.get_user(user)
+      Coupon.get_user(user)
                 
       @businessforms = Businessform.find(:all, :conditions => "user_login = '#{user.username}'")
       @ba = Array.new
@@ -144,7 +144,9 @@ class CouponsController < ApplicationController
   # GET /coupons/1.xml
   def show
     @coupon = Coupon.find(params[:id])
-
+   count = (@coupon.times_viewed.to_i || 0 ) + 1
+   @coupon.update_attribute(:times_viewed, count)
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @coupon }
@@ -174,9 +176,8 @@ class CouponsController < ApplicationController
   def create
     
     @coupon = Coupon.new(params[:coupon])    
-        
     respond_to do |format|
-      if @coupon.save
+      if @coupon.save 
         format.html { redirect_to(@coupon, :notice => 'Coupon was successfully created.') }
         format.xml  { render :xml => @coupon, :status => :created, :location => @coupon }
       else
@@ -190,7 +191,7 @@ class CouponsController < ApplicationController
   # PUT /coupons/1.xml
   def update
     @coupon = Coupon.find(params[:id])
-
+    
     respond_to do |format|
       if @coupon.update_attributes(params[:coupon])
         format.html { redirect_to(@coupon, :notice => 'Coupon was successfully updated.') }

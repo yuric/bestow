@@ -1,4 +1,10 @@
 Doutdes01::Application.routes.draw do
+  
+  get "unsubscribe/nomoreemailforyou"
+  get "unsubscribe/resubscribe"
+  get "unsubscribe/cancelsubscription"
+  
+
   get "hithere/contact"
   get "hithere/about"
   get "hithere/feedback"

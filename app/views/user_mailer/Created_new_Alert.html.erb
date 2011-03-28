@@ -5,6 +5,10 @@
   </head>
 	<body> 
     <h1>Hi <%= @alert.try(:email) || "Guest" %>,</h1>
+
+	<p> To unsubscribe click here: <%= link_to "Unsubscribe", URI.escape("http://#{Rails.root.to_s}/unsubscribe/cancelsubscription?email=#{@alert.email}&secrettoken=#{@alert.secrettoken}") %>
+	</p>
+	
 	<!--Get the content of the location zip: lng, lat country, etc-->
 	<% contents6 = Net::HTTP.get(URI.parse('http://maps.google.com/maps/geo?key=ABQIAAAATM3EfztvJcb2qSZTDLOq7hS75QhKEw_ehpmpifU5HAvryn-DghRKiQe7E183L2Of-l4VIIM8RsDBsQ&output=xml&q='+"#{@alert.location_zip}&sensor=false"))%><br/>
 

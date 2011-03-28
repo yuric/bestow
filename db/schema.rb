@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110323235114) do
+ActiveRecord::Schema.define(:version => 20110327222448) do
 
   create_table "business_forms", :force => true do |t|
     t.string   "first_name"
@@ -125,6 +125,8 @@ ActiveRecord::Schema.define(:version => 20110323235114) do
     t.string   "alert_owner"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "activealert",  :default => true
+    t.string   "secrettoken"
   end
 
   create_table "single_alerts", :force => true do |t|

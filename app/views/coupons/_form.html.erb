@@ -1,10 +1,5 @@
 <!-- Not sure how I will show/present these value to the users.
 
-<div class="group">
-  <%= f.label :times_viewed, t("activerecord.attributes.coupon.times_viewed", :default => "Times viewed"), :class => :label %>
-  <%= f.text_field :times_viewed, :class => 'text_field' %>
-  <span class="description">Ex: a simple text</span>
-</div>
 
 ***DELETE this attribute from the DB
 <div class="group">	
@@ -32,21 +27,15 @@ http://www.markinns.com/articles/full/displaying_a_from_field_depending_on_previ
 <br/>
 	<%if user_signed_in? %>
 		<%if !current_user.admin?%>
-		<div style="display: none;">
-			<%= f.label :coupon_owner, t("activerecord.attributes.coupon.coupon_owner", :default => "Coupon owner"), :class => :label %>
-			<%= f.text_field :coupon_owner, :readonly => true, :value => current_user.username || "Invalid User" %>
-		</div>
-			
+			<%@coupon.coupon_owner = current_user.username%>
 		<%elsif current_user.admin?%>
 		<div style="display: block;">
 			<%= f.label :coupon_owner, t("activerecord.attributes.coupon.coupon_owner", :default => "Coupon owner"), :class => :label %>
 			<%= f.text_field :coupon_owner, :value => @coupon.coupon_owner || "None" %>
 		</div>	
-			
 		<%else%>
 		<%end%>
 	<%end%>
-	
 	<div class="group">
 	  <%= f.label :angel_business_name, t("activerecord.attributes.coupon.angel_business_name", :default => "Angel business name"), :class => :label %>
 		<%= f.select :angel_business_name, options_for_select(@ba, @coupon.angel_business_name) %> or <%= link_to 'Register a new business', new_businessform_path %> 

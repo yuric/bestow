@@ -36,7 +36,6 @@ class SimplealertsController < ApplicationController
   # GET /simplealerts/new.xml
   def new
     @simplealert = Simplealert.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @simplealert }
@@ -52,10 +51,16 @@ class SimplealertsController < ApplicationController
   # POST /simplealerts.xml
   def create
     @simplealert = Simplealert.new(params[:simplealert])
-
+    @simplealert.secrettoken = SecureRandom.hex(20)#using this to delete alerts
+    
+    if user_signed_in?
+     @simplealert.alert_owner = current_user.username     
+    else
+      @simplealert.alert_owner = "Guest"
+    end
     respond_to do |format|
       if @simplealert.save
-        UserMailer.Created_new_Alert(@simplealert).deliver
+        UserMailer.Created_new_Alert(@simplealert).deliver # unless unsubscribed(@simplealert.activealert) maybe?
         format.html { redirect_to root_url, :notice => "You have successfully created an email alert." }
         format.xml  { render :xml => @simplealert, :status => :created, :location => @simplealert }
       else
@@ -83,10 +88,19 @@ class SimplealertsController < ApplicationController
 
   # DELETE /simplealerts/1
   # DELETE /simplealerts/1.xml
+ 
   def destroy
-    @simplealert = Simplealert.find(params[:id])
+    @simplealert = Simplealert.find(params[:id])    
     @simplealert.destroy
-
+    
+    #DEBUD DELETE ALL
+    #@alerts = Simplealert.find(:all)
+    #@alerts.each do |alert|
+      #alert.destroy
+    #end
+    #END DEBUG DELETE ALL
+    
+    
     respond_to do |format|
       format.html { redirect_to(simplealerts_url) }
       format.xml  { head :ok }

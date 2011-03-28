@@ -10,7 +10,16 @@
   </div>          
   <div class="content">
     <div class="inner">
-      
+        
+		<%if user_signed_in? %>
+			<%if current_user.username == @coupon.coupon_owner || current_user.admin?%>
+	        <p>
+	          <b><%= t("activerecord.attributes.coupon.times_viewed", :default => t("activerecord.labels.times_viewed", :default => "Views")) %>:</b>
+	          <%= @coupon.times_viewed %>
+	        </p>
+			<%end%>
+		<%end%>
+		
         <p>
           <b><%= t("activerecord.attributes.coupon.address_line1", :default => t("activerecord.labels.address_line1", :default => "Address line1")) %>:</b>
           <%= @coupon.address_line1 %>
@@ -124,11 +133,6 @@
         <p>
           <b><%= t("activerecord.attributes.coupon.will_you_support", :default => t("activerecord.labels.will_you_support", :default => "Will you support")) %>:</b>
           <%= @coupon.will_you_support %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.coupon.times_viewed", :default => t("activerecord.labels.times_viewed", :default => "Times viewed")) %>:</b>
-          <%= @coupon.times_viewed %>
         </p>
 
         <p>
