@@ -2,7 +2,7 @@ class SimplealertsController < ApplicationController
   # GET /simplealerts
   # GET /simplealerts.xml
   load_and_authorize_resource
-  before_filter :authenticate_user!, :except => [:index, :new, :create ]
+  before_filter :authenticate_user!, :except => [:index, :new, :create]
   before_filter :loadMetaData
   def loadMetaData
     @pagetitle = "Email Alerts" 

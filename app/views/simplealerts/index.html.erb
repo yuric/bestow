@@ -40,10 +40,15 @@
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", simplealert_path(simplealert) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_simplealert_path(simplealert) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", simplealert_path(simplealert), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            
+			<%if (user_signed_in? && current_user.try(:admin))%>
+				<%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", simplealert_path(simplealert), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+			<%else%>
+				<%= link_to "#{t("web-app-theme.edit", :default => "Disable")}", edit_simplealert_path(simplealert) %>
+			<%end%>
           </td>
         </tr>          
-        <% end -%>
+        <% end %>
       </table>
       <div class="actions-bar wat-cf">
         <div class="actions">
