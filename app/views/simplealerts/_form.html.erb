@@ -20,17 +20,28 @@
     <%= f.text_field :location_zip, :class => 'text_field', :size => 14 %>
 	<% if !f.object.new_record? %>
   		<div class="group">
-    	<%= f.label :activealert, t("activerecord.attributes.businessform.local_notices", :default => "Active"), :class => :label %>
+    	<%= f.label :activealert, t("activerecord.attributes.businessform.local_notices", :default =>  @simplealert.try(:alert_owner) ), :class => :label %>
     	<%= f.check_box :activealert, :class => 'check_box' %>
     	<span class="description">Select to activate subscription: unselect to unsubscribe.</span>
-  </div>
+  		</div>
 	<%end %>
   </div>
         
 <div class="group navform wat-cf">
-  <button class="button" type="submit">
-    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Subscribe") %>
+	
+	
+	<% if f.object.new_record? %>
+		<%submit = "Subscribe"%>
+	<%else%>
+		<%submit = "update"%>
+	<%end%>
+  	<button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => submit) %>
   </button>
+
+
+
+
   <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
     <%= link_to t("web-app-theme.cancel", :default => "Cancel"), root_path, :class => "text_button_padding link_button" %>
 </div>

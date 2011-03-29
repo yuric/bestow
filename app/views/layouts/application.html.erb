@@ -48,8 +48,12 @@
 		
       <h1><a href="/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Doutdes: Give so others may give</a></h1>
 
-		<div id="simplealerts_sign"> 
-		  <a href="#" style="display: block" onclick="ShowHideWithAnimation(simplealerts_outter); return false;">Email my place<img style="position:absolute;right:0;top:0;" src="/images/plus.png" width="15" height="15" alt="text">
+		<div id="simplealerts_sign">
+			<% if user_signed_in? %> 
+				<a href="<%= new_simplealert_path %>" style="display: block">Email my place<img style="position:absolute;right:0;top:0;" src="/images/plus.png" width="15" height="15" alt="text">
+			<%else%>
+		  		<a href="#" style="display: block" onclick="ShowHideWithAnimation(simplealerts_outter); return false;">Email my place<img style="position:absolute;right:0;top:0;" src="/images/plus.png" width="15" height="15" alt="text">
+		<%end%>
 		</div>
 
       <div id="user-navigation">

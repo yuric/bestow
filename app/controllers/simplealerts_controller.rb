@@ -1,9 +1,10 @@
 class SimplealertsController < ApplicationController
   # GET /simplealerts
   # GET /simplealerts.xml
-  load_and_authorize_resource
   before_filter :authenticate_user!, :except => [:index, :new, :create]
+  #load_and_authorize_resource
   before_filter :loadMetaData
+  
   def loadMetaData
     @pagetitle = "Email Alerts" 
     @per_page  = "100"
@@ -24,12 +25,17 @@ class SimplealertsController < ApplicationController
   # GET /simplealerts/1
   # GET /simplealerts/1.xml
   def show
-    @simplealert = Simplealert.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @simplealert }
+    if user_signed_in? && current_user.admin?
+      @simplealert = Simplealert.find(params[:id])
+    
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @simplealert }
+      end
+    else
+      redirect_to simplealerts_path, :notice => "You do not have permission for this action. Contact us if you want this ability implemented. Thanks ;)"
     end
+    
   end
 
   # GET /simplealerts/new
@@ -45,13 +51,15 @@ class SimplealertsController < ApplicationController
   # GET /simplealerts/1/edit
   def edit
     @simplealert = Simplealert.find(params[:id])
+    authorize! :edit, @simplealert
+    
   end
 
   # POST /simplealerts
   # POST /simplealerts.xml
   def create
     @simplealert = Simplealert.new(params[:simplealert])
-    @simplealert.secrettoken = SecureRandom.hex(20)#using this to delete alerts
+    @simplealert.secrettoken = SecureRandom.hex(64)#using this to delete alerts
     
     if user_signed_in?
      @simplealert.alert_owner = current_user.username     
@@ -74,7 +82,8 @@ class SimplealertsController < ApplicationController
   # PUT /simplealerts/1.xml
   def update
     @simplealert = Simplealert.find(params[:id])
-
+    authorize! :update, @simplealert
+    
     respond_to do |format|
       if @simplealert.update_attributes(params[:simplealert])
         format.html { redirect_to(@simplealert, :notice => 'Simplealert was successfully updated.') }
@@ -90,7 +99,9 @@ class SimplealertsController < ApplicationController
   # DELETE /simplealerts/1.xml
  
   def destroy
-    @simplealert = Simplealert.find(params[:id])    
+    @simplealert = Simplealert.find(params[:id])
+    authorize! :destroy, @simplealert
+        
     @simplealert.destroy
     
     #DEBUD DELETE ALL

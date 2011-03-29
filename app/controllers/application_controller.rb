@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       @simplealert = Simplealert.new
   end
   ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
-    #Contributions from:
+    #Contributions from: This makes sure the errors are properly placed and that the textfield do not change style when with errors
     #https://rails.lighthouseapp.com/projects/8994/tickets/5803-actionviewbasefield_error_proc-ignores-label_tags-with-class-options
     #if html_tag =~ /<label/# user this one to have the errors just bellow instance.
     #  %|<div class="fieldWithErrors">#{html_tag}</div>|.html_safe

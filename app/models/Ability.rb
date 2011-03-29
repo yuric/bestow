@@ -7,7 +7,7 @@ class Ability
     
     if user.admin?
       can :manage, :all
-    else
+    elsif !user.admin?
       can :read, :all#Coupon, Foocancan, Businessform
       
       #Foocan
@@ -34,16 +34,25 @@ class Ability
       can :create, Businessform
       can :update, Businessform do |businessform|
        businessform.try(:user_login) == user.username || user.admin?
+       
       end
       #end
       
       #simple alert
       can :create, Simplealert
       can :update, Simplealert do |simplealert|
-       simplealert.try(:alert_owner) == user.username || user.admin?
-      end
-      #end
+        simplealert.try(:alert_owner) == user.username || user.admin?
         
+      end
+      can :edit, Simplealert do |simplealert|
+        simplealert.try(:alert_owner) == user.username || user.admin?
+        
+      end
+
+      #SA end
+      else
+        #do nothing  
     end
   end
 end
+#puts "\n\n\n\n\n\n\n\n\n\n\n\n\n\nSNoTry:#{simplealert.alert_owner}\nName:#{user.username}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"

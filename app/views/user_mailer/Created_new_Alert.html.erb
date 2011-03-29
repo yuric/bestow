@@ -6,7 +6,7 @@
 	<body> 
     <h1>Hi <%= @alert.try(:email) || "Guest" %>,</h1>
 
-	<p> To unsubscribe click here: <%= link_to "Unsubscribe", URI.escape("http://#{Rails.root.to_s}/unsubscribe/cancelsubscription?email=#{@alert.email}&secrettoken=#{@alert.secrettoken}") %>
+	<p> To unsubscribe click here: <%= link_to "Unsubscribe", URI.escape("#{root_url}"+'unsubscribe/cancelsubscription?email='+"#{@alert.email}"+'&secrettoken='+"#{@alert.secrettoken}") %>
 	</p>
 	
 	<!--Get the content of the location zip: lng, lat country, etc-->
