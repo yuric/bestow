@@ -28,22 +28,18 @@
   </div>
         
 <div class="group navform wat-cf">
-	
-	
+		
 	<% if f.object.new_record? %>
 		<%submit = "Subscribe"%>
 	<%else%>
-		<%submit = "update"%>
+		<%submit = "Update"%>
 	<%end%>
   	<button class="button" type="submit">
     <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => submit) %>
   </button>
 
-
-
-
   <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
-    <%= link_to t("web-app-theme.cancel", :default => "Cancel"), root_path, :class => "text_button_padding link_button" %>
+    <%= link_to t("web-app-theme.cancel", :default => "Cancel"), simplealerts_path, :class => "text_button_padding link_button" %>
 </div>
 	<% if !current_user %>
      <li><a href="<%= new_user_registration_path %>">Sign up</a> or <a href="<%= new_user_session_path %>"> Sign In</a> to manage multiple alerts</li>
