@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
       html_tag
     end
   end
-  "errors/notfound404"
+  
   def method_missing(id, *args)
       redirect_to 'errors/notfound404'
       
