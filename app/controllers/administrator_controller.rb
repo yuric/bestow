@@ -10,8 +10,13 @@ class AdministratorController < ApplicationController
     
   end
 
-  def details
+  def details    
     
+  end
+  
+  def show
+    @pagetitle = "Error"
+    render :status => 404
   end
 
 end

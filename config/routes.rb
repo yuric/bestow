@@ -1,5 +1,9 @@
 Doutdes01::Application.routes.draw do
   
+  #just type in the entire addres errors/notfound404 and it should work right off the bat.
+  get "errors/notfound404"
+  get "errors/authorizednot"
+  #need to route the above rotes to /404 and /500 etc
   get "unsubscribe/nomoreemailforyou"
   get "unsubscribe/resubscribe"
   get "unsubscribe/cancelsubscription"
