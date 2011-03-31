@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :simple_alerts_creation
   rescue_from CanCan::AccessDenied, :with => :deny_access
+  #routing no record found
   def deny_access
     flash[:error] = "This is not the page you are looking for. Move along."
     #say here something like: UserX canndo perform this acction
