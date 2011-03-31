@@ -26,5 +26,9 @@ class ApplicationController < ActionController::Base
       html_tag
     end
   end
+  protected
+    def render_optional_error_file(status_code)
+      render :template => "errors/notfound404", :status => 500, :layout => 'application'
+    end
       
 end
