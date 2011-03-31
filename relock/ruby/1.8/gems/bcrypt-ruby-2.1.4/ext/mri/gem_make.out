@@ -1,0 +1,24 @@
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby extconf.rb 
+creating Makefile
+
+make
+Makefile:128: warning: overriding commands for target `/Users/lnngarrett/Desktop/Yuri/Do'
+Makefile:122: warning: ignoring old commands for target `/Users/lnngarrett/Desktop/Yuri/Do'
+Makefile:128: warning: overriding commands for target `ut'
+Makefile:122: warning: ignoring old commands for target `ut'
+gcc -Wall  -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin10.0 -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin10.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -fno-common -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   -c bcrypt.c
+gcc -Wall  -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin10.0 -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin10.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -fno-common -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   -c bcrypt_ext.c
+gcc -Wall  -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin10.0 -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin10.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -fno-common -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   -c blowfish.c
+cc -arch i386 -arch x86_64 -pipe -bundle -undefined dynamic_lookup -o bcrypt_ext.bundle bcrypt.o bcrypt_ext.o blowfish.o -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64     -lruby  -lpthread -ldl  
+
+make install
+Makefile:128: warning: overriding commands for target `/Users/lnngarrett/Desktop/Yuri/Do'
+Makefile:122: warning: ignoring old commands for target `/Users/lnngarrett/Desktop/Yuri/Do'
+Makefile:128: warning: overriding commands for target `ut'
+Makefile:122: warning: ignoring old commands for target `ut'
+mkdir -p /Users/lnngarrett/Desktop/Yuri/Do
+mkdir -p ut
+mkdir -p des/doutdes01/relock/ruby/1.8/gems/bcrypt-ruby-2.1.4/lib
+/usr/bin/install -c -m 0755 bcrypt_ext.bundle /Users/lnngarrett/Desktop/Yuri/Do ut des/doutdes01/relock/ruby/1.8/gems/bcrypt-ruby-2.1.4/lib
+install: /Users/lnngarrett/Desktop/Yuri/Do: Inappropriate file type or format
+make: *** [des/doutdes01/relock/ruby/1.8/gems/bcrypt-ruby-2.1.4/lib/bcrypt_ext.bundle] Error 71
