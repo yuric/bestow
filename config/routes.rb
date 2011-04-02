@@ -28,9 +28,11 @@ Doutdes01::Application.routes.draw do
   match ":name" => "outside_viewer#show", :as => :outside_viewerLinkeage# ORIGINAL HOME 
   match "/:redirect", :to => "errors#notfound404"  
 
+
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => "coupons#index"
+  
 
 
   # The priority is based upon order of creation:
