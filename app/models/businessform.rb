@@ -33,7 +33,7 @@ class Businessform < ActiveRecord::Base
     [address_line_1, city, state, zipcode].compact.join(', ')
   end
   
-  #validates #:user_login,
+  #validates :user_login,
   #:first_name,
   #:last_name,
   #:business_name,

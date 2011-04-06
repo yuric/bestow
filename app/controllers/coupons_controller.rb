@@ -9,6 +9,7 @@ class CouponsController < ApplicationController
     @pagetitle = "Welcome to Doutdes" 
     @prox      = 25# proximity in miles for now
     @per_page  = 2 # items per page in pagination *will_paginate
+    @default_distance = "ALL" # Initial distance searched as user first visits
     
     # I select some business form here so I can pass them to new coupon dropdown menu
     if (user_signed_in?)#user_signed_in?

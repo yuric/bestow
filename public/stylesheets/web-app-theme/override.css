@@ -192,9 +192,7 @@ div#simplealerts_outter
         -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
         background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
-div#simplealerts_sign444
-{
-}
+
 div#simplealerts_sign
 {
 	display:block; 
@@ -314,4 +312,138 @@ http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/
 	padding: 1px 0;
 	margin: 0;
 	display: inline;
+}
+.smallCouponContainer
+{
+	float:none;
+}
+.couponSmall
+{
+  float: left;
+  height: 120px;
+  margin: 20px; /* This will add margin to all 4 sides*/
+  position:relative;/* Align relative to others*/
+  /*margin-bottom: 20px;
+  margin-top: 20px;*/
+
+  background: #e4e4e4;
+  width: 40%;
+  /*background: -moz-linear-gradient(top, #333 0%, #000 100%); 
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#gray), color-stop(100%,#white));*/
+	-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-moz-background-clip: border;     /* Firefox 3.6 */
+      -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+      background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+      -moz-background-clip: padding;     /* Firefox 3.6 */
+      -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+      background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+      -moz-background-clip: content;     /* Firefox 3.6 */
+      -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+      background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+	  -moz-box-shadow: 3px 3px 4px #000;
+		-webkit-box-shadow: 3px 3px 4px #000;
+		box-shadow: 3px 3px 4px #000;
+		/* For IE 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+		/* For IE 5.5 - 7 */
+		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+
+}
+.couponLeft
+{
+  /*margin: 20px;  This will add margin to all 4 sides*/
+  margin-bottom: 20px;
+  background: #e4e4e4;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:100;
+  /*background: -moz-linear-gradient(top, #333 0%, #000 100%); 
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#gray), color-stop(100%,#white));*/
+	-moz-border-radius: 4px;
+		-webkit-border-radius: 5px;
+		-moz-background-clip: border;     /* Firefox 3.6 */
+      -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+      background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+      -moz-background-clip: padding;     /* Firefox 3.6 */
+      -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+      background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+      -moz-background-clip: content;     /* Firefox 3.6 */
+      -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+      background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+	  -moz-box-shadow: 3px 3px 4px #000;
+		-webkit-box-shadow: 3px 3px 4px #000;
+		box-shadow: 3px 3px 4px #000;
+		/* For IE 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+		/* For IE 5.5 - 7 */
+		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+
+}
+.couponRight
+{
+  /*margin: 20px;  This will add margin to all 4 sides*/
+  z-index:100;
+  margin-bottom: 0px;
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+.couponCenter
+{
+  /*margin: 20px;  This will add margin to all 4 sides*/
+  position: absolute;
+  background: green;
+  bottom:30%;
+  right:30%;
+  top:30%;
+  left:30%;
+ 
+}
+.container 
+{
+  clear: both;
+}
+.bottomInfo {/*http://nicolasgallagher.com/pure-css-speech-bubbles/demo/default.css*/
+  margin-bottom: 0px;
+  position:absolute;
+  bottom:0px;
+  right:0px;
+  width:60%;
+	padding:14px;
+	text-color:white; 
+	color:#fff;
+	background:#075698; /* default background for browsers without gradient support */
+	/* css3 */
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
+	background:-moz-linear-gradient(#2e88c4, #075698);
+	background:-o-linear-gradient(#2e88c4, #075698);
+	background:linear-gradient(#2e88c4, #075698);
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}
+.smallSummary {
+	position:absolute;
+	width:30%;
+	height:100%; 
+  	top:0px;
+  	left:0px;
+	padding:0px 0px;
+	margin:0;
+	color:white;
+	background:#f3961c; /* default background for browsers without gradient support */
+	/* css3 */
+    background:-webkit-gradient(linear, 0 0, 0 100%, from(#f9d835), to(#f3961c));
+	background:-moz-linear-gradient(#f9d835, #f3961c);
+	background:-o-linear-gradient(#f9d835, #f3961c);
+	background:linear-gradient(#f9d835, #f3961c);
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
 }

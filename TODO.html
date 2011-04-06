@@ -12,6 +12,22 @@ vivoei.com
 Mutations of VIVO are greatly available pvivo (p for planet)
 -.-.-.-.-.
 
+*******Priority TODOS*******
+
+1- Alerts send email when coupon is created within the area
+2- Page Redirect: If the page does not exist I need to redirect the user to an 404 and what not page. I can use the layout I have for the site and incorporate it into the 404 error page. Error page should be recognizable as my site's page.
+3- Some kind of user sign up control ( Maybe BETA Invitations Railscast 124, also have a list of emails to allow sign up)
+4- Determine the logic of a Business sign up and helping a non-profit to a non-profit helping themselves or even other nonprofit
+
+*Interface
+1- Reset/unlock, autenticate, all those views need to be worked on
+2- Consider a small map image of location and when user clicks it a javascript object appears on screen with a large draggable map
+
+*Other
+1- Privacy policy needs to be worked on
+2- Coupons, bsForm looks
+
+****************************
 TODO Before release
 
 √ 2- BusinessForm and coupons validation
@@ -19,14 +35,19 @@ TODO Before release
 √ 4- edit profile "change password/email" is not showing errors properly.
 √ 3- Not logged in user can: see coupons, maybe coupons creator busprofile, signup for alerts, like stuff, donate, etc,
 √ 9- Feedback options: Use a existing one or create my own: e.i. Uservoice etc
-11- Route user/signin and user/signup to /register and /signin
-* 13- How will the user know if he is creating a busform for his non-profit or for a profit and how do they know who should create a 
-busform. The busness form dynamic is not clear.
+
+4- Validate x if y: http://railscasts.com/episodes/41-conditional-validations
+5- Get read f user aggreament acceptance if not new user, bus form, coupon
 6- Unexisting Page Redirect # I need to round various errors such as route errors, no record found, no action etc
-10-Display disabled alerts?
-12- Administrator interface needs to be augmented. 
-7- Sign up test user to our page: new MVC with name and email
-11- I need to figure out the logic of the entire process.
+10- Display disabled alerts?
+13- Alerts send email when coupon is created within the area
+14- Page Redirect: If the page does not exist I need to redirect the user to an 404 and what not page. I ca use the layout I have for the site and incorporate it into the 404 error page. Error page should be recognizable as my site's page.
+15- Consider a small map image of location and when user clicks it a javascript object appears on screen with a large draggable map
+16- Privacy policy needs to be worked on
+17- BETA Invitations Railscast 124
+* 13- How will the user know if he is creating a busform for his non-profit or for a profit and how do they know who should create a 
+busform. The busness form dynamic is not clear.(auto fill + user may edit)
+14- Admin signing up/editing users 
 
 #LOOKS STUFF
 #rails g web_app_theme:themed simplealerts --will-paginate
@@ -34,22 +55,14 @@ busform. The busness form dynamic is not clear.
 8- Coupons, bsForm looks
 9-make logo
 10-design coupons, business forms,
+11- Reset/unlock, autenticate, all those views need to be worked on
+12- Administrator interface needs to be augmented. 
 
-
-
-<% if current_user %>
-          <% if current_user && !current_user.admin?%>
-              <% @simplealert.alert_owner = current_user.username || "Invalid" %>
-          <%elsif current_user && current_user.admin?%>
-	        	<%= f.label :alert_owner %> 
-              <%= f.text_field :alert_owner, :value => @simplealert.alert_owner || "Admin" %> 
-          <%else%>
-          	<% @simplealert.alert_owner = current_user.username || "Invalid" %>
-      	<%end%>
-	<br/>
-<% else %><br/>
-	<div class="field" style="display:none"><!--I hide this because I want to save with User info but Without displaying-->
-   <%= f.label :alert_owner %>
-   <%= f.text_field :alert_owner, :readonly => true, :value => "Guest" %>
-	</div>
-<%end%>
+#Low Priority (maybe version 1.5 and whatnot)
+1 -Allow users to choose ratio of already created alerts !f.newobject
+2- Sign in with name, email, and/or facebook, twitter etc. (there is a railscast on that)
+3- carrierwave for image uploads (also on railscast)
+4- Create bunch of alerts at the same time.
+5- Gravatar is really easy to add avatar (Raiscast 244)
+6- Route user/signin and user/signup to /register and /signin
+7- Hints (http://www.askthecssguy.com/2007/03/form_field_hints_with_css_and.html)

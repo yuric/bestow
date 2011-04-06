@@ -7,16 +7,35 @@
   Search HeadCoupons
 <% end %>
 
+<!-- Start small coupon mock up-->
+<!--
+<% @coupons.each do |coupon| -%>
+	<div class="couponSmall">
+		
+		<div class="couponRight">
+			 <%= link_to "More Details", coupon_path(coupon) %>
+		</div>
+		
+		<div class="couponLeft">
+			<%= coupon.angel_business_name %> in support of
+			<%= coupon.qualified_organization_name %>
+		</div>
+		
+		<div class="couponCenter">
+			<%= coupon.support_summary %>
+		</div>
 
-
-<div id="show_map"><a href="#" onclick="ShowHideWithAnimation(mapa); return false;"> <img src="/images/Map_Icon.png" /> </a></div>
+	</div>
+<%end%>
+-->
+<!--End small coupon mock up-->
 
 <div id="searchMain">
 	<% form_tag request.path, :method => 'get' do %>
 	<%= text_field_tag :searchCity, params[:searchCity] || [@city] || "" %>
 	<%= select_tag :searchState, options_for_select(States::US_STATES, params[:searchState] || [@state]) %>
 	<%= text_field_tag :searchCountry, params[:searchCountry] || [@countryNameMain] || "" %>
-	<%= select_tag :proximity, options_for_select(Coupon::PROXIMITYOPTIONS, params[:proximity] || ["500"]) %>
+	<%= select_tag :proximity, options_for_select(Coupon::PROXIMITYOPTIONS, params[:proximity] || [@default_distance]) %>
 	<%= select_tag :proximityUnits, options_for_select(Coupon::DISTANCEOPTIONS) %>
 	<%= submit_tag "Search" %>  
 	<%end%> 
@@ -31,36 +50,6 @@
 
 </div>
 <br/>
-
-<!-- Old Search view
-<div class ="block", id= "block-text">
-	<div class="secondary-navigation">
-	    <ul class="wat-cf">
-	            <li class="active first"><a href="#block-text">Search</a></li>
-	            <li><a href="#block-tables">Advanced Search</a></li>
-	     </ul>
-	</div>
-	<div class="content">
-		<h2 class="title">Search Location</h2>
-		<div class = "inner">
-			<div id="searchMain"
-				<%= form_tag '/' do %>
-				I think the Coupons bellow are near you: (No so much? Please give me the correct information bellow)<br/>
-				<%= text_field_tag :searchCity, params[:searchCity] || [@city]  || "" %>
-				<%= select_tag :searchState, options_for_select(States::US_STATES, params[:searchState] || [@state]) %>
-				<%= text_field_tag :searchCountry, params[:searchCountry] || [@countryNameMain] || "" %>
-				<%= select_tag :proximity, options_for_select(Coupon::PROXIMITYOPTIONS, params[:proximity]||["25"]) %>
-				<%= select_tag :proximityUnits, options_for_select(Coupon::DISTANCEOPTIONS) %>
-				<%= submit_tag "Search" %>  <%end%> 
-			</div>
-			
-			<br/><br/>
-		</div>
-	</div>
-</div>-->
-
-
-
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
@@ -100,16 +89,85 @@
         <% end -%>
       </table>
       <div class="actions-bar wat-cf">
+		<div class="smallCouponContainer">
+			
+			<!-- Start small coupon mock up-->
+			
+			<% @coupons.each do |coupon| %>
+			<div class="couponSmall">
+				
+				<div class="couponLeft">
+					<%=coupon.support_summary%>
+				</div>
+
+				<div class="couponRight">
+					<%= link_to(image_tag("/images/ViewDetailsSmall.png"), coupon_path(coupon)) %>
+				</div>
+
+				<div class="couponCenter">
+					<%=coupon.coupon_category%>
+				</div>
+				<div class="bottomInfo">
+					<%=coupon.city%>,&nbsp;<%=coupon.state%>
+				</div>
+				<div class="smallSummary">
+				<p><%=coupon.support_summary%></p>
+				</div>
+			</div>
+				
+			<%end%>
+			<!--End small coupon mock up-->
+			<div class="couponSmall">
+
+				<div id="show_map"><a href="#" onclick="ShowHideWithAnimation(mapa); return false;"> <img src="/images/Map_Icon.png" /> </a></div>
+
+				<div class="couponLeft">
+					item to the left
+				</div>
+
+				<div class="couponRight">
+					item to the Right
+				</div>
+
+				<div class="couponCenter">
+					item to the Center
+				</div>
+				<div class="bottomInfo">
+					More Details
+				</div>
+
+			</div>
+
+			<div class="couponSmall">
+
+				<div id="show_map"><a href="#" onclick="ShowHideWithAnimation(mapa); return false;"> <img src="/images/Map_Icon.png" /> </a></div>
+
+				<div class="couponLeft">
+					item to the left
+				</div>
+
+				<div class="couponRight">
+					item to the Right
+				</div>
+
+				<div class="couponCenter">
+					item to the Center
+				</div>
+
+			</div>
+
+		</div>
         <div class="actions">
         </div>
 		  <div clas="page_info">
 		    <%= page_entries_info @coupons %>
 		  	<%= will_paginate @coupons, :container => true %>
 		  </div>
-        
       </div>
-    </div>
+
+	</div>
   </div>
 </div>
+
 
 <% content_for :sidebar, render(:partial => 'sidebar') -%>

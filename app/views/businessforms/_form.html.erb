@@ -29,26 +29,39 @@
 <%end%>
 
   <div class="group">
-    <%= f.label :first_name, t("activerecord.attributes.businessform.first_name", :default => "First name"), :class => :label %>
+
+    <%= f.label :business_name, t("activerecord.attributes.businessform.business_name", 
+	:default => mark_required(@businessform, :business_name)+"Business name"), 
+	:class => :label %> 
+	
+    <%= f.text_field :business_name, :class => 'text_field' %>
+    <span class="description">ex: Tesla Electric Light & Manufacturing</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :first_name, t("activerecord.attributes.businessform.first_name", 
+	:default => mark_required(@businessform, :business_name)+"Your First name"),
+	:class => :label %>
 	<!-- <div class="errorText"><%= @businessform.errors.on(:first_name) %></div>-->
     <%= f.text_field :first_name, :class => 'text_field' %>
     <span class="description">ex: Nikola</span>
   </div>
 
   <div class="group">
-    <%= f.label :last_name, t("activerecord.attributes.businessform.last_name", :default => "Last name"), :class => :label %>
+    <%= f.label :last_name, t("activerecord.attributes.businessform.last_name", 
+	:default => mark_required(@businessform, :business_name)+"Your Last name"), :class => :label %>
     <%= f.text_field :last_name, :class => 'text_field' %>
     <span class="description">ex: Tesla</span>
   </div>
-
+	
   <div class="group">
-    <%= f.label :business_name, t("activerecord.attributes.businessform.business_name", :default => "Business name"), :class => :label %>
-    <%= f.text_field :business_name, :class => 'text_field' %>
-    <span class="description">ex: Tesla Electric Light & Manufacturing</span>
+    <%= f.label :local_notices, t("activerecord.attributes.businessform.local_notices", :default => mark_required(@businessform, :business_name)+"I swear..."), :class => :label %>
+    <%= f.check_box :local_notices, :class => 'check_box' %>
+    <span class="description">I am an employee of this company (or other explicitly authorized representative), and I am neither an advertising agency nor a shady individual who is up to no good.</span>
   </div>
 
   <div class="group">
-    <%= f.label :address_line_1, t("activerecord.attributes.businessform.address_line_1", :default => "Address line 1"), :class => :label %>
+    <%= f.label :address_line_1, t("activerecord.attributes.businessform.address_line_1", :default => mark_required(@businessform, :business_name)+"Address line 1"), :class => :label %>
     <%= f.text_field :address_line_1, :class => 'text_field' %>
     <span class="description">ex: 122 Awesome Street (*No P.O. Boxes Please)</span>
   </div>
@@ -60,60 +73,54 @@
   </div>
 
   <div class="group">
-    <%= f.label :city, t("activerecord.attributes.businessform.city", :default => "City"), :class => :label %>
+    <%= f.label :city, t("activerecord.attributes.businessform.city", :default => mark_required(@businessform, :business_name)+"City"), :class => :label %>
     <%= f.text_field :city, :class => 'text_field' %>
     <span class="description">ex: San Francisco</span>
   </div>
 
   <div class="group">
-    <%= f.label :country, t("activerecord.attributes.businessform.country", :default => "Country"), :class => :label %>
+    <%= f.label :country, t("activerecord.attributes.businessform.country", :default => mark_required(@businessform, :business_name)+"Country"), :class => :label %>
 	<%= f.select :country, options_for_select(Variables::COUTRIES_SUPPORTED, @businessform.country) %>
     <span class="description">ex: US only for now. Would you like to help us expand?</span>
   </div>
 
   <div class="group">
-    <%= f.label :state, t("activerecord.attributes.businessform.state", :default => "State"), :class => :label %>
+    <%= f.label :state, t("activerecord.attributes.businessform.state", :default => mark_required(@businessform, :business_name)+"State"), :class => :label %>
 	<%= f.select :state, options_for_select(Variables::US_STATES, @businessform.state) %>
     <span class="description">ex: US only for now</span>
   </div>
 
   <div class="group">
-    <%= f.label :zipcode, t("activerecord.attributes.businessform.zipcode", :default => "Zipcode"), :class => :label %>
+    <%= f.label :zipcode, t("activerecord.attributes.businessform.zipcode", :default => mark_required(@businessform, :business_name)+"Zipcode"), :class => :label %>
     <%= f.text_field :zipcode, :class => 'text_field' %>
     <span class="description">ex: 12345 or 12345-6789</span>
   </div>
 
   <div class="group">
-    <%= f.label :local_notices, t("activerecord.attributes.businessform.local_notices", :default => "Local notices"), :class => :label %>
-    <%= f.check_box :local_notices, :class => 'check_box' %>
-    <span class="description">ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :website, t("activerecord.attributes.businessform.website", :default => "Website"), :class => :label %>
+    <%= f.label :website, t("activerecord.attributes.businessform.website", :default => mark_required(@businessform, :business_name)+"Website"), :class => :label %>
     <%= f.text_field :website, :class => 'text_field' %>
     <span class="description">ex: www.example.com, http://www.example.com.br etc</span>
   </div>
 
   <div class="group">
-    <%= f.label :phone_number, t("activerecord.attributes.businessform.phone_number", :default => "Phone number"), :class => :label %>
+    <%= f.label :phone_number, t("activerecord.attributes.businessform.phone_number", :default => mark_required(@businessform, :business_name)+"Phone number"), :class => :label %>
 	<%= f.text_field :phone_number, :class => 'text_field'%>
     <span class="description">ex: 707.541.X0X0 or 707-940-0X0X</span>
   </div>
 
   <div class="group">
-    <%= f.label :business_category, t("activerecord.attributes.businessform.business_category", :default => "Business category"), :class => :label %>	
+    <%= f.label :business_category, t("activerecord.attributes.businessform.business_category", :default => mark_required(@businessform, :business_name)+"Business category"), :class => :label %>	
 	<%= f.select :business_category, options_for_select(Variables::BUSINESS_CATEGORIES, @businessform.business_category) %>
   </div>
 
   <div class="group">
-    <%= f.label :business_subcategory, t("activerecord.attributes.businessform.business_subcategory", :default => "Business subcategory"), :class => :label %>
+    <%= f.label :business_subcategory, t("activerecord.attributes.businessform.business_subcategory", :default => mark_required(@businessform, :business_name)+"Business subcategory"), :class => :label %>
     <%= f.text_field :business_subcategory, :class => 'text_field', :maxlength => 110 %>
     <span class="description">ex: Vegetarian Restaurant</span>
   </div>
 
   <div class="group">
-    <%= f.label :more_about_your_business, t("activerecord.attributes.businessform.more_about_your_business", :default => "More about your business"), :class => :label %>
+    <%= f.label :more_about_your_business, t("activerecord.attributes.businessform.more_about_your_business", :default => mark_required(@businessform, :business_name)+"More about your business"), :class => :label %>
     <%= f.text_area :more_about_your_business, :class => 'text_area' %>
     <span class="description">hint: This will be shown when user want to read more extensively about your comapany</span>
   </div>

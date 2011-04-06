@@ -47,10 +47,16 @@ class Coupon < ActiveRecord::Base
                            
   #******TODO: Validate all the hidden fields as well to prevent hacking
   validates  :angel_business_name,
+  #:city,
+  #:state,
+  #:country,
+  #:zipcode,
+  #:angel_business_name,
   #:support_summary,
   #:angel_business_type,
+  #:qualified_organization_name,
   #:qualified_organization_type,
-  :qualified_organization_name,
+  #:qualified_organization_name,
   #:angel_discription_zoom_zero_ab,
   #:angel_discription_zoom_zero_qo,
   :cause_start_date,
