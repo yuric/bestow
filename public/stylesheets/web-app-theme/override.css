@@ -3,6 +3,14 @@
 /*<li class="login"><%= link_to " Sign In", new_user_session_path %></li>
 <li></li>
 <li class="login"><%= link_to " Sign Up", new_user_registration_path %></li>*/
+#header {
+  background: #36393d; /* default background for browsers without gradient support */
+	/* css3 */
+  /*background:-webkit-gradient(linear,0 0, 0% 100%, from(gray), to(#36393d));
+  background:-moz-linear-gradient(gray, #36393d);
+  background:-o-linear-gradient(gray, #36393d);
+  background:linear-gradient(gray,#36393d);*/
+}
 #user-navigation a.login {
   background: green;
   padding: 1px 4px;
@@ -325,13 +333,14 @@ http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/
   position:relative;/* Align relative to others*/
   /*margin-bottom: 20px;
   margin-top: 20px;*/
-
-  background: #e4e4e4;
   width: 40%;
+  border:2px dotted orange;
+
   /*background: -moz-linear-gradient(top, #333 0%, #000 100%); 
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#gray), color-stop(100%,#white));*/
-	-moz-border-radius: 10px;
-		-webkit-border-radius: 10px;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
 		-moz-background-clip: border;     /* Firefox 3.6 */
       -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
       background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
@@ -343,13 +352,21 @@ http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/
       -moz-background-clip: content;     /* Firefox 3.6 */
       -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
       background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-	  -moz-box-shadow: 3px 3px 4px #000;
-		-webkit-box-shadow: 3px 3px 4px #000;
-		box-shadow: 3px 3px 4px #000;
+	  -moz-box-shadow: 6px 6px 8px #000;
+		-webkit-box-shadow: 6px 6px 8px #000;
+		box-shadow: 6px 6px 8px #000;
 		/* For IE 8 */
 		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
 		/* For IE 5.5 - 7 */
 		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+		/* Fallback for web browsers that doesn't support RGBa */
+		background: rgb(0, 0, 0);
+		/* RGBa with 0.6 opacity */
+		background: rgba(0, 0, 0, 0.5);
+		/* For IE 5.5 - 7*/
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+		/* For IE 8*/
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 
 }
 .couponLeft
@@ -391,18 +408,30 @@ http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/
   z-index:100;
   margin-bottom: 0px;
   position:absolute;
-  bottom:0;
-  right:0;
+  bottom:2px;
+  right:2px;
 }
-.couponCenter
+.couponMain
 {
   /*margin: 20px;  This will add margin to all 4 sides*/
   position: absolute;
   background: green;
-  bottom:30%;
-  right:30%;
-  top:30%;
-  left:30%;
+  right:0%;
+  top:0%;
+  width:65%;
+  height:55%;
+  padding: 14px 2px;
+  text-color:white; 
+  color:#fff;
+  background:green; /* default background for browsers without gradient support */
+/* css3 */
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#b8db29), to(#5a8f00));
+	background:-moz-linear-gradient(#b8db29, #5a8f00);
+	background:-o-linear-gradient(#b8db29, #5a8f00);
+	background:linear-gradient(#b8db29, #5a8f00);
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
  
 }
 .container 
@@ -412,10 +441,10 @@ http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/
 .bottomInfo {/*http://nicolasgallagher.com/pure-css-speech-bubbles/demo/default.css*/
   margin-bottom: 0px;
   position:absolute;
-  bottom:0px;
-  right:0px;
-  width:60%;
-	padding:14px;
+  bottom:2px;
+  right:2px;
+  width:65%;
+	padding: 14px 2px;
 	text-color:white; 
 	color:#fff;
 	background:#075698; /* default background for browsers without gradient support */
@@ -434,7 +463,7 @@ http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/
 	height:100%; 
   	top:0px;
   	left:0px;
-	padding:0px 0px;
+	padding:0px 2px;
 	margin:0;
 	color:white;
 	background:#f3961c; /* default background for browsers without gradient support */
@@ -446,4 +475,28 @@ http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/
 	-webkit-border-radius:10px;
 	-moz-border-radius:10px;
 	border-radius:10px;
+	
+}
+.small-location-border {
+	position:absolute;
+	padding:0px 0px 0px 0px;
+    bottom:0px;
+    right:0px;
+    width:66%;
+	height:35%;
+	border:2px solid black;
+	color:#333;
+	background:#fff;
+	/* css3 */
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+		/* Fallback for web browsers that doesn't support RGBa */
+		background: rgb(0, 0, 0);
+		/* RGBa with 0.6 opacity */
+		background: rgba(0, 0, 0, 0.1);
+		/* For IE 5.5 - 7*/
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+		/* For IE 8*/
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }

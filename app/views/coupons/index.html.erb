@@ -7,28 +7,7 @@
   Search HeadCoupons
 <% end %>
 
-<!-- Start small coupon mock up-->
-<!--
-<% @coupons.each do |coupon| -%>
-	<div class="couponSmall">
-		
-		<div class="couponRight">
-			 <%= link_to "More Details", coupon_path(coupon) %>
-		</div>
-		
-		<div class="couponLeft">
-			<%= coupon.angel_business_name %> in support of
-			<%= coupon.qualified_organization_name %>
-		</div>
-		
-		<div class="couponCenter">
-			<%= coupon.support_summary %>
-		</div>
 
-	</div>
-<%end%>
--->
-<!--End small coupon mock up-->
 
 <div id="searchMain">
 	<% form_tag request.path, :method => 'get' do %>
@@ -47,8 +26,40 @@
 	<!--For now I am styling the map here because sourcing it to a CSS file was breaking on Chrome-->
 	<div id="map" style="height:250px;
 				"> [Map]</div>
-
 </div>
+<!--Start small coupon display-->
+	
+		<div class="smallCouponContainer">
+						
+			<% @coupons.each do |coupon| %>
+			<div class="couponSmall">
+				
+				<!--<div class="couponLeft">
+					<%=coupon.support_summary%>
+				</div-->
+
+				<div class="couponRight">
+					<%= link_to(image_tag("/images/ViewDetailsSmall.png"), coupon_path(coupon)) %>
+				</div>
+
+				<div class="couponMain">
+					<%=coupon.coupon_category%>
+				</div>
+				<div class="bottomInfo">
+					<%=coupon.city%>,&nbsp;<%=coupon.state%>
+				</div>
+				<div class="smallSummary">
+				<p><%=coupon.support_summary%></p>
+				</div>
+				<div class="small-location-border">
+				<p></p>
+				</div>
+			</div>
+				
+			<%end%>
+		</div>
+<!--End small coupon display-->
+
 <br/>
 <div class="block">
   <div class="secondary-navigation">
@@ -89,74 +100,6 @@
         <% end -%>
       </table>
       <div class="actions-bar wat-cf">
-		<div class="smallCouponContainer">
-			
-			<!-- Start small coupon mock up-->
-			
-			<% @coupons.each do |coupon| %>
-			<div class="couponSmall">
-				
-				<div class="couponLeft">
-					<%=coupon.support_summary%>
-				</div>
-
-				<div class="couponRight">
-					<%= link_to(image_tag("/images/ViewDetailsSmall.png"), coupon_path(coupon)) %>
-				</div>
-
-				<div class="couponCenter">
-					<%=coupon.coupon_category%>
-				</div>
-				<div class="bottomInfo">
-					<%=coupon.city%>,&nbsp;<%=coupon.state%>
-				</div>
-				<div class="smallSummary">
-				<p><%=coupon.support_summary%></p>
-				</div>
-			</div>
-				
-			<%end%>
-			<!--End small coupon mock up-->
-			<div class="couponSmall">
-
-				<div id="show_map"><a href="#" onclick="ShowHideWithAnimation(mapa); return false;"> <img src="/images/Map_Icon.png" /> </a></div>
-
-				<div class="couponLeft">
-					item to the left
-				</div>
-
-				<div class="couponRight">
-					item to the Right
-				</div>
-
-				<div class="couponCenter">
-					item to the Center
-				</div>
-				<div class="bottomInfo">
-					More Details
-				</div>
-
-			</div>
-
-			<div class="couponSmall">
-
-				<div id="show_map"><a href="#" onclick="ShowHideWithAnimation(mapa); return false;"> <img src="/images/Map_Icon.png" /> </a></div>
-
-				<div class="couponLeft">
-					item to the left
-				</div>
-
-				<div class="couponRight">
-					item to the Right
-				</div>
-
-				<div class="couponCenter">
-					item to the Center
-				</div>
-
-			</div>
-
-		</div>
         <div class="actions">
         </div>
 		  <div clas="page_info">
