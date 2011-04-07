@@ -1,13 +1,11 @@
-<!--<%=SecureRandom.hex(30)%>-->
+<!--<%=SecureRandom.hex(30)%>
 <p style="color:red;">Dear User, Please <%= link_to "create an alert", new_simplealert_path %>.<br/> This is only a pre-beta version temporally available and we would like to get in touch with you when it is ready. Thank you. </p>
-<!-- <p>Feel free to<a href="mailto:coxaqui@gmail.com"> email us</a> as well! =)</p>-->
+<p>Feel free to<a href="mailto:coxaqui@gmail.com"> email us</a> as well! =)</p>-->
 
 <!-- projects/index.rhtml -->
 <% content_for :simplealert do %>
   Search HeadCoupons
 <% end %>
-
-
 
 <div id="searchMain">
 	<% form_tag request.path, :method => 'get' do %>
@@ -20,94 +18,70 @@
 	<%end%> 
 </div>
 
-<div id="mapa">
-	<%= raw Cartographer::Header.new.to_s %>
-	<%= raw @map.to_html %>
-	<!--For now I am styling the map here because sourcing it to a CSS file was breaking on Chrome-->
-	<div id="map" style="height:250px;
-				"> [Map]</div>
-</div>
-<!--Start small coupon display-->
-	
-		<div class="smallCouponContainer">
-						
-			<% @coupons.each do |coupon| %>
-			<div class="couponSmall">
-				
-				<!--<div class="couponLeft">
-					<%=coupon.support_summary%>
-				</div-->
-
-				<div class="couponRight">
-					<%= link_to(image_tag("/images/ViewDetailsSmall.png"), coupon_path(coupon)) %>
-				</div>
-
-				<div class="couponMain">
-					<%=coupon.coupon_category%>
-				</div>
-				<div class="bottomInfo">
-					<%=coupon.city%>,&nbsp;<%=coupon.state%>
-				</div>
-				<div class="smallSummary">
-				<p><%=coupon.support_summary%></p>
-				</div>
-				<div class="small-location-border">
-				<p></p>
-				</div>
-			</div>
-				
-			<%end%>
-		</div>
-<!--End small coupon display-->
-
 <br/>
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
       <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", coupons_path  %></li>
+      <li href="#" onclick="ShowHideWithAnimation(mapa); return false;"><%= link_to "#{t("web-app-theme.new", :default => "Try Me")}" %></li>
+
+	<%if user_signed_in?%>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_coupon_path %></li>
+	<%end%>
     </ul>
   </div>          
   <div class="content">          
-    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Coupons</h2>
+    <h2 class="title"><%= t("web-app-theme.all", :default => "")  %> <%= page_entries_info @coupons %> near <%=params[:searchCity] || [@city]%>,&nbsp; <%=params[:searchState] || [@state]%></h2>
+
     <div class="inner">
-      <table class="table">
-        <tr>             
-          <th class="first">ID</th>
-                    <th>
-            <%= t("activerecord.attributes.coupon.address_line1", :default => t("activerecord.labels.address_line1", :default => "Address_line1")) %>
-          </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
-          <th class="last">&nbsp;</th>
-        </tr>
-        <% @coupons.each do |coupon| -%>
-        <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= coupon.id %>
-          </td>
-                    <td>
-            <%= link_to coupon.address_line1, coupon_path(coupon) %>
-          </td>
-                    <td>
-            <%= coupon.created_at %>
-          </td>
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", coupon_path(coupon) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_coupon_path(coupon) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", coupon_path(coupon), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-          </td>
-        </tr>          
-        <% end -%>
-      </table>
+      	<!--Start small coupon display-->
+
+				<div class="smallCouponContainer">
+
+					<% @coupons.each do |coupon| %>
+					<div class="couponSmall">
+
+						<!--<div class="couponLeft">
+							<%=coupon.support_summary%>
+						</div-->
+
+						<div class="couponRight">
+							<%= link_to(image_tag("/images/ViewDetailsSmall.png"), coupon_path(coupon)) %>
+						</div>
+
+						<div class="couponMain">
+							<%=coupon.coupon_category%>
+						</div>
+						<div class="bottomInfo">
+							<%=coupon.city%>,&nbsp;<%=coupon.state%>
+						</div>
+						<div class="smallSummary">
+						<p><%=coupon.support_summary%></p>
+						</div>
+						<div class="small-location-border">
+						<p></p>
+						</div>
+					</div>
+
+					<%end%>
+				</div>
+		<!--End small coupon display-->
+		
       <div class="actions-bar wat-cf">
         <div class="actions">
         </div>
-		  <div clas="page_info">
-		    <%= page_entries_info @coupons %>
-		  	<%= will_paginate @coupons, :container => true %>
-		  </div>
+	  <div class="page_info_coupons">
+	  	<%= will_paginate @coupons, :container => true %>
+	  </div>
       </div>
 
+	</div>
+	<div id="mapa">
+		<%= raw Cartographer::Header.new.to_s %>
+		<%= raw @map.to_html %>
+		<!--For now I am styling the map here because sourcing it to a CSS file was breaking on Chrome-->
+		<div id="map" style="height:250px;
+					"> [Map]</div>
 	</div>
   </div>
 </div>

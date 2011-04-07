@@ -418,7 +418,7 @@ http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/
   background: green;
   right:0%;
   top:0%;
-  width:65%;
+  width:66%;
   height:55%;
   padding: 14px 2px;
   text-color:white; 
@@ -499,4 +499,11 @@ http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/
 		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
 		/* For IE 8*/
 		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+.page_info_coupons
+{
+	width:100%;	
+	position:relative;
+	background:#fff;
+	
 }
