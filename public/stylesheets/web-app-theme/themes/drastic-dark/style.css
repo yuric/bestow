@@ -40,12 +40,12 @@
   color: #36393d;
 }
 
-a:link, a:visited, a:hover, a:active, h1, h2, h3 { color: #36393d; }
+a:link, a:visited, a:hover, a:active, h1, h2, h3 { color: #36393d; }/* text */
 a { -moz-outline: none; }
 
 body {
-  color: #222;
-  background: #cfcfcf;
+  color: #222; /* last block of text*/
+  background: #cfcfcf; /*well the background of the whole page*/
   font-family: helvetica, arial, sans-serif;
 }
 
@@ -70,7 +70,7 @@ hr {
 }
 
 #header h1 a:link, #header h1 a:active, #header h1 a:hover, #header h1 a:visited {
-  color: #FFF;
+  color: #FFF; /* header name "Doutdes"*/
 }
 
 #user-navigation {
@@ -88,7 +88,7 @@ hr {
 }
 
 #main .block .content {
-  background: #FFF;
+  background: #FFF; /* The coupon content block*/
   padding-top: 1px;
 }
 
@@ -112,7 +112,7 @@ hr {
 }
 
 #sidebar .block {
-  background: #FFF;
+  background: #FFF; /* sidebar inside content*/
 }
 
 #sidebar .block h4 {
