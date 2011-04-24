@@ -1,5 +1,7 @@
 class HithereController < ApplicationController
   
+  before_filter :authenticate_user!#,  :except => [:index, :show ]
+  
   def contact
   end
 
@@ -12,7 +14,6 @@ class HithereController < ApplicationController
   def errorpage
   end
   def chat  
-    puts "chat view"
   end
   
 end
