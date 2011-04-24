@@ -1,4 +1,5 @@
 class HithereController < ApplicationController
+  
   def contact
   end
 
@@ -10,5 +11,8 @@ class HithereController < ApplicationController
 
   def errorpage
   end
-
+  def chat  
+    puts "chat view"
+  end
+  
 end

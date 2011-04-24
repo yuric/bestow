@@ -20,5 +20,10 @@ class HithereControllerTest < ActionController::TestCase
     get :errorpage
     assert_response :success
   end
+  
+  test "should get chat" do
+    get :chat
+    assert_response :success
+  end
 
 end

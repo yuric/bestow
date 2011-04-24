@@ -13,7 +13,8 @@ Doutdes01::Application.routes.draw do
   get "hithere/about"
   get "hithere/feedback"
   get "hithere/errorpage"
-
+  get "hithere/chat"
+  
   resources :coupon_searches
 
   resources :simplealerts
