@@ -4,9 +4,7 @@ class UnsubscribeController < ApplicationController
     # This method is disabled (has not significant corresponding view) for now
 
   end
-  
-  
-  
+    
   def cancelsubscription
     @alerts = Simplealert.find(:all, :conditions => "email = '#{params[:email]}'")
         @alerts.each do |alert|

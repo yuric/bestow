@@ -6,6 +6,7 @@
 <% content_for :simplealert do %>
   Search HeadCoupons
 <% end %>
+<div class="couponSmall"> <img src="/images/coupon_large.png" width=305 height=496>
 
 <div id="searchMain">
 	<% form_tag request.path, :method => 'get' do %>
@@ -39,8 +40,12 @@
 				<div class="smallCouponContainer">
 
 					<% @coupons.each do |coupon| %>
-					<div class="couponSmall">
-
+						<div class="couponSmall"> <img src="/images/Coupon_small.gif" width=305 height=124>
+					
+						<div class="couponLeft">
+							<%=coupon.support_summary%>
+						</div>
+						
 						<!--<div class="couponLeft">
 							<%=coupon.support_summary%>
 						</div-->
@@ -49,7 +54,7 @@
 							<%= link_to(image_tag("/images/ViewDetailsSmall.png"), coupon_path(coupon)) %>
 						</div>
 
-						<div class="couponMain">
+						<!--div class="couponMain">
 							<%=coupon.coupon_category%>
 						</div>
 						<div class="bottomInfo">
@@ -60,9 +65,8 @@
 						</div>
 						<div class="small-location-border">
 						<p></p>
+						</div-->
 						</div>
-					</div>
-
 					<%end%>
 				</div>
 		<!--End small coupon display-->

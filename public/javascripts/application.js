@@ -17,7 +17,6 @@ function ShowHideWithAnimation(layer)
 {
 	$(layer).animate({"height": "toggle"}, { duration: 1000 });
 	
-	
 }
 //]]>
 function ShowHideSimpleAlert(layer)

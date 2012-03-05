@@ -335,38 +335,7 @@ http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/
   margin-top: 20px;*/
   width: 40%;
   border:2px dotted orange;
-
-  /*background: -moz-linear-gradient(top, #333 0%, #000 100%); 
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#gray), color-stop(100%,#white));*/
-	-webkit-border-radius:10px;
-	-moz-border-radius:10px;
-	border-radius:10px;
-		-moz-background-clip: border;     /* Firefox 3.6 */
-      -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
-      background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-      -moz-background-clip: padding;     /* Firefox 3.6 */
-      -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
-      background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-
-      -moz-background-clip: content;     /* Firefox 3.6 */
-      -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
-      background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-	  -moz-box-shadow: 6px 6px 8px #000;
-		-webkit-box-shadow: 6px 6px 8px #000;
-		box-shadow: 6px 6px 8px #000;
-		/* For IE 8 */
-		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
-		/* For IE 5.5 - 7 */
-		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
-		/* Fallback for web browsers that doesn't support RGBa */
-		background: rgb(0, 0, 0);
-		/* RGBa with 0.6 opacity */
-		background: rgba(0, 0, 0, 0.5);
-		/* For IE 5.5 - 7*/
-		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
-		/* For IE 8*/
-		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+  
 
 }
 .couponLeft

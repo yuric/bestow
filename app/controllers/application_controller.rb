@@ -29,8 +29,7 @@ class ApplicationController < ActionController::Base
   end
   
   def method_missing(id, *args)
-      redirect_to 'errors/notfound404'
-      
-    end
+      redirect_to 'errors/notfound404' 
+  end
       
 end
